@@ -14,6 +14,11 @@
 		CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */; };
 		CEE63CEC204ACE4F004ADBC4 /* CSGOSpectatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CEB204ACE4F004ADBC4 /* CSGOSpectatorTests.swift */; };
 		CEE63CF7204ACE4F004ADBC4 /* CSGOSpectatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CF6204ACE4F004ADBC4 /* CSGOSpectatorUITests.swift */; };
+		CEE63D12204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; };
+		CEE63D19204AD2F1004ADBC4 /* CSGOSpectatorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63D18204AD2F1004ADBC4 /* CSGOSpectatorKitTests.swift */; };
+		CEE63D1B204AD2F1004ADBC4 /* CSGOSpectatorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE63D0B204AD2F1004ADBC4 /* CSGOSpectatorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEE63D1E204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; };
+		CEE63D1F204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +36,42 @@
 			remoteGlobalIDString = CEE63CD2204ACE4F004ADBC4;
 			remoteInfo = CSGOSpectator;
 		};
+		CEE63D13204AD2F1004ADBC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEE63CCB204ACE4F004ADBC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEE63D08204AD2F1004ADBC4;
+			remoteInfo = CSGOSpectatorKit;
+		};
+		CEE63D15204AD2F1004ADBC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEE63CCB204ACE4F004ADBC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEE63CD2204ACE4F004ADBC4;
+			remoteInfo = CSGOSpectator;
+		};
+		CEE63D1C204AD2F1004ADBC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEE63CCB204ACE4F004ADBC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEE63D08204AD2F1004ADBC4;
+			remoteInfo = CSGOSpectatorKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CEE63D23204AD2F1004ADBC4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CEE63D1F204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CEE63CD3204ACE4F004ADBC4 /* CSGOSpectator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSGOSpectator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +87,12 @@
 		CEE63CF2204ACE4F004ADBC4 /* CSGOSpectatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSGOSpectatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE63CF6204ACE4F004ADBC4 /* CSGOSpectatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGOSpectatorUITests.swift; sourceTree = "<group>"; };
 		CEE63CF8204ACE4F004ADBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CSGOSpectatorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE63D0B204AD2F1004ADBC4 /* CSGOSpectatorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSGOSpectatorKit.h; sourceTree = "<group>"; };
+		CEE63D0C204AD2F1004ADBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEE63D11204AD2F1004ADBC4 /* CSGOSpectatorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSGOSpectatorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE63D18204AD2F1004ADBC4 /* CSGOSpectatorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGOSpectatorKitTests.swift; sourceTree = "<group>"; };
+		CEE63D1A204AD2F1004ADBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE63D1E204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +118,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEE63D05204AD2F1004ADBC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEE63D0E204AD2F1004ADBC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEE63D12204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,8 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				CEE63CD5204ACE4F004ADBC4 /* CSGOSpectator */,
+				CEE63D0A204AD2F1004ADBC4 /* CSGOSpectatorKit */,
 				CEE63CEA204ACE4F004ADBC4 /* CSGOSpectatorTests */,
 				CEE63CF5204ACE4F004ADBC4 /* CSGOSpectatorUITests */,
+				CEE63D17204AD2F1004ADBC4 /* CSGOSpectatorKitTests */,
 				CEE63CD4204ACE4F004ADBC4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +154,8 @@
 				CEE63CD3204ACE4F004ADBC4 /* CSGOSpectator.app */,
 				CEE63CE7204ACE4F004ADBC4 /* CSGOSpectatorTests.xctest */,
 				CEE63CF2204ACE4F004ADBC4 /* CSGOSpectatorUITests.xctest */,
+				CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */,
+				CEE63D11204AD2F1004ADBC4 /* CSGOSpectatorKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,7 +191,36 @@
 			path = CSGOSpectatorUITests;
 			sourceTree = "<group>";
 		};
+		CEE63D0A204AD2F1004ADBC4 /* CSGOSpectatorKit */ = {
+			isa = PBXGroup;
+			children = (
+				CEE63D0B204AD2F1004ADBC4 /* CSGOSpectatorKit.h */,
+				CEE63D0C204AD2F1004ADBC4 /* Info.plist */,
+			);
+			path = CSGOSpectatorKit;
+			sourceTree = "<group>";
+		};
+		CEE63D17204AD2F1004ADBC4 /* CSGOSpectatorKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEE63D18204AD2F1004ADBC4 /* CSGOSpectatorKitTests.swift */,
+				CEE63D1A204AD2F1004ADBC4 /* Info.plist */,
+			);
+			path = CSGOSpectatorKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CEE63D06204AD2F1004ADBC4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEE63D1B204AD2F1004ADBC4 /* CSGOSpectatorKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		CEE63CD2204ACE4F004ADBC4 /* CSGOSpectator */ = {
@@ -135,10 +230,12 @@
 				CEE63CCF204ACE4F004ADBC4 /* Sources */,
 				CEE63CD0204ACE4F004ADBC4 /* Frameworks */,
 				CEE63CD1204ACE4F004ADBC4 /* Resources */,
+				CEE63D23204AD2F1004ADBC4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CEE63D1D204AD2F1004ADBC4 /* PBXTargetDependency */,
 			);
 			name = CSGOSpectator;
 			productName = CSGOSpectator;
@@ -181,6 +278,43 @@
 			productReference = CEE63CF2204ACE4F004ADBC4 /* CSGOSpectatorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CEE63D08204AD2F1004ADBC4 /* CSGOSpectatorKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEE63D20204AD2F1004ADBC4 /* Build configuration list for PBXNativeTarget "CSGOSpectatorKit" */;
+			buildPhases = (
+				CEE63D04204AD2F1004ADBC4 /* Sources */,
+				CEE63D05204AD2F1004ADBC4 /* Frameworks */,
+				CEE63D06204AD2F1004ADBC4 /* Headers */,
+				CEE63D07204AD2F1004ADBC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSGOSpectatorKit;
+			productName = CSGOSpectatorKit;
+			productReference = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CEE63D10204AD2F1004ADBC4 /* CSGOSpectatorKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEE63D24204AD2F1004ADBC4 /* Build configuration list for PBXNativeTarget "CSGOSpectatorKitTests" */;
+			buildPhases = (
+				CEE63D0D204AD2F1004ADBC4 /* Sources */,
+				CEE63D0E204AD2F1004ADBC4 /* Frameworks */,
+				CEE63D0F204AD2F1004ADBC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEE63D14204AD2F1004ADBC4 /* PBXTargetDependency */,
+				CEE63D16204AD2F1004ADBC4 /* PBXTargetDependency */,
+			);
+			name = CSGOSpectatorKitTests;
+			productName = CSGOSpectatorKitTests;
+			productReference = CEE63D11204AD2F1004ADBC4 /* CSGOSpectatorKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -205,6 +339,15 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = CEE63CD2204ACE4F004ADBC4;
 					};
+					CEE63D08204AD2F1004ADBC4 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CEE63D10204AD2F1004ADBC4 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CEE63CD2204ACE4F004ADBC4;
+					};
 				};
 			};
 			buildConfigurationList = CEE63CCE204ACE4F004ADBC4 /* Build configuration list for PBXProject "CSGOSpectator" */;
@@ -223,6 +366,8 @@
 				CEE63CD2204ACE4F004ADBC4 /* CSGOSpectator */,
 				CEE63CE6204ACE4F004ADBC4 /* CSGOSpectatorTests */,
 				CEE63CF1204ACE4F004ADBC4 /* CSGOSpectatorUITests */,
+				CEE63D08204AD2F1004ADBC4 /* CSGOSpectatorKit */,
+				CEE63D10204AD2F1004ADBC4 /* CSGOSpectatorKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +391,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CEE63CF0204ACE4F004ADBC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEE63D07204AD2F1004ADBC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEE63D0F204AD2F1004ADBC4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +439,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEE63D04204AD2F1004ADBC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEE63D0D204AD2F1004ADBC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEE63D19204AD2F1004ADBC4 /* CSGOSpectatorKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,6 +466,21 @@
 			isa = PBXTargetDependency;
 			target = CEE63CD2204ACE4F004ADBC4 /* CSGOSpectator */;
 			targetProxy = CEE63CF3204ACE4F004ADBC4 /* PBXContainerItemProxy */;
+		};
+		CEE63D14204AD2F1004ADBC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEE63D08204AD2F1004ADBC4 /* CSGOSpectatorKit */;
+			targetProxy = CEE63D13204AD2F1004ADBC4 /* PBXContainerItemProxy */;
+		};
+		CEE63D16204AD2F1004ADBC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEE63CD2204ACE4F004ADBC4 /* CSGOSpectator */;
+			targetProxy = CEE63D15204AD2F1004ADBC4 /* PBXContainerItemProxy */;
+		};
+		CEE63D1D204AD2F1004ADBC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEE63D08204AD2F1004ADBC4 /* CSGOSpectatorKit */;
+			targetProxy = CEE63D1C204AD2F1004ADBC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -520,6 +709,86 @@
 			};
 			name = Release;
 		};
+		CEE63D21204AD2F1004ADBC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CSGOSpectatorKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CEE63D22204AD2F1004ADBC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CSGOSpectatorKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CEE63D25204AD2F1004ADBC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F238JTRNA;
+				INFOPLIST_FILE = CSGOSpectatorKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSGOSpectator.app/CSGOSpectator";
+			};
+			name = Debug;
+		};
+		CEE63D26204AD2F1004ADBC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F238JTRNA;
+				INFOPLIST_FILE = CSGOSpectatorKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CSGOSpectator.app/CSGOSpectator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,6 +824,24 @@
 			buildConfigurations = (
 				CEE63D02204ACE4F004ADBC4 /* Debug */,
 				CEE63D03204ACE4F004ADBC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEE63D20204AD2F1004ADBC4 /* Build configuration list for PBXNativeTarget "CSGOSpectatorKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEE63D21204AD2F1004ADBC4 /* Debug */,
+				CEE63D22204AD2F1004ADBC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEE63D24204AD2F1004ADBC4 /* Build configuration list for PBXNativeTarget "CSGOSpectatorKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEE63D25204AD2F1004ADBC4 /* Debug */,
+				CEE63D26204AD2F1004ADBC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
