@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		103D57397B5980123FCC2F7E /* Pods_CSGOSpectatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */; };
 		1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */; };
+		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
 		5117F39D787DCF8AE039CFD0 /* Pods_CSGOSpectatorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */; };
 		CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28447CBDDCC154AB97B1B511 /* Pods-CSGOSpectatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorTests/Pods-CSGOSpectatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C89A81E1AF38B8CAA33BB7 /* Pods-CSGOSpectatorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.release.xcconfig"; sourceTree = "<group>"; };
 		57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */,
 				1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +167,7 @@
 		27F638DB36AC98A680C36957 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38D08A0D20552540009A98B4 /* Alamofire.framework */,
 				A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */,
 				A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */,
 				58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */,
@@ -586,9 +590,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectatorKitTests/Pods-CSGOSpectatorKitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -601,9 +608,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
