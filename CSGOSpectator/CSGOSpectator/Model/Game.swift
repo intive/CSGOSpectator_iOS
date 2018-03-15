@@ -9,7 +9,7 @@
 import Foundation
 
 struct Game {
-    let map = ""
+    var map = ""
     var round = 0
     var phase = ""
     var phase_ends_in = 0

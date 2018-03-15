@@ -9,11 +9,16 @@
 /* Begin PBXBuildFile section */
 		103D57397B5980123FCC2F7E /* Pods_CSGOSpectatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */; };
 		1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */; };
+		38997AE5205AB54C0075B508 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE4205AB54C0075B508 /* Player.swift */; };
+		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
+		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
+		38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AED205AB8680075B508 /* PlayerCell.swift */; };
+		38997AF0205AB8680075B508 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38997AEE205AB8680075B508 /* PlayerCell.xib */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
 		5117F39D787DCF8AE039CFD0 /* Pods_CSGOSpectatorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */; };
 		CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */; };
-		CEE63CD9204ACE4F004ADBC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD8204ACE4F004ADBC4 /* ViewController.swift */; };
+		CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */; };
 		CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */; };
 		CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */; };
 		CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */; };
@@ -82,6 +87,11 @@
 /* Begin PBXFileReference section */
 		19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28447CBDDCC154AB97B1B511 /* Pods-CSGOSpectatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorTests/Pods-CSGOSpectatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38997AE4205AB54C0075B508 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		38997AEE205AB8680075B508 /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C89A81E1AF38B8CAA33BB7 /* Pods-CSGOSpectatorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.release.xcconfig"; sourceTree = "<group>"; };
 		57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +104,7 @@
 		C6D004853017C58984645597 /* Pods-CSGOSpectatorKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKitTests/Pods-CSGOSpectatorKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEE63CD3204ACE4F004ADBC4 /* CSGOSpectator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSGOSpectator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CEE63CD8204ACE4F004ADBC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVC.swift; sourceTree = "<group>"; };
 		CEE63CDB204ACE4F004ADBC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE63CE0204ACE4F004ADBC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -177,6 +187,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		38997AE3205AB52B0075B508 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38997AE4205AB54C0075B508 /* Player.swift */,
+				38997AE6205AB5640075B508 /* Team.swift */,
+				38997AE8205AB5760075B508 /* Game.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38997AEA205AB7910075B508 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38997AF1205ABC2B0075B508 /* LiveHeaderView */,
+				38997AEC205AB8310075B508 /* Custom Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38997AEB205AB79E0075B508 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38997AEC205AB8310075B508 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38997AED205AB8680075B508 /* PlayerCell.swift */,
+				38997AEE205AB8680075B508 /* PlayerCell.xib */,
+			);
+			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		38997AF1205ABC2B0075B508 /* LiveHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LiveHeaderView;
+			sourceTree = "<group>";
+		};
 		3F5CB36D09A2F6125AA8E350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +276,10 @@
 		CEE63CD5204ACE4F004ADBC4 /* CSGOSpectator */ = {
 			isa = PBXGroup;
 			children = (
+				38997AEB205AB79E0075B508 /* Controller */,
+				38997AEA205AB7910075B508 /* View */,
+				38997AE3205AB52B0075B508 /* Model */,
 				CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */,
-				CEE63CD8204ACE4F004ADBC4 /* ViewController.swift */,
 				CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */,
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
 				CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */,
@@ -294,7 +349,6 @@
 				CEE63D23204AD2F1004ADBC4 /* Embed Frameworks */,
 				868BD326F952B61C53989ECE /* [CP] Embed Pods Frameworks */,
 				1D348E18483C5484AA241A01 /* [CP] Copy Pods Resources */,
-				38997AE1205AB3F60075B508 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -358,7 +412,6 @@
 				CEE63D06204AD2F1004ADBC4 /* Headers */,
 				CEE63D07204AD2F1004ADBC4 /* Resources */,
 				AE12AE2FB9E3D9BB1BFE9D49 /* [CP] Copy Pods Resources */,
-				38997AE2205AB4460075B508 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -453,6 +506,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38997AF0205AB8680075B508 /* PlayerCell.xib in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */,
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
@@ -519,32 +573,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		38997AE1205AB3F60075B508 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		38997AE2205AB4460075B508 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		3DF055913B891335539DE836 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -754,7 +782,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE63CD9204ACE4F004ADBC4 /* ViewController.swift in Sources */,
+				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
+				38997AE7205AB5640075B508 /* Team.swift in Sources */,
+				CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */,
+				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
+				38997AE9205AB5760075B508 /* Game.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
