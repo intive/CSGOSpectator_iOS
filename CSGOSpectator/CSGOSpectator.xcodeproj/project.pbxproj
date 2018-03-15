@@ -294,6 +294,7 @@
 				CEE63D23204AD2F1004ADBC4 /* Embed Frameworks */,
 				868BD326F952B61C53989ECE /* [CP] Embed Pods Frameworks */,
 				1D348E18483C5484AA241A01 /* [CP] Copy Pods Resources */,
+				38997AE1205AB3F60075B508 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -357,6 +358,7 @@
 				CEE63D06204AD2F1004ADBC4 /* Headers */,
 				CEE63D07204AD2F1004ADBC4 /* Resources */,
 				AE12AE2FB9E3D9BB1BFE9D49 /* [CP] Copy Pods Resources */,
+				38997AE2205AB4460075B508 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -517,6 +519,32 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		38997AE1205AB3F60075B508 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		38997AE2205AB4460075B508 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		3DF055913B891335539DE836 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
