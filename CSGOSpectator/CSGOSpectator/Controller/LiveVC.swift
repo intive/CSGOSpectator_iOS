@@ -11,27 +11,36 @@ import CSGOSpectatorKit
 
 class LiveVC: UIViewController {
     
+    @IBOutlet weak var headerView: ResultsHeaderView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
     var currentMatch: Game = {
         var match = Game()
-        match.map = "de_inferno"
-        
+        match.map = "de_dust2"
+        match.team_ct.score = 6
+        match.team_t.score = 9
+        match.round = 16
+        match.phase_ends_in = 79
         return match
     }()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateBackground()
+        updateResultsView()
+    }
+
+    func updateResultsView() {
+        headerView.roundLabel.text = "Round \(currentMatch.round)"
+        headerView.scoreLabel.text = "\(currentMatch.team_ct.score) - \(currentMatch.team_t.score)"
+        headerView.remainingTimeLabel.text = "\(currentMatch.phase_ends_in.secondsToMinutesSeconds().minutes):\(currentMatch.phase_ends_in.secondsToMinutesSeconds().seconds)"
+    }
+    
+    func updateBackground() {
         backgroundImageView.image = UIImage(named: currentMatch.map)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
