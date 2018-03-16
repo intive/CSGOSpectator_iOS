@@ -1,0 +1,15 @@
+disabled_rules: # rule identifiers to exclude from running
+- colon
+- comma
+- control_statement
+- vertical_whitespace
+- line_length
+- trailing_whitespace
+- file_length
+- opening_brace
+- force_cast
+- identifier_name
+# Find all the available rules by running:
+# swiftlint rules
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
