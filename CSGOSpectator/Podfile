@@ -5,8 +5,8 @@ def spectatorKit_pods
     pod 'Alamofire', '~> 4.7'
 end
 
-# Pods used by both targets
-def shared_pods
+# Pods used by CSGOSpectator
+def spectator_pods
     pod 'SwiftLint'
 end
 
@@ -14,7 +14,7 @@ target 'CSGOSpectator' do
 
     use_frameworks!
     
-    shared_pods
+    spectator_pods
 
   # Pods for CSGOSpectator
 
@@ -36,7 +36,6 @@ target 'CSGOSpectatorKit' do
     use_frameworks!
     
   spectatorKit_pods
-  shared_pods
 
   target 'CSGOSpectatorKitTests' do
     inherit! :search_paths

@@ -14,6 +14,7 @@ struct Game {
     var phase = ""
     var phase_ends_in = 0
     
+    var players = [Player]()
     var team_ct = Team()
     var team_t = Team()
 }

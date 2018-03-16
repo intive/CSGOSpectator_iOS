@@ -12,11 +12,11 @@
 		38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */; };
 		38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38294231205AC30900295B84 /* ResultsHeaderView.xib */; };
 		38294234205AC72300295B84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Extensions.swift */; };
+		38294238205AD82100295B84 /* DetailScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294237205AD82100295B84 /* DetailScoreView.swift */; };
 		38997AE5205AB54C0075B508 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE4205AB54C0075B508 /* Player.swift */; };
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
 		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
 		38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AED205AB8680075B508 /* PlayerCell.swift */; };
-		38997AF0205AB8680075B508 /* PlayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38997AEE205AB8680075B508 /* PlayerCell.xib */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
 		5117F39D787DCF8AE039CFD0 /* Pods_CSGOSpectatorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */; };
@@ -93,11 +93,11 @@
 		3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHeaderView.swift; sourceTree = "<group>"; };
 		38294231205AC30900295B84 /* ResultsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsHeaderView.xib; sourceTree = "<group>"; };
 		38294233205AC72300295B84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		38294237205AD82100295B84 /* DetailScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScoreView.swift; sourceTree = "<group>"; };
 		38997AE4205AB54C0075B508 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
-		38997AEE205AB8680075B508 /* PlayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerCell.xib; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C89A81E1AF38B8CAA33BB7 /* Pods-CSGOSpectatorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.release.xcconfig"; sourceTree = "<group>"; };
 		57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,7 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				38997AF1205ABC2B0075B508 /* ResultsHeaderView */,
-				38997AEC205AB8310075B508 /* Custom Cells */,
+				38997AED205AB8680075B508 /* PlayerCell.swift */,
+				38294237205AD82100295B84 /* DetailScoreView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,15 +219,6 @@
 				CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		38997AEC205AB8310075B508 /* Custom Cells */ = {
-			isa = PBXGroup;
-			children = (
-				38997AED205AB8680075B508 /* PlayerCell.swift */,
-				38997AEE205AB8680075B508 /* PlayerCell.xib */,
-			);
-			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		38997AF1205ABC2B0075B508 /* ResultsHeaderView */ = {
@@ -358,6 +350,7 @@
 				CEE63D23204AD2F1004ADBC4 /* Embed Frameworks */,
 				868BD326F952B61C53989ECE /* [CP] Embed Pods Frameworks */,
 				1D348E18483C5484AA241A01 /* [CP] Copy Pods Resources */,
+				3883F7F0205BE6F7009C51C5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,7 +508,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38997AF0205AB8680075B508 /* PlayerCell.xib in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */,
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
@@ -583,6 +575,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3883F7F0205BE6F7009C51C5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
 		};
 		3DF055913B891335539DE836 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -792,6 +797,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38294238205AD82100295B84 /* DetailScoreView.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				38997AE7205AB5640075B508 /* Team.swift in Sources */,
 				CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */,
