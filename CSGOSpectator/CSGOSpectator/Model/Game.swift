@@ -9,12 +9,22 @@
 import Foundation
 
 struct Game {
-    var map = ""
-    var round = 0
-    var phase = ""
-    var phase_ends_in = 0
+    let map: String
+    let round: Int
+    let phase: String
+    let phaseEndsIn: Int
     
-    var players = [Player]()
-    var team_ct = Team()
-    var team_t = Team()
+    let players: [Player]
+    let teamCT: Team
+    let teamT: Team
+    
+    init(map: String, round: Int, phase: String, phaseEndsIn: Int, players: [Player], teamCT: Team, teamT: Team) {
+        self.map = map
+        self.round = round
+        self.phase = phase
+        self.phaseEndsIn = phaseEndsIn
+        self.players = players
+        self.teamCT = teamCT
+        self.teamT = teamT
+    }
 }

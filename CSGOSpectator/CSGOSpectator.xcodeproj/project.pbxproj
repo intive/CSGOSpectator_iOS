@@ -11,7 +11,7 @@
 		1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */; };
 		38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */; };
 		38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38294231205AC30900295B84 /* ResultsHeaderView.xib */; };
-		38294234205AC72300295B84 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Extensions.swift */; };
+		38294234205AC72300295B84 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Int.swift */; };
 		38294238205AD82100295B84 /* DetailScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294237205AD82100295B84 /* DetailScoreView.swift */; };
 		38997AE5205AB54C0075B508 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE4205AB54C0075B508 /* Player.swift */; };
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
@@ -93,7 +93,7 @@
 		28447CBDDCC154AB97B1B511 /* Pods-CSGOSpectatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorTests/Pods-CSGOSpectatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHeaderView.swift; sourceTree = "<group>"; };
 		38294231205AC30900295B84 /* ResultsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsHeaderView.xib; sourceTree = "<group>"; };
-		38294233205AC72300295B84 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		38294233205AC72300295B84 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		38294237205AD82100295B84 /* DetailScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScoreView.swift; sourceTree = "<group>"; };
 		38997AE4205AB54C0075B508 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -232,6 +232,14 @@
 			path = ResultsHeaderView;
 			sourceTree = "<group>";
 		};
+		38C1B24B206189D900CE7526 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38294233205AC72300295B84 /* Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3F5CB36D09A2F6125AA8E350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +287,7 @@
 		CEE63CD5204ACE4F004ADBC4 /* CSGOSpectator */ = {
 			isa = PBXGroup;
 			children = (
+				38C1B24B206189D900CE7526 /* Extensions */,
 				38997AEB205AB79E0075B508 /* Controller */,
 				38997AEA205AB7910075B508 /* View */,
 				38997AE3205AB52B0075B508 /* Model */,
@@ -287,7 +296,6 @@
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
 				CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */,
 				CEE63CE2204ACE4F004ADBC4 /* Info.plist */,
-				38294233205AC72300295B84 /* Extensions.swift */,
 			);
 			path = CSGOSpectator;
 			sourceTree = "<group>";
@@ -805,7 +813,7 @@
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				38997AE7205AB5640075B508 /* Team.swift in Sources */,
 				CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */,
-				38294234205AC72300295B84 /* Extensions.swift in Sources */,
+				38294234205AC72300295B84 /* Int.swift in Sources */,
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,

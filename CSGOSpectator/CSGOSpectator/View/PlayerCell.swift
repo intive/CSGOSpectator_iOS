@@ -18,22 +18,11 @@ class PlayerCell: UITableViewCell {
     @IBOutlet weak var assistsLabel: UILabel!
     @IBOutlet weak var mvpLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func setup(player: Player) {
-        if player.team == "t" {
+        if player.team == .terrorists {
             tLabel.text = player.name
             ctLabel.text = ""
-        }else{
+        } else{
             ctLabel.text = player.name
             tLabel.text = ""
         }

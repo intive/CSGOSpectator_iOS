@@ -8,12 +8,27 @@
 
 import Foundation
 
+enum TeamName: String {
+    case terrorists
+    case counterTerrorists
+}
+
 struct Player {
-    var name = ""
-    var kills = 0
-    var assists = 0
-    var deaths = 0
-    var mvps = 0
-    var score = 0
-    var team = ""
+    let name: String
+    let kills: Int
+    let assists: Int
+    let deaths: Int
+    let mvps: Int
+    let score: Int
+    let team: TeamName
+    
+    init(name: String, kills: Int, assists: Int, deaths: Int, mvps: Int, score: Int, team: TeamName) {
+        self.name = name
+        self.kills = kills
+        self.assists = assists
+        self.deaths = deaths
+        self.mvps = mvps
+        self.score = score
+        self.team = team
+    }
 }

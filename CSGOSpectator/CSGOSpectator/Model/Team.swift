@@ -9,6 +9,11 @@
 import Foundation
 
 struct Team {
-    var score = 0
-    var players = [Player]()
+    let score: Int
+    let players: [Player]
+    
+    init(score: Int, players: [Player]) {
+        self.score = score
+        self.players = players
+    }
 }
