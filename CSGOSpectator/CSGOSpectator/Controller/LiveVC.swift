@@ -21,9 +21,6 @@ class LiveVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
-        tableView.alwaysBounceVertical = false      //Disable scrolling if content fits on the screen
-        headerView.backgroundColor = .clear
         generateFakeMatch()
         updateBackground()
         updateResultsView()
@@ -45,7 +42,7 @@ class LiveVC: UIViewController {
         let teamT = Team(score: 9, players: t)
         var all = ct + t
         all.sort(by: { $0.score > $1.score })
-        currentMatch = Game(map: "de_dust2", round: 15, phase: "Live", phaseEndsIn: 48, players: all, teamCT: teamCT, teamT: teamT)
+        currentMatch = Game(map: "de_dust2", round: 15, phase: "Live", phaseEndsIn: 68, players: all, teamCT: teamCT, teamT: teamT)
     }
 
     func updateResultsView() {
@@ -55,7 +52,7 @@ class LiveVC: UIViewController {
     func updateBackground() {
         if let match = currentMatch {
             backgroundImageView.image = UIImage(named: match.map)
-        } else{
+        } else {
             backgroundImageView.image = nil
         }
     }
@@ -75,13 +72,13 @@ extension LiveVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let match = currentMatch {
             return match.teamCT.players.count + match.teamT.players.count
-        } else{
+        } else {
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as! PlayerCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerCell else { return UITableViewCell() }
         if let player = currentMatch?.players[indexPath.row] {
             cell.setup(player: player)
         }

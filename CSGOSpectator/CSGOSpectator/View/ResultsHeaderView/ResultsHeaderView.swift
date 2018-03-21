@@ -41,13 +41,8 @@ class ResultsHeaderView: UIView, ReusableViewProtocol {
         if let _match = match {
             roundLabel.text = "Round \(_match.round)"
             scoreLabel.text = "\(_match.teamCT.score) - \(_match.teamT.score)"
-            let seconds = _match.phaseEndsIn.secondsToMinutesSeconds().seconds
-            var secondsStr = "\(seconds)"
-            if seconds < 10 {
-                secondsStr = "0" + secondsStr
-            }
-            remainingTimeLabel.text = "\(_match.phaseEndsIn.secondsToMinutesSeconds().minutes):\(secondsStr)"
-        } else{
+            remainingTimeLabel.text = String(format: "%02i:%02i", arguments: [_match.phaseEndsIn.secondsToMinutesSeconds().minutes, _match.phaseEndsIn.secondsToMinutesSeconds().seconds])
+        } else {
             roundLabel.text = ""
             scoreLabel.text = "Couldn't load now playing game"
             remainingTimeLabel.text = ""

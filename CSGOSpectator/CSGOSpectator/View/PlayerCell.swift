@@ -22,7 +22,7 @@ class PlayerCell: UITableViewCell {
         if player.team == .terrorists {
             tLabel.text = player.name
             ctLabel.text = ""
-        } else{
+        } else {
             ctLabel.text = player.name
             tLabel.text = ""
         }
