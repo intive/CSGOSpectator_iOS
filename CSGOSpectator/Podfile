@@ -1,0 +1,45 @@
+platform :ios, '10.0'
+
+# Pods used by CSGOSpectatorKit
+def spectatorKit_pods
+    pod 'Alamofire', '~> 4.7'
+end
+
+# Pods used by CSGOSpectator
+def spectator_pods
+    pod 'SwiftLint'
+end
+
+target 'CSGOSpectator' do
+
+    use_frameworks!
+    
+    spectator_pods
+
+  # Pods for CSGOSpectator
+
+  target 'CSGOSpectatorTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'CSGOSpectatorUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+
+target 'CSGOSpectatorKit' do
+    
+    use_frameworks!
+    
+  spectatorKit_pods
+
+  target 'CSGOSpectatorKitTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
