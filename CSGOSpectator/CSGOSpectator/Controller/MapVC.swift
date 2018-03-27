@@ -10,12 +10,16 @@ import UIKit
 
 class MapVC: UIViewController {
     
-    @IBOutlet weak var mapImageView: UIImageView!
+    @IBOutlet var mapImageView: UIImageView!
+    
+    var currentMatch: Game? {
+        didSet {
+            print((currentMatch?.map)!)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
 }
