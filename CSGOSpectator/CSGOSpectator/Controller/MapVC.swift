@@ -12,14 +12,11 @@ class MapVC: UIViewController {
     
     @IBOutlet var mapImageView: UIImageView!
     
-    var currentMatch: Game? {
-        didSet {
-            print((currentMatch?.map)!)
-        }
-    }
+    var currentMatch: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapImageView.image = UIImage(named: "de_dust2")
     }
 
 }

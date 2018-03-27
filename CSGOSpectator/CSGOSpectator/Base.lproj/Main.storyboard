@@ -425,7 +425,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzH-rj-ovs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.8" y="882.90854572713647"/>
+            <point key="canvasLocation" x="1593" y="883"/>
+        </scene>
+        <!--PlayerVC-->
+        <scene sceneID="jTl-BU-k2g">
+            <objects>
+                <viewController storyboardIdentifier="playerVC" title="PlayerVC" id="LLG-th-cAi" customClass="PlayerVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y7y-jd-t6D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHM-Gk-L5K">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FK7-65-Dae">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el8-a2-vO9">
+                                <rect key="frame" x="67" y="223" width="240" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="IDY-PJ-hlr"/>
+                                    <constraint firstAttribute="width" constant="240" id="oMF-mi-PrZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wmi-JQ-7zt" appends="YES" id="vVC-3t-awC"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvW-jr-Dje">
+                                <rect key="frame" x="127" y="323" width="120" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Jn9-ro-MbL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="SvW-jr-Dje" firstAttribute="centerX" secondItem="y7y-jd-t6D" secondAttribute="centerX" id="5TC-eZ-Puc"/>
+                            <constraint firstItem="el8-a2-vO9" firstAttribute="centerX" secondItem="y7y-jd-t6D" secondAttribute="centerX" id="7yt-U1-d91"/>
+                            <constraint firstItem="fHM-Gk-L5K" firstAttribute="bottom" secondItem="GoW-9Q-XJ4" secondAttribute="bottom" id="Tjw-He-6U3"/>
+                            <constraint firstItem="el8-a2-vO9" firstAttribute="centerY" secondItem="y7y-jd-t6D" secondAttribute="centerY" id="UYH-9K-YAt"/>
+                            <constraint firstItem="SvW-jr-Dje" firstAttribute="centerY" secondItem="y7y-jd-t6D" secondAttribute="centerY" id="aNe-qQ-0Bz"/>
+                            <constraint firstItem="fHM-Gk-L5K" firstAttribute="leading" secondItem="GoW-9Q-XJ4" secondAttribute="leading" id="cEb-3s-M6e"/>
+                            <constraint firstItem="fHM-Gk-L5K" firstAttribute="trailing" secondItem="GoW-9Q-XJ4" secondAttribute="trailing" id="hS8-yo-EwS"/>
+                            <constraint firstItem="fHM-Gk-L5K" firstAttribute="top" secondItem="y7y-jd-t6D" secondAttribute="top" id="o12-ks-3MG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GoW-9Q-XJ4"/>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="fHM-Gk-L5K" id="BAg-6G-WAf"/>
+                        <outlet property="nameLbl" destination="SvW-jr-Dje" id="Vba-sZ-6js"/>
+                        <outlet property="playerCell" destination="el8-a2-vO9" id="nNL-wO-DT3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhy-Rn-Qdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Wmi-JQ-7zt">
+                    <connections>
+                        <action selector="panGestureHandler:" destination="LLG-th-cAi" id="Mtn-BB-fv7"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2292" y="882.90854572713647"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2KR-oq-C7s">

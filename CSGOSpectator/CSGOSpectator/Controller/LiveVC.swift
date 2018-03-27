@@ -13,7 +13,7 @@ class LiveVC: UIViewController {
     
     @IBOutlet weak var headerView: ResultsHeaderView!
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet var container: UIView!
+    @IBOutlet weak var container: UIView!
     
     var pageController: PageVC?
     var currentMatch: Game? {

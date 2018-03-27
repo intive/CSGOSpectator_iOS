@@ -11,9 +11,7 @@ import UIKit
 class StatsVC: UIViewController {
     
     @IBOutlet weak var tableView: FadedTableView!
-    
-    let fadePercentage: Double = 0.2
-    
+        
     var currentMatch: Game? {
         didSet {
             tableView.reloadData()
@@ -25,11 +23,6 @@ class StatsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 10, right: 0)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
     }
 
 }
@@ -61,6 +54,7 @@ extension StatsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
