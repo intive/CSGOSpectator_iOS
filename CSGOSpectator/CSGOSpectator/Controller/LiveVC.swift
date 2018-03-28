@@ -12,18 +12,21 @@ import CSGOSpectatorKit
 class LiveVC: UIViewController {
     
     @IBOutlet weak var headerView: ResultsHeaderView!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var container: UIView!
     
-    var currentMatch: Game?
-
+    var pageController: PageVC?
+    var currentMatch: Game? {
+        didSet {
+            pageController?.currentMatch = currentMatch
+            updateBackground()
+            updateResultsView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         generateFakeMatch()
-        updateBackground()
-        updateResultsView()
     }
     
     func generateFakeMatch() {
@@ -56,37 +59,11 @@ class LiveVC: UIViewController {
             backgroundImageView.image = nil
         }
     }
-
-}
-
-extension LiveVC: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 38
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let match = currentMatch {
-            return match.teamCT.players.count + match.teamT.players.count
-        } else {
-            return 0
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PageVC {
+            self.pageController = destination
         }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerCell else { return UITableViewCell() }
-        if let player = currentMatch?.players[indexPath.row] {
-            cell.setup(player: player)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
+
 }

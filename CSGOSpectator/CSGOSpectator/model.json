@@ -1,0 +1,67 @@
+{
+	"map": "de_inferno",
+	"round": 0,
+	"phase": "live",
+	"phase_ends_in": 135,
+	"team_ct": {
+		"score": 0,
+		"players": [
+            {
+                "steamid": "123412341234",
+				"name": "Snax",
+				"state": {
+					"health": 100,
+					"armor": 50
+				},
+				"statistics": {
+					"kills": 0,
+					"assists": 0,
+					"deaths": 1,
+					"mvps": 0,
+					"score": 0
+                },
+                "weapons": [
+                    {
+                        "name": "weapon_ak47",
+                        "type": "Rifle",
+                        "state": "holstered"
+                    },
+                    {
+                        "name": "weapon_knife_karambit",
+                        "type": "Knife",
+                        "state": "active"
+                    }
+                ],
+				"position": "0.123, 0.123, 0.123",
+				"forward": "0.123, 0.123, 0.123"
+			}
+		]
+	},
+	"team_t": {
+		"score": 0,
+		"players": []
+	},
+	"grenades": [
+        {
+            "id": 10,
+            "owner": "123412341234",
+            "lifetime": 10.4,
+            "type": "molotov",
+            "effecttime": 0.1,
+            "flames": [
+                "0.123, 0.123, 0.123",
+                "0.123, 0.123, 0.123",
+                "0.123, 0.123, 0.123"
+            ]
+        },
+        {
+            "id": 11,
+            "owner": "123412341234",
+            "lifetime": 10.4,
+            "type": "flashbang",
+            "position": "0.123, 0.123, 0.123",
+            "velocity": "0.123, 0.123, 0.123",
+            "effecttime": 0.1
+        }
+    ]
+}

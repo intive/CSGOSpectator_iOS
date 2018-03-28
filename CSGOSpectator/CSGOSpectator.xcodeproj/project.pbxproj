@@ -9,14 +9,19 @@
 /* Begin PBXBuildFile section */
 		103D57397B5980123FCC2F7E /* Pods_CSGOSpectatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */; };
 		1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */; };
+		38130792206A98DD00BC2BE3 /* model.json in Resources */ = {isa = PBXBuildFile; fileRef = 38130791206A98DD00BC2BE3 /* model.json */; };
 		38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */; };
 		38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38294231205AC30900295B84 /* ResultsHeaderView.xib */; };
 		38294234205AC72300295B84 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Int.swift */; };
 		38294238205AD82100295B84 /* DetailScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294237205AD82100295B84 /* DetailScoreView.swift */; };
+		387883AA20679AC300DBB83C /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883A920679AC300DBB83C /* MapVC.swift */; };
+		387883AC20679DE300DBB83C /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AB20679DE300DBB83C /* PageVC.swift */; };
+		387883AE2067A1A200DBB83C /* StatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AD2067A1A200DBB83C /* StatsVC.swift */; };
 		38997AE5205AB54C0075B508 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE4205AB54C0075B508 /* Player.swift */; };
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
 		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
 		38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AED205AB8680075B508 /* PlayerCell.swift */; };
+		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
@@ -91,14 +96,19 @@
 /* Begin PBXFileReference section */
 		19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28447CBDDCC154AB97B1B511 /* Pods-CSGOSpectatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorTests/Pods-CSGOSpectatorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		38130791206A98DD00BC2BE3 /* model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = model.json; sourceTree = "<group>"; };
 		3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHeaderView.swift; sourceTree = "<group>"; };
 		38294231205AC30900295B84 /* ResultsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsHeaderView.xib; sourceTree = "<group>"; };
 		38294233205AC72300295B84 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		38294237205AD82100295B84 /* DetailScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScoreView.swift; sourceTree = "<group>"; };
+		387883A920679AC300DBB83C /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		387883AB20679DE300DBB83C /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		387883AD2067A1A200DBB83C /* StatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsVC.swift; sourceTree = "<group>"; };
 		38997AE4205AB54C0075B508 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C89A81E1AF38B8CAA33BB7 /* Pods-CSGOSpectatorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 				38997AF1205ABC2B0075B508 /* ResultsHeaderView */,
 				38997AED205AB8680075B508 /* PlayerCell.swift */,
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
+				38A5CEC22068377500442BBD /* FadedTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */,
+				387883A920679AC300DBB83C /* MapVC.swift */,
+				387883AB20679DE300DBB83C /* PageVC.swift */,
+				387883AD2067A1A200DBB83C /* StatsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -295,6 +309,7 @@
 				CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */,
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
 				CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */,
+				38130791206A98DD00BC2BE3 /* model.json */,
 				CEE63CE2204ACE4F004ADBC4 /* Info.plist */,
 			);
 			path = CSGOSpectator;
@@ -520,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */,
+				38130792206A98DD00BC2BE3 /* model.json in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */,
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
@@ -810,11 +826,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				38294238205AD82100295B84 /* DetailScoreView.swift in Sources */,
+				38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				38997AE7205AB5640075B508 /* Team.swift in Sources */,
 				CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */,
 				38294234205AC72300295B84 /* Int.swift in Sources */,
+				387883AA20679AC300DBB83C /* MapVC.swift in Sources */,
+				387883AC20679DE300DBB83C /* PageVC.swift in Sources */,
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
+				387883AE2067A1A200DBB83C /* StatsVC.swift in Sources */,
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
