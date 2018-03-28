@@ -24,6 +24,8 @@
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
+		3F8F479A206C3D2200467587 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4799206C3D2200467587 /* SettingsVC.swift */; };
+		3F8F479C206C3D3200467587 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F479B206C3D3200467587 /* HistoryVC.swift */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
 		5117F39D787DCF8AE039CFD0 /* Pods_CSGOSpectatorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */; };
 		CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */; };
@@ -111,6 +113,8 @@
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F8F4799206C3D2200467587 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		3F8F479B206C3D3200467587 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		41C89A81E1AF38B8CAA33BB7 /* Pods-CSGOSpectatorKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.release.xcconfig"; sourceTree = "<group>"; };
 		57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +236,9 @@
 				CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */,
 				387883A920679AC300DBB83C /* MapVC.swift */,
 				387883AB20679DE300DBB83C /* PageVC.swift */,
+				3F8F4799206C3D2200467587 /* SettingsVC.swift */,
 				387883AD2067A1A200DBB83C /* StatsVC.swift */,
+				3F8F479B206C3D3200467587 /* HistoryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -826,6 +832,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38294238205AD82100295B84 /* DetailScoreView.swift in Sources */,
+				3F8F479C206C3D3200467587 /* HistoryVC.swift in Sources */,
 				38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				38997AE7205AB5640075B508 /* Team.swift in Sources */,
@@ -838,6 +845,7 @@
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
+				3F8F479A206C3D2200467587 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
