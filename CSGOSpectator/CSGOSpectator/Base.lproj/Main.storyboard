@@ -87,6 +87,23 @@
             </objects>
             <point key="canvasLocation" x="180" y="356.67166416791605"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="Ktc-Hp-iq5">
+            <objects>
+                <viewController title="Settings" id="lG8-ep-Rzo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ppm-iw-qeF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UVj-Ar-qLt"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="pRl-Tm-ai1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcB-bj-Tnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="-1213"/>
+        </scene>
         <!--PageVC-->
         <scene sceneID="SrM-V0-tP8">
             <objects>
@@ -499,6 +516,23 @@
             </objects>
             <point key="canvasLocation" x="2292" y="882.90854572713647"/>
         </scene>
+        <!--History-->
+        <scene sceneID="5Kq-Rq-Qns">
+            <objects>
+                <viewController title="History" id="pHC-Lw-o4O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WoG-Ai-J1S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nIJ-Fs-CMd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="History" id="hTT-Me-SX8"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XyU-mq-YSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="-461"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2KR-oq-C7s">
             <objects>
@@ -512,6 +546,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Phj-e1-YaP"/>
+                        <segue destination="pHC-Lw-o4O" kind="relationship" relationship="viewControllers" id="SjO-C1-RxW"/>
+                        <segue destination="lG8-ep-Rzo" kind="relationship" relationship="viewControllers" id="htc-Lm-XNc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-08-vvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
