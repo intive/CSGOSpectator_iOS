@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode9.2
+env:
+  - EARLY_START_SIMULATOR=1 # early starting simulator reduces false negatives due to test timeouts
+before_install:
+  - gem install xcpretty
+script: travis_retry
+notifications:
+    secure: "ubQLy7VydwkG3sonqR9aEaeLtGSVXzS8nP6GaI+CcsWD2A6S/PcPKG/N8QqNjh5pb2Oytty/oNNNPNCmnc/O5DQv/TD8CMPFpUY/R36Odvkvrmt39lLEGjW15/xmkp5vjoYd4Tt8DESrn0GcRwb1eUUiiCw4wabfHF+91u041OMB2WTRP2rxYbJ0kKa5jS6jFBVOSO7qL+FKZNZx0EhC19k6QRPb/X5RFPizURmFQYrInqtkg2HgtcMOq92mBPh1/+PLPTnR+uZssyynOJbrRmjhFkLQVJklvFSj3a0bzEMXZIOGlq0BBuurI3f+GK4i7PGfbmLdM3hh0lWc3XR8OMbNqnirzxOywKRpUGlhVKLOg4c8sXVBLR7d00TvlqV+a5lexFB4zGUgfZDAK+4Ti4bey9bZbDtk247MrBrsYbSJaGfQFFFqcS//z1pT7oBRXWs06kW/humOeHjoiLJh5wJnmso3IP284y1kLxLDvlydwwbVw/9uwd7gR8mpAxgLrfJcMe0t+gBC0TGg2md7w2gDy2sNuO3l3inadg+5VTbvKiR8gStY1kHD9VpXd+bHbz60UQYGOojTg3FluPbGMeGaffN6y3oOC56AVVo4NDLlqlPLoVQoZ0gmJ00RB/o8+nYJWrBHrgkfi7cnjrBv/JVJEHRpbJbbW0f2aBnGpZY="
+    on_success: always
+    on_failure: always
+    on_start: never
