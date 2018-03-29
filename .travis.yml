@@ -6,9 +6,5 @@ before_install:
   - gem install xcpretty
 script: travis_retry
 notifications:
-  slack: 
-    csgospectator:Ks30AV0jrUu1cGITVle9WReD
-    on_success: always
-    on_failure: always
-    on_start: never
+  slack: csgospectator:Ks30AV0jrUu1cGITVle9WReD
   email: false
