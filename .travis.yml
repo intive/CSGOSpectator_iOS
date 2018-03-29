@@ -1,10 +1,12 @@
 language: objective-c
 osx_image: xcode9.2
 env:
-  - EARLY_START_SIMULATOR=1 # early starting simulator reduces false negatives due to test timeouts
+  - EARLY_START_SIMULATOR=1
 before_install:
   - gem install xcpretty
 script: travis_retry
 notifications:
-  slack: csgospectator:Ks30AV0jrUu1cGITVle9WReD
+  slack:
+    secure: "BxZoItELC69dBy2xgLHKxR7Pc9nzvAB9iJxSgmmD1RxvH1a+BL1QJ4gt+H1e4ZXDHbNW9q0wbnDnazSpxu9C6zFOiPnlzg2pGvFd+WFkgCt6oBz/hlephXH6ReQ15UPnOeGjCl092Zj0o5X7OMn7YTbxx381OqVxvFaqVsq105L1+13wRsjpDdfpeYKDR3L01FcjT/I2GlU4w4ai0lJAYMpnqAfWM3Bn2Zz9uPhVZCiFAeZ93xlZ9vl29Vm6EpKWE7rlyVeKgUl3sm1YenImu0xKFFTpl8w9qdWsqzKgvx6747pwqmFwJwsYQodsE8zNn/9lzC20n6UjW07VYKSz0fzf6QoMFMF5yhA3KV+pwCJQcORJ2u33nn3xU7Q8T1yW+vP1ybk5t/e1+vpjSQmhVgtzSD2bU1iiZRIEXIk57Iy0fpcomSRTwzeWq+PQKhOdv7ZQrfUxhQgCLWk1tMQ4woRXQ+eSRIkj7Ud31I+fK3vy9ArhgWEJujBF1RYxIyQ4GCl9UB9H/7RUFKKTdjqIaLKlOHuly5/O6oTU3Jrxl8SCymrJXI14yruIlF4MrMl+jV/YSzjpsz1K+RTENpJ4sG2ov1LYRB4YP7tip5bCuV8rs7evvVWy/E/r4MwsGIPeVwFfCITANHxKfGd2NJh23+zXkDtfmT3NK8WuNcu5S70="
   email: false
+  
