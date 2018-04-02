@@ -26,7 +26,11 @@ class LiveVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateFakeMatch()
+        if let jsonData = getJSON(named: "model") {
+            currentMatch = gameFromJSON(json: jsonData)
+        } else {
+            generateFakeMatch()
+        }
     }
     
     func generateFakeMatch() {
@@ -66,4 +70,33 @@ class LiveVC: UIViewController {
         }
     }
 
+}
+
+/* JSON handling */
+extension LiveVC {
+    
+    func getJSON(named: String) -> Data? {
+        if let path = Bundle.main.path(forResource: named, ofType: "json") {
+            let url = URL(fileURLWithPath: path)
+            do {
+                let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                return data
+            } catch let err {
+                print("Couldn't open json file named '\(named)'\n\(err.localizedDescription)")
+                return nil
+            }
+        } else {
+            print("Couldn't open json file named '\(named)'")
+            return nil
+        }
+    }
+    func gameFromJSON(json: Data) -> Game? {
+        do {
+            let game = try JSONDecoder().decode(Game.self, from: json)
+            return game
+        } catch let err {
+            print(err.localizedDescription)
+            return nil
+        }
+    }
 }
