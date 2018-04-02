@@ -30,6 +30,7 @@ class PlayerCell: UITableViewCell {
         killsLabel.text = "\(player.kills)"
         deathsLabel.text = "\(player.deaths)"
         assistsLabel.text = "\(player.assists)"
+        mvpLabel.text = "\(player.mvps)"
     }
     
 }

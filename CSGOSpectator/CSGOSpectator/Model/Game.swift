@@ -16,12 +16,6 @@ struct Game: Decodable {
     let teamCT: Team
     let teamT: Team
     
-    func getPlayers() -> [Player] {
-        var players = teamCT.players + teamT.players
-        players.sort(by: { $0.score > $1.score })
-        return players
-    }
-    
     init(map: String, round: Int, phase: String, phaseEndsIn: Int, players: [Player], teamCT: Team, teamT: Team) {
         self.map = map
         self.round = round
@@ -49,5 +43,11 @@ struct Game: Decodable {
         case players
         case teamCT = "team_ct"
         case teamT = "team_t"
+    }
+    
+    func getPlayers() -> [Player] {
+        var players = teamCT.players + teamT.players
+        players.sort(by: { $0.score > $1.score })
+        return players
     }
 }
