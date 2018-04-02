@@ -1,67 +1,361 @@
 {
-	"map": "de_inferno",
-	"round": 0,
-	"phase": "live",
-	"phase_ends_in": 135,
-	"team_ct": {
-		"score": 0,
-		"players": [
-            {
-                "steamid": "123412341234",
-				"name": "Snax",
-				"state": {
-					"health": 100,
-					"armor": 50
-				},
-				"statistics": {
-					"kills": 0,
-					"assists": 0,
-					"deaths": 1,
-					"mvps": 0,
-					"score": 0
-                },
-                "weapons": [
+    "map": "de_dust2",
+    "phase": "freezetime",
+    "phase_ends_in": "7.0",
+    "round": 2,
+    "team_ct": {
+        "score": 2,
+        "players": [
                     {
-                        "name": "weapon_ak47",
-                        "type": "Rifle",
-                        "state": "holstered"
+                    "steamid": "76561198087676249",
+                    "name": "Глад Валакас",
+                    "observer_slot": 1,
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 2,
+                    "assists": 0,
+                    "deaths": 0,
+                    "mvps": 1,
+                    "score": 4
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_fiveseven",
+                    "type": "Pistol",
+                    "state": "active"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_aug",
+                    "type": "Rifle",
+                    "state": "holstered"
+                    }
+                    },
+                    "position": "160.12, 2369.68, -119.92",
+                    "forward": "0.91, -0.42, -0.00"
                     },
                     {
-                        "name": "weapon_knife_karambit",
-                        "type": "Knife",
-                        "state": "active"
+                    "steamid": "76561198350226042",
+                    "name": "laz_ofle",
+                    "observer_slot": 2,
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 3,
+                    "assists": 0,
+                    "deaths": 0,
+                    "mvps": 0,
+                    "score": 6
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_deagle",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_aug",
+                    "type": "Rifle",
+                    "state": "active"
                     }
-                ],
-				"position": "0.123, 0.123, 0.123",
-				"forward": "0.123, 0.123, 0.123"
-			}
-		]
-	},
-	"team_t": {
-		"score": 0,
-		"players": []
-	},
-	"grenades": [
-        {
-            "id": 10,
-            "owner": "123412341234",
-            "lifetime": 10.4,
-            "type": "molotov",
-            "effecttime": 0.1,
-            "flames": [
-                "0.123, 0.123, 0.123",
-                "0.123, 0.123, 0.123",
-                "0.123, 0.123, 0.123"
-            ]
-        },
-        {
-            "id": 11,
-            "owner": "123412341234",
-            "lifetime": 10.4,
-            "type": "flashbang",
-            "position": "0.123, 0.123, 0.123",
-            "velocity": "0.123, 0.123, 0.123",
-            "effecttime": 0.1
-        }
-    ]
+                    },
+                    "position": "334.37, 2433.73, -120.36",
+                    "forward": "0.44, -0.90, -0.00"
+                    },
+                    {
+                    "steamid": "76561198311376965",
+                    "name": "\\Hajsownik csgo-skins.com",
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 4,
+                    "assists": 1,
+                    "deaths": 1,
+                    "mvps": 1,
+                    "score": 9
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_famas",
+                    "type": "Rifle",
+                    "state": "active"
+                    }
+                    },
+                    "position": "258.16, 2480.55, -121.08",
+                    "forward": "-0.40, -0.92, -0.00"
+                    },
+                    {
+                    "steamid": "76561198452700034",
+                    "name": "Adrian",
+                    "state": {
+                    "health": 100,
+                    "armor": 0
+                    },
+                    "statistics": {
+                    "kills": 0,
+                    "assists": 0,
+                    "deaths": 0,
+                    "mvps": 0,
+                    "score": 0
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_hkp2000",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_incgrenade",
+                    "type": "Grenade",
+                    "state": "holstered"
+                    },
+                    "weapon_3": {
+                    "name": "weapon_m4a1",
+                    "type": "Rifle",
+                    "state": "active"
+                    }
+                    },
+                    "position": "182.25, 2439.01, -120.97",
+                    "forward": "0.19, -0.98, -0.00"
+                    },
+                    {
+                    "steamid": "76561198323222016",
+                    "name": "ProtecTorr",
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 1,
+                    "assists": 0,
+                    "deaths": 0,
+                    "mvps": 0,
+                    "score": 2
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_usp_silencer",
+                    "type": "Pistol",
+                    "state": "active"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_p90",
+                    "type": "Submachine Gun",
+                    "state": "holstered"
+                    }
+                    },
+                    "position": "351.39, 2352.94, -120.50",
+                    "forward": "-0.71, 0.70, -0.00"
+                    }
+                    ]
+    },
+    "team_t": {
+        "score": 0,
+        "players": [
+                    {
+                    "steamid": "76561198139631583",
+                    "name": "gmorcin",
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 0,
+                    "assists": 0,
+                    "deaths": 2,
+                    "mvps": 0,
+                    "score": 0
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife_t",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "active"
+                    }
+                    },
+                    "position": "-822.36, -795.64, 117.26",
+                    "forward": "-0.29, 0.96, -0.00"
+                    },
+                    {
+                    "steamid": "76561198393701026",
+                    "name": "Efeslarde",
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 0,
+                    "assists": 0,
+                    "deaths": 2,
+                    "mvps": 0,
+                    "score": 0
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife_t",
+                    "type": "Knife",
+                    "state": "active"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_ump45",
+                    "type": "Submachine Gun",
+                    "state": "holstered"
+                    }
+                    },
+                    "position": "-1181.00, -754.00, 120.18",
+                    "forward": "0.99, 0.12, -0.00"
+                    },
+                    {
+                    "steamid": "76561198289488732",
+                    "name": "John Cena",
+                    "state": {
+                    "health": 100,
+                    "armor": 100
+                    },
+                    "statistics": {
+                    "kills": 1,
+                    "assists": 0,
+                    "deaths": 2,
+                    "mvps": 0,
+                    "score": 2
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife_t",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_sg556",
+                    "type": "Rifle",
+                    "state": "active"
+                    }
+                    },
+                    "position": "-980.00, -754.00, 120.18",
+                    "forward": "0.98, -0.20, -0.00"
+                    },
+                    {
+                    "steamid": "76561198342951862",
+                    "name": "ErenArdda",
+                    "state": {
+                    "health": 100,
+                    "armor": 0
+                    },
+                    "statistics": {
+                    "kills": 0,
+                    "assists": 0,
+                    "deaths": 2,
+                    "mvps": 0,
+                    "score": 0
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife_t",
+                    "type": "Knife",
+                    "state": "active"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_c4",
+                    "type": "C4",
+                    "state": "holstered"
+                    }
+                    },
+                    "position": "-493.00, -808.00, 108.69",
+                    "forward": "-0.92, -0.39, -0.00"
+                    },
+                    {
+                    "steamid": "76561198320860556",
+                    "name": "HUNTER.☾✩",
+                    "state": {
+                    "health": 100,
+                    "armor": 0
+                    },
+                    "statistics": {
+                    "kills": 0,
+                    "assists": 0,
+                    "deaths": 2,
+                    "mvps": 0,
+                    "score": 0
+                    },
+                    "weapons": {
+                    "weapon_0": {
+                    "name": "weapon_knife_t",
+                    "type": "Knife",
+                    "state": "holstered"
+                    },
+                    "weapon_1": {
+                    "name": "weapon_glock",
+                    "type": "Pistol",
+                    "state": "holstered"
+                    },
+                    "weapon_2": {
+                    "name": "weapon_ump45",
+                    "type": "Submachine Gun",
+                    "state": "active"
+                    }
+                    },
+                    "position": "-696.84, -806.62, 116.53",
+                    "forward": "-0.96, -0.27, -0.00"
+                    }
+                    ]
+    },
+    "grenades": {}
 }
+
+
