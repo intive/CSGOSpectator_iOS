@@ -8,23 +8,38 @@
 
 import Foundation
 
-struct Game {
+struct Game: Decodable {
     let map: String
     let round: Int
     let phase: String
     let phaseEndsIn: Int
-    
-    let players: [Player]
     let teamCT: Team
     let teamT: Team
     
-    init(map: String, round: Int, phase: String, phaseEndsIn: Int, players: [Player], teamCT: Team, teamT: Team) {
-        self.map = map
-        self.round = round
-        self.phase = phase
-        self.phaseEndsIn = phaseEndsIn
-        self.players = players
-        self.teamCT = teamCT
-        self.teamT = teamT
+    var players: [Player] { return teamCT.players + teamT.players }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        map = try values.decode(String.self, forKey: .map)
+        round = try values.decode(Int.self, forKey: .round)
+        phase = try values.decode(String.self, forKey: .phase)
+        let phaseEnds = try values.decode(String.self, forKey: .phaseEndsIn).prefix(1)
+        phaseEndsIn = Int(phaseEnds) ?? 0
+        teamCT = try values.decode(Team.self, forKey: .teamCT)
+        teamT = try values.decode(Team.self, forKey: .teamT)
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case map
+        case round
+        case phase
+        case phaseEndsIn = "phase_ends_in"
+        case players
+        case teamCT = "team_ct"
+        case teamT = "team_t"
+    }
+    
+    func team(for player: Player) -> TeamName {
+        return teamT.players.contains(player) ? .terrorists : .counterTerrorists
     }
 }

@@ -10,15 +10,7 @@ import UIKit
 
 class PageVC: UIPageViewController {
     
-    var currentMatch: Game? {
-        didSet {
-            guard let first = pages[0] as? StatsVC else { return }
-            guard let second = pages[1] as? MapVC else { return }
-            first.currentMatch = self.currentMatch
-            second.currentMatch = self.currentMatch
-        }
-    }
-    
+    var currentMatch: Game?    
     lazy var pages = {
         return [getViewController(withIdentifier: "statsVC"), getViewController(withIdentifier: "mapVC")]
     }()

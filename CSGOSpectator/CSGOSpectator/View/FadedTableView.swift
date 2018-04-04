@@ -25,7 +25,7 @@ class FadedTableView: UITableView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: self.bounds.origin.x, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
         gradientLayer.colors = [transparent, opaque, opaque, transparent]
-        gradientLayer.locations = [0, NSNumber(floatLiteral: fadePercentage), NSNumber(floatLiteral: 1 - fadePercentage), 1]
+        gradientLayer.locations = [0, NSNumber(value: fadePercentage), NSNumber(value: 1 - fadePercentage), 1]
         
         maskLayer.addSublayer(gradientLayer)
         self.layer.mask = maskLayer

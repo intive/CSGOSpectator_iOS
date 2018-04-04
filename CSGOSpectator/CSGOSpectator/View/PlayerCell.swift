@@ -18,18 +18,21 @@ class PlayerCell: UITableViewCell {
     @IBOutlet weak var assistsLabel: UILabel!
     @IBOutlet weak var mvpLabel: UILabel!
     
-    func setup(player: Player) {
-        if player.team == .terrorists {
+    func setup(player: Player, team: TeamName) {
+        if team == .terrorists {
             tLabel.text = player.name
             ctLabel.text = ""
+            tLabel.textColor = UIColor.terroristRed
         } else {
             ctLabel.text = player.name
             tLabel.text = ""
+            ctLabel.textColor = UIColor.counterBlue
         }
-        scoreLabel.text = "\(player.score)"
-        killsLabel.text = "\(player.kills)"
-        deathsLabel.text = "\(player.deaths)"
-        assistsLabel.text = "\(player.assists)"
+        scoreLabel.text = "\(player.statistics.score)"
+        killsLabel.text = "\(player.statistics.kills)"
+        deathsLabel.text = "\(player.statistics.deaths)"
+        assistsLabel.text = "\(player.statistics.assists)"
+        mvpLabel.text = "\(player.statistics.mvps)"
     }
     
 }

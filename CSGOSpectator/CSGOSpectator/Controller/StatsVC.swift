@@ -12,11 +12,9 @@ class StatsVC: UIViewController {
     
     @IBOutlet weak var tableView: FadedTableView!
         
-    var currentMatch: Game? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var currentMatch: Game?
+    
+    var players = [Player]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,23 +36,20 @@ extension StatsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let match = currentMatch {
-            return match.teamCT.players.count + match.teamT.players.count
-        } else {
-            return 0
-        }
+        guard let match = currentMatch else { return 0 }
+        return match.players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerCell else { return UITableViewCell() }
-        if let player = currentMatch?.players[indexPath.row] {
-            cell.setup(player: player)
+        if let curr = currentMatch {
+            let player = players[indexPath.row]
+            cell.setup(player: player, team: curr.team(for: player))
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
