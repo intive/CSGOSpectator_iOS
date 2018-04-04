@@ -38,4 +38,8 @@ struct Game: Decodable {
         case teamCT = "team_ct"
         case teamT = "team_t"
     }
+    
+    func team(for player: Player) -> TeamName {
+        return teamT.players.contains(player) ? .terrorists : .counterTerrorists
+    }
 }

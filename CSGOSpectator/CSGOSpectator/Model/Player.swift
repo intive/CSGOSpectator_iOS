@@ -18,10 +18,10 @@ enum TeamName: String, Decodable {
     }
 }
 
-struct Player: Decodable {
+struct Player: Decodable, Equatable {
+    
     let steamid: String
     let name: String
-    let team: TeamName
     let position: CGPoint
     let statistics: Statistics
     
@@ -31,16 +31,6 @@ struct Player: Decodable {
         name = try values.decode(String.self, forKey: .name)
         let stats = try values.decode(Player.Statistics.self, forKey: .statistics)
         self.statistics = Statistics(kills: stats.kills, assists: stats.assists, deaths: stats.deaths, mvps: stats.mvps, score: stats.score)
-        if let key = decoder.codingPath.first {
-            let components = String(describing: key).components(separatedBy: ".")
-            if let last = components.last {
-                team = TeamName(rawValue: last)!
-            } else {
-                team = .terrorists
-            }
-        } else {
-            team = .counterTerrorists
-        }
         let pos = try values.decode(String.self, forKey: .position)
         let xyz = pos.components(separatedBy: ", ")
         if let xy = [Double(xyz[0]), Double(xyz[1])] as? [Double] {
@@ -69,5 +59,9 @@ struct Player: Decodable {
         let deaths: Int
         let mvps: Int
         let score: Int
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.steamid == rhs.steamid
     }
 }

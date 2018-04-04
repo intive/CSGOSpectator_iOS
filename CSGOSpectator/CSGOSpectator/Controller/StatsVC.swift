@@ -42,9 +42,9 @@ extension StatsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerCell else { return UITableViewCell() }
-        if !players.isEmpty {
+        if let curr = currentMatch {
             let player = players[indexPath.row]
-            cell.setup(player: player)
+            cell.setup(player: player, team: curr.team(for: player))
         }
         return cell
     }
