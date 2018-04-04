@@ -10,13 +10,12 @@ import UIKit
 
 class MapVC: UIViewController {
     
-    @IBOutlet var mapImageView: UIImageView!
+    @IBOutlet weak var mapImageView: UIImageView!
     
     var currentMatch: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapImageView.image = UIImage(named: "de_dust2")
     }
 
 }

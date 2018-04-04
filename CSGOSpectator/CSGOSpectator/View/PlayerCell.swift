@@ -26,11 +26,11 @@ class PlayerCell: UITableViewCell {
             ctLabel.text = player.name
             tLabel.text = ""
         }
-        scoreLabel.text = "\(player.score)"
-        killsLabel.text = "\(player.kills)"
-        deathsLabel.text = "\(player.deaths)"
-        assistsLabel.text = "\(player.assists)"
-        mvpLabel.text = "\(player.mvps)"
+        scoreLabel.text = "\(player.statistics.score)"
+        killsLabel.text = "\(player.statistics.kills)"
+        deathsLabel.text = "\(player.statistics.deaths)"
+        assistsLabel.text = "\(player.statistics.assists)"
+        mvpLabel.text = "\(player.statistics.mvps)"
     }
     
 }

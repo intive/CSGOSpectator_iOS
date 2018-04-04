@@ -16,21 +16,15 @@ struct Game: Decodable {
     let teamCT: Team
     let teamT: Team
     
-    init(map: String, round: Int, phase: String, phaseEndsIn: Int, players: [Player], teamCT: Team, teamT: Team) {
-        self.map = map
-        self.round = round
-        self.phase = phase
-        self.phaseEndsIn = phaseEndsIn
-        self.teamCT = teamCT
-        self.teamT = teamT
-    }
+    var players: [Player] { return teamCT.players + teamT.players }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         map = try values.decode(String.self, forKey: .map)
         round = try values.decode(Int.self, forKey: .round)
         phase = try values.decode(String.self, forKey: .phase)
-        phaseEndsIn = (try Int(Float(values.decode(String.self, forKey: .phaseEndsIn))!))
+        let phaseEnds = try values.decode(String.self, forKey: .phaseEndsIn).prefix(1)
+        phaseEndsIn = Int(phaseEnds) ?? 0
         teamCT = try values.decode(Team.self, forKey: .teamCT)
         teamT = try values.decode(Team.self, forKey: .teamT)
     }
@@ -43,11 +37,5 @@ struct Game: Decodable {
         case players
         case teamCT = "team_ct"
         case teamT = "team_t"
-    }
-    
-    func getPlayers() -> [Player] {
-        var players = teamCT.players + teamT.players
-        players.sort(by: { $0.score > $1.score })
-        return players
     }
 }
