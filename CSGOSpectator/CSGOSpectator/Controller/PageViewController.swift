@@ -1,5 +1,5 @@
 //
-//  PageVC.swift
+//  PageViewController.swift
 //  CSGOSpectator
 //
 //  Created by Adam Wienconek on 25.03.2018.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class PageVC: UIPageViewController {
+class PageViewController: UIPageViewController {
     
-    var currentMatch: Game?    
+    var currentMatch: Game?
     lazy var pages = {
-        return [getViewController(withIdentifier: "statsVC"), getViewController(withIdentifier: "mapVC")]
+        return [getViewController(withIdentifier: "statsViewController"), getViewController(withIdentifier: "mapViewController")]
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
         delegate = self
-        if let firstVC = pages.first {
-            setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
+        if let firstViewController = pages.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
     }
 
@@ -30,7 +30,7 @@ class PageVC: UIPageViewController {
 
 }
 
-extension PageVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = pages.index(of: viewController) else { return nil }

@@ -38,10 +38,10 @@ class ResultsHeaderView: UIView, ReusableViewProtocol {
     }
     
     func updateWithGameData(_ match: Game?) {
-        if let game = match {
-            roundLabel.text = "Round \(game.round)"
-            scoreLabel.text = "\(game.teamCT.score) - \(game.teamT.score)"
-            remainingTimeLabel.text = String(format: "%02i:%02i", arguments: [game.phaseEndsIn.secondsToMinutesSeconds().minutes, game.phaseEndsIn.secondsToMinutesSeconds().seconds])
+        if let match = match {
+            roundLabel.text = "Round \(match.round)"
+            scoreLabel.text = "\(match.teamCT.score) - \(match.teamT.score)"
+            remainingTimeLabel.text = String(format: "%02i:%02i", arguments: [match.phaseEndsIn.secondsToMinutesSeconds().minutes, match.phaseEndsIn.secondsToMinutesSeconds().seconds])
         } else {
             roundLabel.text = ""
             scoreLabel.text = "Couldn't load now playing game"

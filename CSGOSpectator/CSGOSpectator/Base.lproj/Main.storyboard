@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fuF-KY-u4C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fuF-KY-u4C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,7 @@
         <!--Live-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LiveVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LiveViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--Settings-->
         <scene sceneID="Zlj-Uu-FZJ">
             <objects>
-                <viewController id="SNi-DP-dtG" customClass="SettingsVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SNi-DP-dtG" customClass="SettingsViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGy-aI-N3i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,18 +103,18 @@
             </objects>
             <point key="canvasLocation" x="-647" y="1103"/>
         </scene>
-        <!--PageVC-->
+        <!--PageViewController-->
         <scene sceneID="SrM-V0-tP8">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0CY-RL-JQd" customClass="PageVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0CY-RL-JQd" userLabel="PageViewController" customClass="PageViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrH-4d-IEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="180" y="990"/>
         </scene>
-        <!--StatsVC-->
+        <!--StatsViewController-->
         <scene sceneID="yNT-Ns-VnG">
             <objects>
-                <viewController storyboardIdentifier="statsVC" title="StatsVC" automaticallyAdjustsScrollViewInsets="NO" id="RL0-Ej-cWn" customClass="StatsVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="statsViewController" title="StatsViewController" automaticallyAdjustsScrollViewInsets="NO" id="RL0-Ej-cWn" customClass="StatsViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f2s-JH-9Q0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,10 +411,10 @@
             </objects>
             <point key="canvasLocation" x="925.60000000000002" y="882.90854572713647"/>
         </scene>
-        <!--MapVC-->
+        <!--MapViwController-->
         <scene sceneID="u2R-MF-lEM">
             <objects>
-                <viewController storyboardIdentifier="mapVC" title="MapVC" id="ArP-F3-eyp" customClass="MapVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" title="MapViwController" id="ArP-F3-eyp" customClass="MapViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WWI-wW-alv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -443,10 +443,10 @@
             </objects>
             <point key="canvasLocation" x="1593" y="883"/>
         </scene>
-        <!--PlayerVC-->
+        <!--PlayerViewController-->
         <scene sceneID="jTl-BU-k2g">
             <objects>
-                <viewController storyboardIdentifier="playerVC" title="PlayerVC" id="LLG-th-cAi" customClass="PlayerVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="playerViewController" title="PlayerViewController" id="LLG-th-cAi" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y7y-jd-t6D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -479,7 +479,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvW-jr-Dje">
                                 <rect key="frame" x="127" y="323" width="120" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Jn9-ro-MbL"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Jn9-ro-MbL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -515,10 +515,10 @@
             </objects>
             <point key="canvasLocation" x="2292" y="882.90854572713647"/>
         </scene>
-        <!--History-->
+        <!--HistoryViewController-->
         <scene sceneID="lso-GM-5qa">
             <objects>
-                <viewController title="History" id="hf8-Pv-hJx" customClass="HistoryVC" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HistoryViewController" id="hf8-Pv-hJx" customClass="HistoryViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ihJ-xD-76A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

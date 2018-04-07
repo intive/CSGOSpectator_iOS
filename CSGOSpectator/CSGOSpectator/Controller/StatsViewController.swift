@@ -1,5 +1,5 @@
 //
-//  StatsVC.swift
+//  StatsViewController.swift
 //  CSGOSpectator
 //
 //  Created by Adam Wienconek on 25.03.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatsVC: UIViewController {
+class StatsViewController: UIViewController {
     
     @IBOutlet weak var tableView: FadedTableView!
         
@@ -25,7 +25,7 @@ class StatsVC: UIViewController {
 
 }
 
-extension StatsVC: UITableViewDelegate, UITableViewDataSource {
+extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 38
