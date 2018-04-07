@@ -425,18 +425,27 @@
                                     <constraint firstAttribute="width" secondItem="hrF-wq-mER" secondAttribute="height" multiplier="1:1" id="1cA-gB-BBZ"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHL-l9-Pyz">
+                                <rect key="frame" x="9.5" y="19.5" width="355" height="355"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hrF-wq-mER" firstAttribute="centerX" secondItem="WWI-wW-alv" secondAttribute="centerX" id="0Xb-QI-y2n"/>
                             <constraint firstItem="hrF-wq-mER" firstAttribute="leading" secondItem="WWI-wW-alv" secondAttribute="leading" constant="10" id="6KL-Lf-AuC"/>
+                            <constraint firstItem="VHL-l9-Pyz" firstAttribute="height" secondItem="hrF-wq-mER" secondAttribute="height" id="7ha-fh-CFP"/>
                             <constraint firstItem="hrF-wq-mER" firstAttribute="top" secondItem="7z4-vA-MPU" secondAttribute="top" id="DwO-wf-8CA"/>
+                            <constraint firstItem="VHL-l9-Pyz" firstAttribute="centerY" secondItem="hrF-wq-mER" secondAttribute="centerY" id="EYf-qR-cmC"/>
                             <constraint firstAttribute="trailing" secondItem="hrF-wq-mER" secondAttribute="trailing" constant="10" id="PIu-96-ezW"/>
+                            <constraint firstItem="VHL-l9-Pyz" firstAttribute="centerX" secondItem="hrF-wq-mER" secondAttribute="centerX" id="RaC-p6-BCg"/>
+                            <constraint firstItem="VHL-l9-Pyz" firstAttribute="width" secondItem="hrF-wq-mER" secondAttribute="width" id="xcv-uv-tI7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7z4-vA-MPU"/>
                     </view>
                     <connections>
                         <outlet property="mapImageView" destination="hrF-wq-mER" id="2xh-sS-vWc"/>
+                        <outlet property="playersView" destination="VHL-l9-Pyz" id="M1a-JA-GDw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzH-rj-ovs" userLabel="First Responder" sceneMemberID="firstResponder"/>

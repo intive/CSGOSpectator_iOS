@@ -25,9 +25,6 @@ class LiveViewController: UIViewController {
         updateChildViews()
         updateBackground()
         updateResultsView()
-        if let players = currentMatch?.players {
-            for player in players { print(player.position) }
-        }
     }
 
     func updateResultsView() {
@@ -54,7 +51,7 @@ class LiveViewController: UIViewController {
             
             guard let map = page.pages[1] as? MapViewController else { return }
             map.currentMatch = curr
-            map.mapImageView?.image = #imageLiteral(resourceName: "de_dust2")
+            map.players = curr.players
         }
     }
     
