@@ -15,11 +15,11 @@ Scenario outline: Basic flow - column labels
 
 Examples:
 	| column_label | number |
-	| K            | 1      |
-	| D            | 2      |
-	| A            | 3      |
-	| MVP          | 4      |
-	| SCORE        | 5      |
+	| killsLabel   | 1      |
+	| deathsLabel  | 2      |
+	| assistsLabel | 3      |
+	| mvpLabel     | 4      |
+	| scoreLabel   | 5      |
 
 
 Scenario: Basic flow - playerCells

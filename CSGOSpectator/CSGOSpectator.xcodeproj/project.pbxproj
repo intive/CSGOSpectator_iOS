@@ -27,6 +27,7 @@
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		50D9D7900E070101339B1EDC /* Pods_CSGOSpectator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */; };
 		5117F39D787DCF8AE039CFD0 /* Pods_CSGOSpectatorKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58740F504E72DAD873D6E895 /* Pods_CSGOSpectatorKitTests.framework */; };
+		CE4AE411207A99EF00690A62 /* CSSPPFIP-25_column_labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4AE410207A99EF00690A62 /* CSSPPFIP-25_column_labels.swift */; };
 		CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */; };
 		CEE63CD9204ACE4F004ADBC4 /* LiveVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */; };
 		CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */; };
@@ -122,6 +123,7 @@
 		A2E4CFA40396D7412E105869 /* Pods_CSGOSpectator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9660A4844E48D136F4C0DDF /* Pods-CSGOSpectatorKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKit/Pods-CSGOSpectatorKit.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D004853017C58984645597 /* Pods-CSGOSpectatorKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorKitTests/Pods-CSGOSpectatorKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE4AE410207A99EF00690A62 /* CSSPPFIP-25_column_labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CSSPPFIP-25_column_labels.swift"; sourceTree = "<group>"; };
 		CEE63CD3204ACE4F004ADBC4 /* CSGOSpectator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSGOSpectator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE63CD8204ACE4F004ADBC4 /* LiveVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVC.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		CEE63CF5204ACE4F004ADBC4 /* CSGOSpectatorUITests */ = {
 			isa = PBXGroup;
 			children = (
+				CE4AE410207A99EF00690A62 /* CSSPPFIP-25_column_labels.swift */,
 				CEE63CF6204ACE4F004ADBC4 /* CSGOSpectatorUITests.swift */,
 				CEE63CF8204ACE4F004ADBC4 /* Info.plist */,
 			);
@@ -858,6 +861,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE63CF7204ACE4F004ADBC4 /* CSGOSpectatorUITests.swift in Sources */,
+				CE4AE411207A99EF00690A62 /* CSSPPFIP-25_column_labels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,7 +1048,7 @@
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = qa.CSGOSpectator;
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -1063,7 +1067,7 @@
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = qa.CSGOSpectator;
+				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -1113,7 +1117,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F238JTRNA;
+				DEVELOPMENT_TEAM = 6T977BGG69;
 				INFOPLIST_FILE = CSGOSpectatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorUITests;
@@ -1130,7 +1134,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F238JTRNA;
+				DEVELOPMENT_TEAM = 6T977BGG69;
 				INFOPLIST_FILE = CSGOSpectatorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = intive.CSGOSpectatorUITests;
