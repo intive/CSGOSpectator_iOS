@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LieveViewController.swift
 //  CSGOSpectator
 //
 //  Created by Mateusz Fidos on 03.03.2018.
@@ -9,13 +9,13 @@
 import UIKit
 import CSGOSpectatorKit
 
-class LiveVC: UIViewController {
+class LiveViewController: UIViewController {
     
     @IBOutlet weak var headerView: ResultsHeaderView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var container: UIView!
     
-    var pageController: PageVC?
+    var pageController: PageViewController?
     var currentMatch: Game?
     
     override func viewDidLoad() {
@@ -47,19 +47,19 @@ class LiveVC: UIViewController {
             guard let page = pageController else { return }
             page.currentMatch = curr
             
-            guard let stats = page.pages[0] as? StatsVC else { return }
+            guard let stats = page.pages[0] as? StatsViewController else { return }
             stats.currentMatch = curr
             stats.players = curr.players.sorted(by: { $0.statistics.score > $1.statistics.score })
             stats.tableView.reloadData()
             
-            guard let map = page.pages[1] as? MapVC else { return }
+            guard let map = page.pages[1] as? MapViewController else { return }
             map.currentMatch = curr
             map.mapImageView?.image = #imageLiteral(resourceName: "de_dust2")
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? PageVC {
+        if let destination = segue.destination as? PageViewController {
             self.pageController = destination
         }
     }
@@ -67,7 +67,7 @@ class LiveVC: UIViewController {
 }
 
 /* JSON handling */
-extension LiveVC {
+extension LiveViewController {
     
     func getJSON(named: String) -> Data? {
         if let path = Bundle.main.path(forResource: named, ofType: "json") {

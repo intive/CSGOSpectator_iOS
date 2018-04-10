@@ -1,5 +1,5 @@
 //
-//  MapVC.swift
+//  MapViewController.swift
 //  CSGOSpectator
 //
 //  Created by Adam Wienconek on 25.03.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapVC: UIViewController {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapImageView: UIImageView!
     
