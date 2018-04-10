@@ -29,8 +29,7 @@ struct Player: Decodable, Equatable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         steamid = try values.decode(String.self, forKey: .steamid)
         name = try values.decode(String.self, forKey: .name)
-        let stats = try values.decode(Player.Statistics.self, forKey: .statistics)
-        self.statistics = Statistics(kills: stats.kills, assists: stats.assists, deaths: stats.deaths, mvps: stats.mvps, score: stats.score)
+        statistics = try values.decode(Player.Statistics.self, forKey: .statistics)
         let pos = try values.decode(String.self, forKey: .position)
         let xyz = pos.components(separatedBy: ", ")
         if let xy = [Double(xyz[0]), Double(xyz[1])] as? [Double] {

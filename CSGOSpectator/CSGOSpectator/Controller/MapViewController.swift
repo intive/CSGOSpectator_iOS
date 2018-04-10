@@ -24,16 +24,20 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
-        setCenter()
         print("Center: \(center)")
         addPlayerDots()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setCenter()
         updateDotsPosition()
     }
     
 }
 
 /* Drawing players on map */
-extension MapVC {
+extension MapViewController {
     
     func setCenter() {
         let x = playersView.frame.width * 0.5333
