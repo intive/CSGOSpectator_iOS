@@ -22,10 +22,8 @@
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
 		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
 		38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AED205AB8680075B508 /* PlayerCell.swift */; };
-		389EC20A2081070800F17163 /* WeaponName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC2092081070800F17163 /* WeaponName.swift */; };
-		389EC20C208109C100F17163 /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20B208109C100F17163 /* WeaponType.swift */; };
-		389EC20E20810A0E00F17163 /* WeaponState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20D20810A0E00F17163 /* WeaponState.swift */; };
 		389EC21020810A8200F17163 /* GrenadeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20F20810A8200F17163 /* GrenadeType.swift */; };
+		389EC21320810D4800F17163 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC21220810D4800F17163 /* Weapon.swift */; };
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
@@ -116,10 +114,8 @@
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
-		389EC2092081070800F17163 /* WeaponName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponName.swift; sourceTree = "<group>"; };
-		389EC20B208109C100F17163 /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
-		389EC20D20810A0E00F17163 /* WeaponState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponState.swift; sourceTree = "<group>"; };
 		389EC20F20810A8200F17163 /* GrenadeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrenadeType.swift; sourceTree = "<group>"; };
+		389EC21220810D4800F17163 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,10 +218,11 @@
 		38997AE3205AB52B0075B508 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				389EC21120810AE300F17163 /* Weapon */,
 				38997AE4205AB54C0075B508 /* Player.swift */,
 				38997AE6205AB5640075B508 /* Team.swift */,
 				38997AE8205AB5760075B508 /* Game.swift */,
+				389EC20F20810A8200F17163 /* GrenadeType.swift */,
+				389EC21220810D4800F17163 /* Weapon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,17 +258,6 @@
 				38294231205AC30900295B84 /* ResultsHeaderView.xib */,
 			);
 			path = ResultsHeaderView;
-			sourceTree = "<group>";
-		};
-		389EC21120810AE300F17163 /* Weapon */ = {
-			isa = PBXGroup;
-			children = (
-				389EC2092081070800F17163 /* WeaponName.swift */,
-				389EC20B208109C100F17163 /* WeaponType.swift */,
-				389EC20D20810A0E00F17163 /* WeaponState.swift */,
-				389EC20F20810A8200F17163 /* GrenadeType.swift */,
-			);
-			path = Weapon;
 			sourceTree = "<group>";
 		};
 		38C1B24B206189D900CE7526 /* Extensions */ = {
@@ -864,16 +850,14 @@
 				CEE63CD9204ACE4F004ADBC4 /* LiveViewController.swift in Sources */,
 				38294234205AC72300295B84 /* Int.swift in Sources */,
 				387883AA20679AC300DBB83C /* MapViewController.swift in Sources */,
-				389EC20C208109C100F17163 /* WeaponType.swift in Sources */,
 				387883AC20679DE300DBB83C /* PageViewController.swift in Sources */,
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
 				387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */,
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
-				389EC20E20810A0E00F17163 /* WeaponState.swift in Sources */,
+				389EC21320810D4800F17163 /* Weapon.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
 				3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */,
-				389EC20A2081070800F17163 /* WeaponName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
