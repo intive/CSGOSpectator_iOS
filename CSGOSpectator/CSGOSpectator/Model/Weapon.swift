@@ -27,6 +27,7 @@ struct Weapon: Decodable {
     }
 }
 
+/* Name, Type, State enums */
 extension Weapon {
     
     enum WeaponName: String, Decodable {
@@ -101,4 +102,13 @@ extension Weapon {
         case holstered
         case active
     }
+}
+
+/* Description */
+extension Weapon: CustomStringConvertible {
+    
+    var description: String {
+        return "Name: \(name)\nType: \(type)\nState: \(state)"
+    }
+    
 }
