@@ -13,6 +13,12 @@ struct Weapon: Decodable {
     let type: WeaponType
     let state: WeaponState
     
+    init(name: WeaponName, type: WeaponType, state: WeaponState) {
+        self.name = name
+        self.type = type
+        self.state = state
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         name = try values.decode(WeaponName.self, forKey: .name)
@@ -108,7 +114,7 @@ extension Weapon {
 extension Weapon: CustomStringConvertible {
     
     var description: String {
-        return "Name: \(name)\nType: \(type)\nState: \(state)"
+        return "Name: \(name)\nType: \(type)\nState: \(state)\n"
     }
     
 }
