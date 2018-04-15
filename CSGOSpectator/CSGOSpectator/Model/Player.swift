@@ -25,6 +25,9 @@ struct Player: Decodable {
     let position: CGPoint
     let statistics: Statistics
     let weapons: [Weapon]
+    let parameters: Parameters
+    
+    var state: State { return parameters.health > 0 ? .alive : .dead }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -56,6 +59,7 @@ struct Player: Decodable {
             }
         }
         weapons = newWeapons
+        parameters = try values.decode(Player.Parameters.self, forKey: .parameters)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -70,6 +74,7 @@ struct Player: Decodable {
         case statistics
         case position
         case weapons
+        case parameters = "state"
     }
     
     public struct Statistics: Decodable {
@@ -78,6 +83,21 @@ struct Player: Decodable {
         let deaths: Int
         let mvps: Int
         let score: Int
+    }
+    
+}
+
+/* Parameters struct and enum for determining Player's state */
+extension Player {
+    
+    enum State: String {
+        case alive
+        case dead
+    }
+    
+    struct Parameters: Decodable {
+        let health: Int
+        let armor: Int
     }
     
 }
@@ -94,7 +114,7 @@ extension Player: Equatable {
 extension Player: CustomStringConvertible {
     
     var description: String {
-        return "SteamID: \(steamid)\nName: \(name)\nPosX: \(position.x), PosY: \(position.y)\nWeapons: \n\(weapons)"
+        return "SteamID: \(steamid)\nName: \(name)\nState: \(state)\nHealth: \(parameters.health), Armor: \(parameters.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)Weapons: \n\(weapons)"
     }
     
 }

@@ -18,5 +18,4 @@ class HistoryViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-
 }
