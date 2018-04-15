@@ -53,5 +53,6 @@ class CSSPPFIP25: XCTestCase {
         XCTAssertTrue(app.staticTexts["assistsLabel"].exists)
         XCTAssertTrue(app.staticTexts["mvpLabel"].exists)
         XCTAssertTrue(app.staticTexts["scoreLabel"].exists)
+        
     }
 }
