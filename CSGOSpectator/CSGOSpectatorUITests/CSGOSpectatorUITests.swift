@@ -7,8 +7,8 @@
 //
 
 import XCTest
-
-class CSGOSpectatorUITests: XCTestCase {
+let app = XCUIApplication()
+class CSSPPFIP25: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -28,9 +28,23 @@ class CSGOSpectatorUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDeathsLabel() {
+        XCTContext.runActivity(named: "Checking if Deaths Column Label is displayed") { _ in XCTAssertTrue(app.staticTexts["D"].exists)}
     }
-    
+    func testKillsLabel() {
+         XCTContext.runActivity(named: "Checking if Kills Column Label is displayed") { _ in
+            XCTAssertTrue(app.staticTexts["K"].exists)}
+    }
+    func testMVPLabel() {
+        XCTContext.runActivity(named: "Checking if MVP Column Label is displayed") { _ in
+            XCTAssertTrue(app.staticTexts["MVP"].exists)}
+    }
+    func testAssistsLabel() {
+        XCTContext.runActivity(named: "Checking if Assists Column Label is displayed") { _ in
+            XCTAssertTrue(app.staticTexts["A"].exists)}
+    }
+    func testScoreLabel() {
+        XCTContext.runActivity(named: "Checking if Score Column Label is displayed") { _ in
+            XCTAssertTrue(app.staticTexts["SCORE"].exists)}
+    }
 }
