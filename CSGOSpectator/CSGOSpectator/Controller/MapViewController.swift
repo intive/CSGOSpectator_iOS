@@ -77,11 +77,9 @@ extension MapViewController {
     }
     
     func updateDotsPosition() {
-        for index in 0 ..< players.count {
-            let location = locationForPlayer(players[index])
-            let dot = dots[index]
-            let frame = CGRect(x: location.x, y: location.y, width: dotSize, height: dotSize)
-            dot.frame = frame
+        guard (!dots.isEmpty) else { return }
+        for (index, dot) in dots.enumerated() {
+            dot.center = locationForPlayer(players[index])
         }
     }
     

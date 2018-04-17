@@ -27,7 +27,7 @@ struct Player: Decodable {
     let weapons: [Weapon]
     let state: State
     
-    var isAlive: Bool { return state.health > 0 }
+    //var isAlive: Bool { return state.health > 0 }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -41,7 +41,7 @@ struct Player: Decodable {
         } else {
             position = CGPoint(x: 0, y: 0)
         }
-        weapons = try [Weapon](values.decode([String: Weapon].self, forKey: .weapons).values)
+        weapons = try values.decode([Weapon].self, forKey: .weapons)
         state = try values.decode(Player.State.self, forKey: .state)
     }
     
@@ -89,10 +89,11 @@ extension Player: Equatable {
 }
 
 /* Description */
-extension Player: CustomStringConvertible {
-    
-    var description: String {
-        return "SteamID: \(steamid)\nName: \(name)\nAlive: \(isAlive)\nHealth: \(state.health), Armor: \(state.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)\nWeapons: \n\(weapons)"
-    }
-    
-}
+//extension Player: CustomStringConvertible {
+//
+//    var description: String {
+//        return "SteamID: \(steamid)\nName: \(name)\nAlive: \(isAlive)\nHealth: \(state.health), Armor: \(state.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)\nWeapons: \n\(weapons)"
+//    }
+//
+//}
+
