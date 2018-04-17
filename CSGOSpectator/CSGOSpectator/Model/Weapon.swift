@@ -10,27 +10,8 @@ import Foundation
 
 struct Weapon: Decodable {
     let name: WeaponName
-    let type: WeaponType
+    let type: WeaponType?
     let state: WeaponState
-    
-    init(name: WeaponName, type: WeaponType, state: WeaponState) {
-        self.name = name
-        self.type = type
-        self.state = state
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        name = try values.decode(WeaponName.self, forKey: .name)
-        type = try values.decode(WeaponType.self, forKey: .type)
-        state = try values.decode(WeaponState.self, forKey: .state)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case type
-        case state
-    }
 }
 
 /* Name, Type, State enums */

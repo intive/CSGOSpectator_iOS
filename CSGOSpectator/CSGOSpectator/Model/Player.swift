@@ -25,9 +25,9 @@ struct Player: Decodable {
     let position: CGPoint
     let statistics: Statistics
     let weapons: [Weapon]
-    let parameters: Parameters
+    let state: State
     
-    var state: State { return parameters.health > 0 ? .alive : .dead }
+    var isAlive: Bool { return state.health > 0 }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -41,25 +41,8 @@ struct Player: Decodable {
         } else {
             position = CGPoint(x: 0, y: 0)
         }
-        let weaponsDictionary = try values.decode([String: [String: String]].self, forKey: .weapons)
-        var newWeapons = [Weapon]()
-        for index in 0 ... 10 {
-            if let weaponInfo = weaponsDictionary["weapon_\(index)"] {
-                if let type = Weapon.WeaponType(rawValue: weaponInfo["type"]!) {
-                    if let name = Weapon.WeaponName(rawValue: weaponInfo["name"]!) {
-                        if let state = Weapon.WeaponState(rawValue: weaponInfo["state"]!) {
-                            let newWeapon = Weapon(name: name, type: type, state: state)
-                            newWeapons.append(newWeapon)
-                        }
-                    }
-                }
-            } else {
-                /* If no more weapons, stop searching */
-                break
-            }
-        }
-        weapons = newWeapons
-        parameters = try values.decode(Player.Parameters.self, forKey: .parameters)
+        weapons = try [Weapon](values.decode([String: Weapon].self, forKey: .weapons).values)
+        state = try values.decode(Player.State.self, forKey: .state)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -74,7 +57,7 @@ struct Player: Decodable {
         case statistics
         case position
         case weapons
-        case parameters = "state"
+        case state
     }
     
     public struct Statistics: Decodable {
@@ -90,12 +73,7 @@ struct Player: Decodable {
 /* Parameters struct and enum for determining Player's state */
 extension Player {
     
-    enum State: String {
-        case alive
-        case dead
-    }
-    
-    struct Parameters: Decodable {
+    struct State: Decodable {
         let health: Int
         let armor: Int
     }
@@ -114,7 +92,7 @@ extension Player: Equatable {
 extension Player: CustomStringConvertible {
     
     var description: String {
-        return "SteamID: \(steamid)\nName: \(name)\nState: \(state)\nHealth: \(parameters.health), Armor: \(parameters.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)Weapons: \n\(weapons)"
+        return "SteamID: \(steamid)\nName: \(name)\nAlive: \(isAlive)\nHealth: \(state.health), Armor: \(state.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)\nWeapons: \n\(weapons)"
     }
     
 }

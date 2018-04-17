@@ -20,8 +20,8 @@ class LiveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let jsonData = getJSON(named: "model") else { return }
-        currentMatch = gameFromJSON(json: jsonData)
+        guard let jsonData = getJSON(named: "sample") else { return }
+        currentMatch = gameFromJSON(json: jsonData)?.first
         updateChildViews()
         updateBackground()
         updateResultsView()
@@ -81,9 +81,9 @@ extension LiveViewController {
             return nil
         }
     }
-    func gameFromJSON(json: Data) -> Game? {
+    func gameFromJSON(json: Data) -> [Game]? {
         do {
-            let game = try JSONDecoder().decode(Game.self, from: json)
+            let game = try JSONDecoder().decode([Game].self, from: json)
             return game
         } catch let err {
             print(err.localizedDescription)
