@@ -52,20 +52,31 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ct_logo" translatesAutoresizingMaskIntoConstraints="NO" id="BDH-Kk-yLt">
                     <rect key="frame" x="44" y="25" width="61" height="61"/>
+                    <accessibility key="accessibilityConfiguration" identifier="antiTerIcon">
+                        <accessibilityTraits key="traits" image="YES" staticText="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="4Ec-o5-cxz"/>
                         <constraint firstAttribute="width" constant="61" id="LOi-Rb-deA"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="accesibilityIdentifier" value="antitIcon"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="antiTerIcon"/>
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t_logo" translatesAutoresizingMaskIntoConstraints="NO" id="noM-CE-aPl">
                     <rect key="frame" x="270.5" y="25" width="61" height="61"/>
+                    <accessibility key="accessibilityConfiguration" identifier="terIcon">
+                        <accessibilityTraits key="traits" image="YES" staticText="YES"/>
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstAttribute="height" constant="61" id="Aei-Au-KYM"/>
                         <constraint firstAttribute="width" constant="61" id="SmR-Xa-VfC"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="terIcon"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -87,7 +98,6 @@
         </view>
     </objects>
     <resources>
-        <image name="antitIcon" width="16" height="16"/>
         <image name="ct_logo" width="100" height="101"/>
         <image name="t_logo" width="107" height="101"/>
     </resources>
