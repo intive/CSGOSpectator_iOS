@@ -28,9 +28,25 @@ class checkingHeaderElements: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTerroristIconVisibility() {
+        XCTContext.runActivity(named: "Checking if Terrorists Icon is visible") { _ in
+            XCTAssertTrue(app.staticTexts["tIcon"].exists)}
+    }
+    func testAntiterroristIconVisibility() {
+        XCTContext.runActivity(named: "Checking if Antiterrorists Icon is visible") { _ in
+            XCTAssertTrue(app.staticTexts["antitIcon"].exists)}
+    }
+    func testTimeRemainValueVisibility() {
+        XCTContext.runActivity(named: "Checking if Time Remain cell is visible") { _ in
+            XCTAssertTrue(app.staticTexts["timeRemain"].exists)}
+    }
+    func testWhatScoreVisibility() {
+        XCTContext.runActivity(named: "Checking if the score cell is visible") { _ in
+            XCTAssertTrue(app.staticTexts["whatScore"].exists)}
+    }
+    func testWhichRoundVisibility() {
+        XCTContext.runActivity(named: "Checking if whichRound cell is visible") { _ in
+            XCTAssertTrue(app.staticTexts["whichRound"].exists)}
     }
     
 }
