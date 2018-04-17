@@ -8,7 +8,7 @@
 
 import XCTest
 
-class checkingHeaderElements: XCTestCase {
+class CheckingHeaderElements: XCTestCase {
         
     override func setUp() {
         super.setUp()
