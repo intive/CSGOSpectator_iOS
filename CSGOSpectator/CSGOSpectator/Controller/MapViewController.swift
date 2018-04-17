@@ -40,17 +40,17 @@ class MapViewController: UIViewController {
 extension MapViewController {
     
     func setCenter() {
-        let x = playersView.frame.width * 0.5333
-        let y = playersView.frame.height * 0.688
-        center = CGPoint(x: x, y: y)
+        let xyz = playersView.frame.width * 0.5333
+        let yzx = playersView.frame.height * 0.688
+        center = CGPoint(x: xyz, y: yzx)
     }
     
     func addPlayerDots() {
-        for i in 0 ..< players.count {
-            if currentMatch?.team(for: players[i]) == .terrorists {
-                addPlayerDot(tag: i, color: UIColor.terroristRed)
+        for item in 0 ..< players.count {
+            if currentMatch?.team(for: players[item]) == .terrorists {
+                addPlayerDot(tag: item, color: UIColor.terroristRed)
             } else {
-                addPlayerDot(tag: i, color: UIColor.counterBlue)
+                addPlayerDot(tag: item, color: UIColor.counterBlue)
             }
         }
     }
