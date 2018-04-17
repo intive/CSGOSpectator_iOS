@@ -33,7 +33,7 @@ class CSSPPFIP25: XCTestCase {
     }
     func testKillsLabel() {
          XCTContext.runActivity(named: "Checking if Kills Column Label is displayed") { _ in
-            XCTAssertTrue(app.staticTexts["K"].exists)}
+            XCTAssertTrue(app.staticTexts["Kikuhjsfjsfg"].exists)}
     }
     func testMVPLabel() {
         XCTContext.runActivity(named: "Checking if MVP Column Label is displayed") { _ in
