@@ -29,12 +29,12 @@ class CheckingHeaderElements: XCTestCase {
     }
     
     func testTerroristIconVisibility() {
-        XCTContext.runActivity(named: "Checking if Terrorists Icon is visible") { _ in
-            XCTAssertTrue(app.staticTexts["tIcon"].exists)}
+        XCTContext.runActivity(named: "Checking if Terrorists icon is visible") { _ in
+            XCTAssertTrue(app.staticTexts["terIcon"].exists)}
     }
     func testAntiterroristIconVisibility() {
-        XCTContext.runActivity(named: "Checking if Antiterrorists Icon is visible") { _ in
-            XCTAssertTrue(app.staticTexts["antitIcon"].exists)}
+        XCTContext.runActivity(named: "Checking if Antiterrorists icon is visible") { _ in
+            XCTAssertTrue(app.staticTexts["antiTerIcon"].exists)}
     }
     func testTimeRemainValueVisibility() {
         XCTContext.runActivity(named: "Checking if Time Remain cell is visible") { _ in
