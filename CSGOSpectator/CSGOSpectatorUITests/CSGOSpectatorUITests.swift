@@ -8,7 +8,7 @@
 
 import XCTest
 let app = XCUIApplication()
-class CSSPPFIP25: XCTestCase {
+class CheckingTableViewLabels: XCTestCase {
         
     override func setUp() {
         super.setUp()
