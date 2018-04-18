@@ -18,13 +18,24 @@ class LiveViewController: UIViewController {
     var pageController: PageViewController?
     var currentMatch: Game?
     
+    var gameStates = [Game]()
+    var gameIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let jsonData = getJSON(named: "model") else { return }
-        currentMatch = gameFromJSON(json: jsonData)
-        updateChildViews()
-        updateBackground()
-        updateResultsView()
+        guard let jsonData = getJSON(named: "sample") else { return }
+        guard let gameStates = gameFromJSON(json: jsonData) else { return }
+        var gameIndex = 0
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
+            self.currentMatch = gameStates[gameIndex]
+            gameIndex += 1
+            if gameIndex == gameStates.count - 1 {
+                gameIndex = 0
+            }
+            self.updateChildViews()
+            self.updateResultsView()
+            self.updateBackground()
+        })
     }
 
     func updateResultsView() {
@@ -39,7 +50,7 @@ class LiveViewController: UIViewController {
         }
     }
     
-    func updateChildViews() {
+    @objc func updateChildViews() {
         if let curr = currentMatch {
             guard let page = pageController else { return }
             page.currentMatch = curr
@@ -52,6 +63,7 @@ class LiveViewController: UIViewController {
             guard let map = page.pages[1] as? MapViewController else { return }
             map.currentMatch = curr
             map.players = curr.players
+            map.updateDotsPosition()
         }
     }
     
@@ -81,9 +93,9 @@ extension LiveViewController {
             return nil
         }
     }
-    func gameFromJSON(json: Data) -> Game? {
+    func gameFromJSON(json: Data) -> [Game]? {
         do {
-            let game = try JSONDecoder().decode(Game.self, from: json)
+            let game = try JSONDecoder().decode([Game].self, from: json)
             return game
         } catch let err {
             print(err.localizedDescription)

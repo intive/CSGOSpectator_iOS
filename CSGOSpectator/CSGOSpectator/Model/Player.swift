@@ -18,12 +18,16 @@ enum TeamName: String, Decodable {
     }
 }
 
-struct Player: Decodable, Equatable {
+struct Player: Decodable {
     
     let steamid: String
     let name: String
     let position: CGPoint
     let statistics: Statistics
+    let weapons: [Weapon]
+    let state: State
+    
+    //var isAlive: Bool { return state.health > 0 }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -37,6 +41,8 @@ struct Player: Decodable, Equatable {
         } else {
             position = CGPoint(x: 0, y: 0)
         }
+        weapons = try values.decode([Weapon].self, forKey: .weapons)
+        state = try values.decode(Player.State.self, forKey: .state)
     }
     
     enum CodingKeys: String, CodingKey {
@@ -50,6 +56,8 @@ struct Player: Decodable, Equatable {
         case team
         case statistics
         case position
+        case weapons
+        case state
     }
     
     public struct Statistics: Decodable {
@@ -60,7 +68,32 @@ struct Player: Decodable, Equatable {
         let score: Int
     }
     
+}
+
+/* Parameters struct and enum for determining Player's state */
+extension Player {
+    
+    struct State: Decodable {
+        let health: Int
+        let armor: Int
+    }
+    
+}
+
+/* Equatable protocol */
+extension Player: Equatable {
+    
     static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.steamid == rhs.steamid
     }
 }
+
+/* Description */
+//extension Player: CustomStringConvertible {
+//
+//    var description: String {
+//        return "SteamID: \(steamid)\nName: \(name)\nAlive: \(isAlive)\nHealth: \(state.health), Armor: \(state.armor)\nPosX: \(position.x), PosY: \(position.y)\nStatistics: \(statistics)\nWeapons: \n\(weapons)"
+//    }
+//
+//}
+

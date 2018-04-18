@@ -1,7 +1,9 @@
 disabled_rules: # rule identifiers to exclude from running
 - line_length
 - trailing_whitespace
+- identifier_name
 # Find all the available rules by running:
 # swiftlint rules
 excluded: # paths to ignore during linting. Takes precedence over `included`.
 - Pods
+- CSGOSpectator/Model/Weapon.swift

@@ -22,8 +22,12 @@
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
 		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
 		38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AED205AB8680075B508 /* PlayerCell.swift */; };
+		389EC21020810A8200F17163 /* GrenadeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20F20810A8200F17163 /* GrenadeType.swift */; };
+		389EC21320810D4800F17163 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC21220810D4800F17163 /* Weapon.swift */; };
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
+		38CFFF8520848A0F0030ADBD /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8420848A0F0030ADBD /* sample.json */; };
+		38CFFF8720848BC90030ADBD /* model-kopia.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8620848BC90030ADBD /* model-kopia.json */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4799206C3D2200467587 /* SettingsViewController.swift */; };
 		3F8F479C206C3D3200467587 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F479B206C3D3200467587 /* HistoryViewController.swift */; };
@@ -112,8 +116,12 @@
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		389EC20F20810A8200F17163 /* GrenadeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrenadeType.swift; sourceTree = "<group>"; };
+		389EC21220810D4800F17163 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		38CFFF8420848A0F0030ADBD /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
+		38CFFF8620848BC90030ADBD /* model-kopia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "model-kopia.json"; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8F4799206C3D2200467587 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F8F479B206C3D3200467587 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +225,8 @@
 				38997AE4205AB54C0075B508 /* Player.swift */,
 				38997AE6205AB5640075B508 /* Team.swift */,
 				38997AE8205AB5760075B508 /* Game.swift */,
+				389EC20F20810A8200F17163 /* GrenadeType.swift */,
+				389EC21220810D4800F17163 /* Weapon.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,7 +328,9 @@
 				CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */,
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
 				CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */,
+				38CFFF8620848BC90030ADBD /* model-kopia.json */,
 				38130791206A98DD00BC2BE3 /* model.json */,
+				38CFFF8420848A0F0030ADBD /* sample.json */,
 				CEE63CE2204ACE4F004ADBC4 /* Info.plist */,
 			);
 			path = CSGOSpectator;
@@ -545,8 +557,10 @@
 			files = (
 				38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */,
 				38130792206A98DD00BC2BE3 /* model.json in Resources */,
+				38CFFF8720848BC90030ADBD /* model-kopia.json in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */,
+				38CFFF8520848A0F0030ADBD /* sample.json in Resources */,
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
 				38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */,
 			);
@@ -838,6 +852,7 @@
 				3F8F479C206C3D3200467587 /* HistoryViewController.swift in Sources */,
 				38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
+				389EC21020810A8200F17163 /* GrenadeType.swift in Sources */,
 				38997AE7205AB5640075B508 /* Team.swift in Sources */,
 				384223F4207281D9007AD141 /* UIColor.swift in Sources */,
 				CEE63CD9204ACE4F004ADBC4 /* LiveViewController.swift in Sources */,
@@ -848,6 +863,7 @@
 				387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */,
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
+				389EC21320810D4800F17163 /* Weapon.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
 				3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */,
 			);
