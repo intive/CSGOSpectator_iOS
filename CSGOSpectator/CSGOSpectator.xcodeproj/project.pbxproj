@@ -239,11 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				38997AF1205ABC2B0075B508 /* ResultsHeaderView */,
+				38C618B52092523E00103CF1 /* PlayerDetailsCollectionViewCell */,
 				38997AED205AB8680075B508 /* PlayerCell.swift */,
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
 				38A5CEC22068377500442BBD /* FadedTableView.swift */,
-				387D86F82091D961000E0736 /* PlayerDetailsCollectionViewCell.swift */,
-				387D86F62091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +277,15 @@
 				384223F3207281D9007AD141 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38C618B52092523E00103CF1 /* PlayerDetailsCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				387D86F82091D961000E0736 /* PlayerDetailsCollectionViewCell.swift */,
+				387D86F62091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib */,
+			);
+			path = PlayerDetailsCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		3F5CB36D09A2F6125AA8E350 /* Pods */ = {

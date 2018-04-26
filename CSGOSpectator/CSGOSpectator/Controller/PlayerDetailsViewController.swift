@@ -31,8 +31,6 @@ class PlayerDetailsViewController: UIViewController {
     
     var cellSize = CGSize()
     
-    @IBOutlet weak var pageControl: UIPageControl!
-    
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -45,13 +43,16 @@ class PlayerDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        cellSize = CGSize(width: view.frame.width, height: view.frame.width)
+        let width = collectionView.frame.width
+        cellSize = CGSize(width: width, height: width * 1.1)
         collectionView.reloadData()
         guard !players.isEmpty else { return }
-        pageControl.numberOfPages = players.count
-        pageControl.currentPage = pickedPlayerIndex
         let path = IndexPath(row: pickedPlayerIndex, section: 0)
         collectionView.scrollToItem(at: path, at: .left, animated: false)
+    }
+    
+    func presentSteamProfile(player: Player) {
+        print("Will show steam profile for \(player.name)")
     }
     
 }
@@ -72,6 +73,9 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
         let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
         cell.player = player
         cell.setup(team: team)
+        cell.buttonCallback = { p in
+            self.presentSteamProfile(player: p)
+        }
         return cell
     }
     
@@ -81,13 +85,6 @@ extension PlayerDetailsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offsetX = scrollView.contentOffset.x
-        let index = Int((offsetX / scrollView.contentSize.width) * 10)
-        guard index >= 0 && index <= players.count - 1 else { return }
-        pageControl.currentPage = index
     }
     
 }
@@ -125,7 +122,7 @@ extension PlayerDetailsViewController: UIGestureRecognizerDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let location = touches.first?.location(in: view.window) else { return }
-        if !collectionView.frame.contains(location) || !pageControl.frame.contains(location) {
+        if !collectionView.frame.contains(location) {
             self.dismiss(animated: true)
         }
     }
@@ -133,16 +130,6 @@ extension PlayerDetailsViewController: UIGestureRecognizerDelegate {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         dismissDelegate?.viewDismissed()
         super.dismiss(animated: flag, completion: completion)
-    }
-    
-    @IBAction func tapOnPageControl(_ sender: UITapGestureRecognizer) {
-        let location = sender.location(in: pageControl)
-        let posX = location.x
-        let index = Int((posX / pageControl.frame.width) * 10)
-        print(index)
-        let path = IndexPath(row: index, section: 0)
-        collectionView.scrollToItem(at: path, at: .left, animated: true)
-        pageControl.currentPage = index
     }
     
 }

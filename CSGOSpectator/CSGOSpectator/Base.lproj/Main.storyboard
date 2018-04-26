@@ -473,12 +473,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvp-lQ-afu">
-                                <rect key="frame" x="0.0" y="153.5" width="375" height="360"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvp-lQ-afu">
+                                <rect key="frame" x="0.0" y="98" width="375" height="481"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="360" id="t7N-7Y-nkM"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KnF-4z-KcF">
                                     <size key="itemSize" width="349" height="340"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -487,7 +484,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="VRc-9D-0RE" customClass="PlayerDetailsCollectionViewCell" customModule="CSGOSpectator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10" width="348" height="340"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="348" height="340"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="340"/>
@@ -497,41 +494,35 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="KcW-Vv-Qmd">
-                                <rect key="frame" x="168" y="529.5" width="39" height="37"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="c1z-Cm-fe5" appends="YES" id="40Z-0L-X1a"/>
-                                </connections>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="KcW-Vv-Qmd" firstAttribute="centerX" secondItem="y7y-jd-t6D" secondAttribute="centerX" id="2Oy-WS-DN3"/>
-                            <constraint firstItem="KcW-Vv-Qmd" firstAttribute="top" secondItem="Mvp-lQ-afu" secondAttribute="bottom" constant="16" id="FcC-QV-gNQ"/>
-                            <constraint firstItem="Mvp-lQ-afu" firstAttribute="centerY" secondItem="y7y-jd-t6D" secondAttribute="centerY" id="lUg-OQ-DKa"/>
-                            <constraint firstItem="GoW-9Q-XJ4" firstAttribute="trailing" secondItem="Mvp-lQ-afu" secondAttribute="trailing" id="mnx-BC-lbT"/>
-                            <constraint firstItem="Mvp-lQ-afu" firstAttribute="leading" secondItem="GoW-9Q-XJ4" secondAttribute="leading" id="nHT-X6-2wh"/>
+                            <constraint firstItem="Mvp-lQ-afu" firstAttribute="top" secondItem="GoW-9Q-XJ4" secondAttribute="top" constant="78" id="4sb-bk-bqB"/>
+                            <constraint firstItem="Mvp-lQ-afu" firstAttribute="trailing" secondItem="GoW-9Q-XJ4" secondAttribute="trailing" id="K3K-Iq-vcG"/>
+                            <constraint firstItem="GoW-9Q-XJ4" firstAttribute="bottom" secondItem="Mvp-lQ-afu" secondAttribute="bottom" constant="88" id="gCp-Qs-DhE"/>
+                            <constraint firstItem="Mvp-lQ-afu" firstAttribute="leading" secondItem="GoW-9Q-XJ4" secondAttribute="leading" id="s1s-eP-a6i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoW-9Q-XJ4"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Wmi-JQ-7zt" appends="YES" id="pG9-qQ-enB"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Mvp-lQ-afu" id="3Sx-VP-s9Q"/>
-                        <outlet property="pageControl" destination="KcW-Vv-Qmd" id="zrz-wV-AQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhy-Rn-Qdm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Wmi-JQ-7zt">
-                    <connections>
-                        <action selector="panGestureHandler:" destination="LLG-th-cAi" id="Mtn-BB-fv7"/>
-                    </connections>
-                </panGestureRecognizer>
                 <tapGestureRecognizer id="c1z-Cm-fe5">
                     <connections>
                         <action selector="tapOnPageControl:" destination="LLG-th-cAi" id="d1k-Wq-zDj"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Wmi-JQ-7zt">
+                    <connections>
+                        <action selector="panGestureHandler:" destination="LLG-th-cAi" id="H9a-zq-bHG"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2292" y="882.90854572713647"/>
         </scene>
