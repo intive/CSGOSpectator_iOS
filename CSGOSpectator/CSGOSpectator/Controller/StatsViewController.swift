@@ -13,6 +13,7 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var tableView: FadedTableView!
         
     var currentMatch: Game?
+    var parentLiveViewController: LiveViewController?
     
     var players = [Player]()
 
@@ -51,6 +52,29 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.parentLiveViewController?.blurBackground.alpha = 1.0
+        })
+        UIApplication.shared.statusBarStyle = .lightContent
+        guard let playerDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "details") as? PlayerDetailsViewController else { return }
+        playerDetailsViewController.dismissDelegate = self
+        playerDetailsViewController.players = players
+        playerDetailsViewController.currentMatch = currentMatch
+        playerDetailsViewController.modalTransitionStyle = .coverVertical
+        playerDetailsViewController.modalPresentationStyle = .overFullScreen
+        playerDetailsViewController.pickedPlayerIndex = indexPath.row
+        present(playerDetailsViewController, animated: true, completion: nil)
+    }
+    
+}
+
+extension StatsViewController: PlayerDetailsViewControllerDelegate {
+    
+    func viewDismissed() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.parentLiveViewController?.blurBackground.alpha = 0.0
+        })
+        UIApplication.shared.statusBarStyle = .default
     }
     
 }

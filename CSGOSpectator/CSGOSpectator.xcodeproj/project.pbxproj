@@ -18,6 +18,9 @@
 		387883AA20679AC300DBB83C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883A920679AC300DBB83C /* MapViewController.swift */; };
 		387883AC20679DE300DBB83C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AB20679DE300DBB83C /* PageViewController.swift */; };
 		387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AD2067A1A200DBB83C /* StatsViewController.swift */; };
+		387D86F72091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387D86F62091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib */; };
+		387D86F92091D961000E0736 /* PlayerDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387D86F82091D961000E0736 /* PlayerDetailsCollectionViewCell.swift */; };
+		387D86FB2091D96D000E0736 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387D86FA2091D96D000E0736 /* PlayerDetailsViewController.swift */; };
 		38997AE5205AB54C0075B508 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE4205AB54C0075B508 /* Player.swift */; };
 		38997AE7205AB5640075B508 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE6205AB5640075B508 /* Team.swift */; };
 		38997AE9205AB5760075B508 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38997AE8205AB5760075B508 /* Game.swift */; };
@@ -27,7 +30,6 @@
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
 		38CFFF8520848A0F0030ADBD /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8420848A0F0030ADBD /* sample.json */; };
-		38CFFF8720848BC90030ADBD /* model-kopia.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8620848BC90030ADBD /* model-kopia.json */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4799206C3D2200467587 /* SettingsViewController.swift */; };
 		3F8F479C206C3D3200467587 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F479B206C3D3200467587 /* HistoryViewController.swift */; };
@@ -112,6 +114,9 @@
 		387883A920679AC300DBB83C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		387883AB20679DE300DBB83C /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		387883AD2067A1A200DBB83C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		387D86F62091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		387D86F82091D961000E0736 /* PlayerDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		387D86FA2091D96D000E0736 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		38997AE4205AB54C0075B508 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		38997AE6205AB5640075B508 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -121,7 +126,6 @@
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		38CFFF8420848A0F0030ADBD /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
-		38CFFF8620848BC90030ADBD /* model-kopia.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "model-kopia.json"; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8F4799206C3D2200467587 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F8F479B206C3D3200467587 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				38997AED205AB8680075B508 /* PlayerCell.swift */,
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
 				38A5CEC22068377500442BBD /* FadedTableView.swift */,
+				387D86F82091D961000E0736 /* PlayerDetailsCollectionViewCell.swift */,
+				387D86F62091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +257,7 @@
 				3F8F4799206C3D2200467587 /* SettingsViewController.swift */,
 				387883AD2067A1A200DBB83C /* StatsViewController.swift */,
 				3F8F479B206C3D3200467587 /* HistoryViewController.swift */,
+				387D86FA2091D96D000E0736 /* PlayerDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,7 +335,6 @@
 				CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */,
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
 				CEE63CDF204ACE4F004ADBC4 /* LaunchScreen.storyboard */,
-				38CFFF8620848BC90030ADBD /* model-kopia.json */,
 				38130791206A98DD00BC2BE3 /* model.json */,
 				38CFFF8420848A0F0030ADBD /* sample.json */,
 				CEE63CE2204ACE4F004ADBC4 /* Info.plist */,
@@ -557,11 +563,11 @@
 			files = (
 				38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */,
 				38130792206A98DD00BC2BE3 /* model.json in Resources */,
-				38CFFF8720848BC90030ADBD /* model-kopia.json in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				CEE63CDE204ACE4F004ADBC4 /* Assets.xcassets in Resources */,
 				38CFFF8520848A0F0030ADBD /* sample.json in Resources */,
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
+				387D86F72091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib in Resources */,
 				38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,9 +864,11 @@
 				CEE63CD9204ACE4F004ADBC4 /* LiveViewController.swift in Sources */,
 				38294234205AC72300295B84 /* Int.swift in Sources */,
 				387883AA20679AC300DBB83C /* MapViewController.swift in Sources */,
+				387D86F92091D961000E0736 /* PlayerDetailsCollectionViewCell.swift in Sources */,
 				387883AC20679DE300DBB83C /* PageViewController.swift in Sources */,
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
 				387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */,
+				387D86FB2091D96D000E0736 /* PlayerDetailsViewController.swift in Sources */,
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
 				389EC21320810D4800F17163 /* Weapon.swift in Sources */,
@@ -1064,7 +1072,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X9R52MUX9W;
+				DEVELOPMENT_TEAM = 5346R7RC8E;
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1083,7 +1091,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X9R52MUX9W;
+				DEVELOPMENT_TEAM = 5346R7RC8E;
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

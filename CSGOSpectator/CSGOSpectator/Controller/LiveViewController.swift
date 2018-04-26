@@ -14,6 +14,7 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var headerView: ResultsHeaderView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var blurBackground: UIVisualEffectView!
     
     var pageController: PageViewController?
     var currentMatch: Game?
@@ -26,16 +27,21 @@ class LiveViewController: UIViewController {
         guard let jsonData = getJSON(named: "sample") else { return }
         guard let gameStates = gameFromJSON(json: jsonData) else { return }
         var gameIndex = 0
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
-            self.currentMatch = gameStates[gameIndex]
-            gameIndex += 1
-            if gameIndex == gameStates.count - 1 {
-                gameIndex = 0
-            }
-            self.updateChildViews()
-            self.updateResultsView()
-            self.updateBackground()
-        })
+//        let timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
+//            self.currentMatch = gameStates[gameIndex]
+//            gameIndex += 1
+//            if gameIndex == gameStates.count - 1 {
+//                gameIndex = 0
+//            }
+//            self.updateChildViews()
+//            self.updateResultsView()
+//            self.updateBackground()
+//        })
+        currentMatch = gameStates.last
+        updateChildViews()
+        updateResultsView()
+        updateBackground()
+        blurBackground.alpha = 0
     }
 
     func updateResultsView() {
@@ -56,6 +62,7 @@ class LiveViewController: UIViewController {
             page.currentMatch = curr
             
             guard let stats = page.pages[0] as? StatsViewController else { return }
+            stats.parentLiveViewController = self
             stats.currentMatch = curr
             stats.players = curr.players.sorted(by: { $0.statistics.score > $1.statistics.score })
             stats.tableView.reloadData()
