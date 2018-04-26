@@ -77,7 +77,7 @@ extension MapViewController {
     }
     
     func updateDotsPosition() {
-        guard (!dots.isEmpty) else { return }
+        guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
             dot.center = locationForPlayer(players[index])
         }

@@ -16,7 +16,7 @@
 
 import UIKit
 
-protocol PlayerDetailsViewControllerDelegate {
+protocol PlayerDetailsViewControllerDelegate: class {
     func viewDismissed()
 }
 
@@ -33,7 +33,7 @@ class PlayerDetailsViewController: UIViewController {
     
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var dismissDelegate: PlayerDetailsViewControllerDelegate?
+    weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
