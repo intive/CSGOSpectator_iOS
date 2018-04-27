@@ -79,6 +79,10 @@ class LiveViewController: UIViewController {
             self.pageController = destination
         }
     }
+    
+    func changeStatusBarAppearance(style: UIStatusBarStyle) {
+        UIApplication.shared.statusBarStyle = style
+    }
 
 }
 

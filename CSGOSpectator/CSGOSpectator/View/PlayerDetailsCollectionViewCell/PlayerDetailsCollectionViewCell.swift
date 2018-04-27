@@ -42,8 +42,8 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
         mainView.layer.cornerRadius = 16
         mainView.layer.borderWidth = 2
         mainView.layer.borderColor = UIColor.gray.cgColor
-        avatarImageView.layer.cornerRadius = 6
-        avatarImageView.layer.borderWidth = 4
+        avatarImageView.layer.cornerRadius = 2
+        avatarImageView.layer.borderWidth = 2
         avatarImageView.layer.borderColor = borderColor
     }
     

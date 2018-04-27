@@ -144,13 +144,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obc-hI-XvG">
-                                                    <rect key="frame" x="291" y="14" width="35.5" height="17"/>
+                                                    <rect key="frame" x="291" y="14" width="80" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.99924319982528687" green="0.6412501335144043" blue="0.63738346099853516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anty" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ad-P0-sH7">
-                                                    <rect key="frame" x="51" y="14" width="32" height="17"/>
+                                                    <rect key="frame" x="4" y="14" width="79" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <color key="textColor" red="0.81256359815597534" green="0.90850704908370972" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -314,11 +314,13 @@
                                             <constraints>
                                                 <constraint firstItem="06q-iv-Aqr" firstAttribute="top" secondItem="l8s-La-G59" secondAttribute="top" constant="4" id="5q8-tJ-B4M"/>
                                                 <constraint firstItem="06q-iv-Aqr" firstAttribute="centerY" secondItem="l8s-La-G59" secondAttribute="centerY" id="8mc-PC-jmM"/>
+                                                <constraint firstItem="7ad-P0-sH7" firstAttribute="leading" secondItem="l8s-La-G59" secondAttribute="leading" constant="4" id="EI6-NE-l1H"/>
                                                 <constraint firstItem="obc-hI-XvG" firstAttribute="leading" secondItem="06q-iv-Aqr" secondAttribute="trailing" constant="6" id="MoC-hS-VY7"/>
                                                 <constraint firstItem="7ad-P0-sH7" firstAttribute="centerY" secondItem="l8s-La-G59" secondAttribute="centerY" id="QDD-vI-EDY"/>
                                                 <constraint firstItem="obc-hI-XvG" firstAttribute="centerY" secondItem="l8s-La-G59" secondAttribute="centerY" id="hd9-8C-yn1"/>
                                                 <constraint firstItem="06q-iv-Aqr" firstAttribute="centerX" secondItem="l8s-La-G59" secondAttribute="centerX" id="iMR-B3-ghx"/>
                                                 <constraint firstItem="06q-iv-Aqr" firstAttribute="leading" secondItem="7ad-P0-sH7" secondAttribute="trailing" constant="8" id="joa-R0-rjw"/>
+                                                <constraint firstAttribute="trailing" secondItem="obc-hI-XvG" secondAttribute="trailing" constant="4" id="pjN-Yp-atx"/>
                                                 <constraint firstAttribute="bottom" secondItem="06q-iv-Aqr" secondAttribute="bottom" constant="4" id="wpP-pQ-Vhj"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -474,7 +476,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvp-lQ-afu">
-                                <rect key="frame" x="0.0" y="98" width="375" height="481"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KnF-4z-KcF">
                                     <size key="itemSize" width="349" height="340"/>
@@ -484,7 +486,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="VRc-9D-0RE" customClass="PlayerDetailsCollectionViewCell" customModule="CSGOSpectator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70.5" width="348" height="340"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="348" height="340"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="340"/>
@@ -500,7 +502,7 @@
                         <constraints>
                             <constraint firstItem="Mvp-lQ-afu" firstAttribute="top" secondItem="GoW-9Q-XJ4" secondAttribute="top" constant="78" id="4sb-bk-bqB"/>
                             <constraint firstItem="Mvp-lQ-afu" firstAttribute="trailing" secondItem="GoW-9Q-XJ4" secondAttribute="trailing" id="K3K-Iq-vcG"/>
-                            <constraint firstItem="GoW-9Q-XJ4" firstAttribute="bottom" secondItem="Mvp-lQ-afu" secondAttribute="bottom" constant="88" id="gCp-Qs-DhE"/>
+                            <constraint firstItem="GoW-9Q-XJ4" firstAttribute="bottom" secondItem="Mvp-lQ-afu" secondAttribute="bottom" constant="108" id="eVs-xP-aFD"/>
                             <constraint firstItem="Mvp-lQ-afu" firstAttribute="leading" secondItem="GoW-9Q-XJ4" secondAttribute="leading" id="s1s-eP-a6i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GoW-9Q-XJ4"/>

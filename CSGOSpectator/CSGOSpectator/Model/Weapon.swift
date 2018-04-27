@@ -95,7 +95,7 @@ extension Weapon {
 extension Weapon: CustomStringConvertible {
     
     var description: String {
-        return "Name: \(name)\nType: \(type)\nState: \(state)\n"
+        return "Name: \(name)\nType: \(type?.rawValue ?? " - ")\nState: \(state)\n"
     }
     
 }
