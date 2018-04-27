@@ -28,9 +28,16 @@ class SwitchingFromTableViewToMapView: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSwitchFromTableToMap() {
+        XCTContext.runActivity(named: "Checking if user can switch from Table view to the Map view") { _ in
+        app.pageIndicators["page 1 of 2"].tap()
+        XCTAssertTrue(app.staticTexts["map"].exists)}
     }
-    
-}
+    func testSwitchFromMapToTable() {
+        XCTContext.runActivity(named: "Checking if user can switch from Map view to the Table view") { _ in
+        app.pageIndicators["page 1 of 2"].tap()
+        app.pageIndicators["page 2 of 2"].tap()
+        XCTAssertTrue(app.staticTexts["MVP"].exists)}
+    }
+    }
+
