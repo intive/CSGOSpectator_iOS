@@ -94,7 +94,7 @@ extension MapViewController {
         position.y += center.y
         return position
     }
-    
+        
     func updateDotsPosition() {
         guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
