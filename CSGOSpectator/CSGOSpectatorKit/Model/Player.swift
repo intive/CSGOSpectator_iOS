@@ -20,15 +20,15 @@ public enum TeamName: String, Decodable {
 
 public struct Player: Decodable {
 
-    let steamid: String
-    let name: String
-    let position: CGPoint
-    let rotation: CGFloat
-    let statistics: Statistics
-    let weapons: [Weapon]
-    let state: State
-    
-    //var isAlive: Bool { return state.health > 0 }
+    public let steamid: String
+    public let name: String
+    public let position: CGPoint
+    public let rotation: CGFloat
+    public let statistics: Statistics
+    public let weapons: [Weapon]
+    public let state: State
+
+    public var isAlive: Bool { return state.health > 0 }
     
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -47,7 +47,6 @@ public struct Player: Decodable {
         let rot = try values.decode(String.self, forKey: .forward)
         let angleX = Float(rot.components(separatedBy: ", ").first ?? "0") ?? 0.0
         rotation = CGFloat(angleX)
-        print("\(name): \(rotation)")
     }
     
     public enum CodingKeys: String, CodingKey {

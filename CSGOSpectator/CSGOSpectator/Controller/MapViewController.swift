@@ -94,12 +94,20 @@ extension MapViewController {
         position.y += center.y
         return position
     }
-        
+    
+    func rotatePlayerDot(_ dot: PlayerDotView) {
+        guard let index = dots.index(of: dot) else { return }
+        if players.isEmpty { return }
+        let playerRotation = players[index].rotation
+        dot.transform = CGAffineTransform(rotationAngle: playerRotation)
+    }
+    
     func updateDotsPosition() {
         guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
             UIView.animate(withDuration: 0.1) {
                 dot.center = self.locationForPlayer(self.players[index])
+                self.rotatePlayerDot(dot)
             }
         }
     }
