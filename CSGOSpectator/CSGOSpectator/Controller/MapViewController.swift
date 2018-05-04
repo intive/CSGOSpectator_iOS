@@ -20,8 +20,8 @@ class MapViewController: UIViewController {
     
     var currentMatch: Game?
     var players = [Player]()
-    var dots = [UIButton]()
-    let dotSize: CGFloat = 14       //Size of the player's dot
+    var dots = [PlayerDotView]()
+    let dotSize: CGFloat = 16       //Size of the player's dot
     let mapSize: CGFloat = 4450     //Size of the in-game map
     
     var center = CGPoint()
@@ -67,24 +67,22 @@ extension MapViewController {
     }
     
     func addPlayerDots() {
-        for i in 0 ..< players.count {
-            if currentMatch?.team(for: players[i]) == .terrorists {
-                addPlayerDot(tag: i, color: UIColor.terroristRed)
+        for (index, player) in players.enumerated() {
+            if currentMatch?.team(for: player) == .terrorists {
+                addPlayerDot(tag: index, color: UIColor.terroristRed)
             } else {
-                addPlayerDot(tag: i, color: UIColor.counterBlue)
+                addPlayerDot(tag: index, color: UIColor.counterBlue)
             }
         }
     }
     
     func addPlayerDot(tag: Int, color: UIColor?) {
         let frame = CGRect(x: 0, y: 0, width: dotSize, height: dotSize)
-        let playerDot = UIButton(type: .system)
-        playerDot.frame = frame
-        playerDot.layer.cornerRadius = frame.width / 2
-        playerDot.backgroundColor = color
+        let playerDot = PlayerDotView(frame: frame)
         playerDot.clipsToBounds = true
-        playerDot.tag = tag
-        playerDot.addTarget(self, action: #selector(playerPressed(_:)), for: .touchUpInside)
+        playerDot.button.tintColor = color
+        playerDot.button.tag = tag
+        playerDot.button.addTarget(self, action: #selector(playerPressed(_:)), for: .touchUpInside)
         dots.append(playerDot)
         playersView.addSubview(playerDot)
     }
