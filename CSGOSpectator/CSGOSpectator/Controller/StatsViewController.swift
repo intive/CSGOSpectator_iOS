@@ -54,7 +54,6 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         UIView.animate(withDuration: 0.5, animations: {
             self.parentLiveViewController?.blurBackground.alpha = 1.0
-            UIApplication.shared.statusBarStyle = .lightContent
         })
         guard let playerDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "details") as? PlayerDetailsViewController else { return }
         playerDetailsViewController.dismissDelegate = self

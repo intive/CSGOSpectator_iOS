@@ -43,6 +43,7 @@ class PlayerDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        UIApplication.shared.statusBarStyle = .lightContent
         let width = collectionView.frame.width
         cellSize = CGSize(width: width, height: width * 1.1)
         collectionView.reloadData()
@@ -71,10 +72,9 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PlayerDetailsCollectionViewCell else { return UICollectionViewCell() }
         let player = players[indexPath.row]
         let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
-        cell.player = player
-        cell.setup(team: team)
-        cell.buttonCallback = { p in
-            self.presentSteamProfile(player: p)
+        cell.setup(player: player, team: team)
+        cell.buttonCallback = { [weak self] in
+            self?.presentSteamProfile(player: player)
         }
         return cell
     }

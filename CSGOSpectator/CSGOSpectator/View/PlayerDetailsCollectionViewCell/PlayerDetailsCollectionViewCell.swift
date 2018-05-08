@@ -18,16 +18,15 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var steamButton: UIButton!
     
-    var player: Player!
     var borderColor: CGColor!
     
-    var buttonCallback: ((Player) -> Void)?
+    var buttonCallback: (() -> Void)?
     
-    func setup(team: TeamName) {
+    func setup(player: Player, team: TeamName) {
         clanLabel.text = "Empty"
-        nickLabel.text = player.name
+        nickLabel.text = "Empty"
         countryLabel.text = "Empty"
-        nameLabel.text = "Empty"
+        nameLabel.text = player.name
         if team == .counterTerrorists {
             borderColor = UIColor.counterBlue.cgColor
         } else {
@@ -38,7 +37,6 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         layoutIfNeeded()
-        nameLabel.text = player.name
         mainView.layer.cornerRadius = 16
         mainView.layer.borderWidth = 2
         mainView.layer.borderColor = UIColor.gray.cgColor
@@ -48,7 +46,7 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func steamButtonPressed(_ sender: UIButton) {
-        buttonCallback?(player)
+        buttonCallback?()
     }
 
 }
