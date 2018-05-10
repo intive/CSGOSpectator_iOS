@@ -98,7 +98,8 @@ extension MapViewController {
     func rotatePlayerDot(_ dot: PlayerDotView) {
         guard let index = dots.index(of: dot) else { return }
         if players.isEmpty { return }
-        let playerRotation = players[index].rotation
+        var playerRotation = players[index].rotation
+        if currentMatch?.team(for: players[index]) == .counterTerrorists { playerRotation *= -1 }
         dot.transform = CGAffineTransform(rotationAngle: playerRotation)
     }
     
