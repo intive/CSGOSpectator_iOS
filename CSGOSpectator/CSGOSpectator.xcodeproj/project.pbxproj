@@ -10,10 +10,8 @@
 		103D57397B5980123FCC2F7E /* Pods_CSGOSpectatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */; };
 		1212F36BAD06071A3B4CAF19 /* Pods_CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DE5DF4836CBEE7383F2941 /* Pods_CSGOSpectatorKit.framework */; };
 		38130792206A98DD00BC2BE3 /* model.json in Resources */ = {isa = PBXBuildFile; fileRef = 38130791206A98DD00BC2BE3 /* model.json */; };
-		3819003920A45166006D432C /* PlayerDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819003820A45166006D432C /* PlayerDrawerView.swift */; };
-		3819003D20A45261006D432C /* MapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819003C20A45261006D432C /* MapContainerViewController.swift */; };
+		3819003920A45166006D432C /* PlayerDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819003820A45166006D432C /* PlayerDrawerViewController.swift */; };
 		3819004020A45384006D432C /* WeaponCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819003E20A45384006D432C /* WeaponCollectionViewCell.swift */; };
-		3819004120A45384006D432C /* WeaponCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3819003F20A45384006D432C /* WeaponCollectionViewCell.xib */; };
 		38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */; };
 		38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38294231205AC30900295B84 /* ResultsHeaderView.xib */; };
 		38294234205AC72300295B84 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Int.swift */; };
@@ -113,10 +111,8 @@
 		19CE8F1E1F9278FDB28A9FA0 /* Pods_CSGOSpectatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CSGOSpectatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28447CBDDCC154AB97B1B511 /* Pods-CSGOSpectatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorTests/Pods-CSGOSpectatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38130791206A98DD00BC2BE3 /* model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = model.json; sourceTree = "<group>"; };
-		3819003820A45166006D432C /* PlayerDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDrawerView.swift; sourceTree = "<group>"; };
-		3819003C20A45261006D432C /* MapContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerViewController.swift; sourceTree = "<group>"; };
+		3819003820A45166006D432C /* PlayerDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDrawerViewController.swift; sourceTree = "<group>"; };
 		3819003E20A45384006D432C /* WeaponCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCollectionViewCell.swift; sourceTree = "<group>"; };
-		3819003F20A45384006D432C /* WeaponCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponCollectionViewCell.xib; sourceTree = "<group>"; };
 		3829422F205AC2EA00295B84 /* ResultsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHeaderView.swift; sourceTree = "<group>"; };
 		38294231205AC30900295B84 /* ResultsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsHeaderView.xib; sourceTree = "<group>"; };
 		38294233205AC72300295B84 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
@@ -258,9 +254,7 @@
 				38997AED205AB8680075B508 /* PlayerCell.swift */,
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
 				38A5CEC22068377500442BBD /* FadedTableView.swift */,
-				3819003820A45166006D432C /* PlayerDrawerView.swift */,
 				3819003E20A45384006D432C /* WeaponCollectionViewCell.swift */,
-				3819003F20A45384006D432C /* WeaponCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,7 +269,7 @@
 				387883AD2067A1A200DBB83C /* StatsViewController.swift */,
 				3F8F479B206C3D3200467587 /* HistoryViewController.swift */,
 				387D86FA2091D96D000E0736 /* PlayerDetailsViewController.swift */,
-				3819003C20A45261006D432C /* MapContainerViewController.swift */,
+				3819003820A45166006D432C /* PlayerDrawerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -598,7 +592,6 @@
 				CEE63CDC204ACE4F004ADBC4 /* Main.storyboard in Resources */,
 				387D86F72091D95B000E0736 /* PlayerDetailsCollectionViewCell.xib in Resources */,
 				38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */,
-				3819004120A45384006D432C /* WeaponCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,7 +889,7 @@
 				384223F4207281D9007AD141 /* UIColor.swift in Sources */,
 				389AAEDA20BAC9BB00ADAA5E /* SteamClient.swift in Sources */,
 				CEE63CD9204ACE4F004ADBC4 /* LiveViewController.swift in Sources */,
-				3819003920A45166006D432C /* PlayerDrawerView.swift in Sources */,
+				3819003920A45166006D432C /* PlayerDrawerViewController.swift in Sources */,
 				38294234205AC72300295B84 /* Int.swift in Sources */,
 				387883AA20679AC300DBB83C /* MapViewController.swift in Sources */,
 				387D86F92091D961000E0736 /* PlayerDetailsCollectionViewCell.swift in Sources */,

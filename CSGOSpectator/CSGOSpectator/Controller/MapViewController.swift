@@ -14,6 +14,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var playersView: UIView!
     
+    var drawerViewController: PlayerDrawerViewController?
+    
     var currentMatch: Game?
     var players = [Player]()
     var dots = [UIButton]()
@@ -33,6 +35,12 @@ class MapViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setCenter()
         updateDotsPosition()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PlayerDrawerViewController {
+            drawerViewController = destination
+        }
     }
     
 }
@@ -86,6 +94,10 @@ extension MapViewController {
     
     @objc func playerPressed(_ sender: UIButton) {
         print("You pressed on \(players[sender.tag].name)")
+        let player = players[sender.tag]
+        drawerViewController?.player = player
+        drawerViewController?.team = currentMatch?.team(for: player)
+        drawerViewController?.updateInfo()
     }
     
 }
