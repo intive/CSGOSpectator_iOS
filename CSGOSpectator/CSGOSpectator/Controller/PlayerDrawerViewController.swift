@@ -10,6 +10,7 @@ import UIKit
 
 class PlayerDrawerViewController: UIViewController {
 
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,14 +25,21 @@ class PlayerDrawerViewController: UIViewController {
     @IBOutlet weak var currentArmor: UIView!
     var cellSize = CGSize()
     
+    var shown = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+ //       hide()
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.darkGray.cgColor
+        imageView.layer.borderWidth = 2
+        print("x: \(view.frame.origin.x) y: \(view.frame.origin.y)")
         let width = collectionView.frame.height
         cellSize = CGSize(width: width, height: width)
     }
@@ -39,11 +47,9 @@ class PlayerDrawerViewController: UIViewController {
     func updateInfo() {
         imageView.image = #imageLiteral(resourceName: "pasha")
         nameLabel.text = player?.name ?? "No name"
-        if team == .counterTerrorists {
-            nameLabel.textColor = .blue
-        } else {
-            nameLabel.textColor = .red
-        }
+        let color = team == .counterTerrorists ? UIColor.counterBlue : UIColor.terroristRed
+        nameLabel.textColor = color
+        imageView.layer.borderColor = color.cgColor
         guard let health = player?.state.health else { return }
         let newHealthFrame = CGRect(x: currentHealth.frame.origin.x, y: currentHealth.frame.origin.y, width: (healthBar.frame.width-2) * (CGFloat(health) / 100), height: healthBar.frame.height-2)
         currentHealth.frame = newHealthFrame
@@ -54,6 +60,22 @@ class PlayerDrawerViewController: UIViewController {
         
         if let wep = player?.weapons { weapons = wep }
         collectionView.reloadData()
+    }
+    
+    @IBAction func dismissButtonPressed(_ sender: UIButton) {
+        hide()
+    }
+    
+    func show(animated: Bool = true) {
+        UIView.animate(withDuration: animated ? 0.3 : 0, animations: { self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height) }, completion: { _ in
+            self.shown = true
+        })
+    }
+    
+    func hide(animated: Bool = true) {
+        UIView.animate(withDuration: animated ? 0.3 : 0, animations: { self.view.frame = CGRect(x: 0, y: 96, width: self.view.frame.width, height: self.view.frame.height) }, completion: { _ in
+            self.shown = false
+        })
     }
 
 }

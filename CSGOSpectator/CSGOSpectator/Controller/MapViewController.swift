@@ -35,6 +35,7 @@ class MapViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setCenter()
         updateDotsPosition()
+        drawerViewController?.hide(animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,11 +94,16 @@ extension MapViewController {
     }
     
     @objc func playerPressed(_ sender: UIButton) {
-        print("You pressed on \(players[sender.tag].name)")
-        let player = players[sender.tag]
+        guard let index = dots.index(of: sender) else { return }
+        print("You pressed on \(players[index].name)")
+        let player = players[index]
+        for weapon in player.weapons {
+            print(weapon.name.rawValue)
+        }
         drawerViewController?.player = player
         drawerViewController?.team = currentMatch?.team(for: player)
         drawerViewController?.updateInfo()
+        drawerViewController?.show()
     }
     
 }

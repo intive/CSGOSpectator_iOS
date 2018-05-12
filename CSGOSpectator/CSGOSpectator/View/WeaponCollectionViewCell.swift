@@ -15,9 +15,9 @@ class WeaponCollectionViewCell: UICollectionViewCell {
     func setup(weapon: Weapon) {
         imageView.image = UIImage(named: weapon.name.rawValue) ?? nil
         if weapon.state == .active {
-            imageView.tintColor = .red
+            imageView.tintColor = .white
         } else {
-            imageView.tintColor = .black
+            imageView.tintColor = .gray
         }
     }
 

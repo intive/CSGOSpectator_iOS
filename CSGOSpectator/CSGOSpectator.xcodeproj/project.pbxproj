@@ -16,6 +16,7 @@
 		38294232205AC30900295B84 /* ResultsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38294231205AC30900295B84 /* ResultsHeaderView.xib */; };
 		38294234205AC72300295B84 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294233205AC72300295B84 /* Int.swift */; };
 		38294238205AD82100295B84 /* DetailScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294237205AD82100295B84 /* DetailScoreView.swift */; };
+		383378B920A73DDF009BE1D5 /* PlayerDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383378B820A73DDF009BE1D5 /* PlayerDrawerView.swift */; };
 		384223F4207281D9007AD141 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384223F3207281D9007AD141 /* UIColor.swift */; };
 		387883AA20679AC300DBB83C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883A920679AC300DBB83C /* MapViewController.swift */; };
 		387883AC20679DE300DBB83C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AB20679DE300DBB83C /* PageViewController.swift */; };
@@ -117,6 +118,7 @@
 		38294231205AC30900295B84 /* ResultsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultsHeaderView.xib; sourceTree = "<group>"; };
 		38294233205AC72300295B84 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		38294237205AD82100295B84 /* DetailScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScoreView.swift; sourceTree = "<group>"; };
+		383378B820A73DDF009BE1D5 /* PlayerDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDrawerView.swift; sourceTree = "<group>"; };
 		384223F3207281D9007AD141 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		387883A920679AC300DBB83C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		387883AB20679DE300DBB83C /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
 				38A5CEC22068377500442BBD /* FadedTableView.swift */,
 				3819003E20A45384006D432C /* WeaponCollectionViewCell.swift */,
+				383378B820A73DDF009BE1D5 /* PlayerDrawerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				CEE63CD9204ACE4F004ADBC4 /* LiveViewController.swift in Sources */,
 				3819003920A45166006D432C /* PlayerDrawerViewController.swift in Sources */,
 				38294234205AC72300295B84 /* Int.swift in Sources */,
+				383378B920A73DDF009BE1D5 /* PlayerDrawerView.swift in Sources */,
 				387883AA20679AC300DBB83C /* MapViewController.swift in Sources */,
 				387D86F92091D961000E0736 /* PlayerDetailsCollectionViewCell.swift in Sources */,
 				387883AC20679DE300DBB83C /* PageViewController.swift in Sources */,
