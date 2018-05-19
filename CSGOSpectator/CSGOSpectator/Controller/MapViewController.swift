@@ -13,8 +13,9 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var playersView: UIView!
+    @IBOutlet weak var playerDrawerView: PlayerDrawerView!
     
-    var drawerViewController: PlayerDrawerViewController?
+    var drawerPresented = false
     
     var currentMatch: Game?
     var players = [Player]()
@@ -24,24 +25,30 @@ class MapViewController: UIViewController {
     
     var center = CGPoint()
     
+    var pickedPlayer: Player?
+    var cellSize = CGSize()
+    
+    let cellIdentifier = "cell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
         print("Center: \(center)")
         addPlayerDots()
+        playerDrawerView.collectionView.delegate = self
+        playerDrawerView.collectionView.dataSource = self
+        let nib = UINib(nibName: "WeaponCollectionViewCell", bundle: nil)
+        playerDrawerView.collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
+        playerDrawerView.closeCallback = {
+            self.showDrawer(false)
+        }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setCenter()
         updateDotsPosition()
-        drawerViewController?.hide(animated: false)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? PlayerDrawerViewController {
-            drawerViewController = destination
-        }
+        cellSize = CGSize(width: 28, height: 28)
     }
     
 }
@@ -100,10 +107,71 @@ extension MapViewController {
         for weapon in player.weapons {
             print(weapon.name.rawValue)
         }
-        drawerViewController?.player = player
-        drawerViewController?.team = currentMatch?.team(for: player)
-        drawerViewController?.updateInfo()
-        drawerViewController?.show()
+        pickedPlayer = player
+        updateDrawerInfo()
+        showDrawer(true)
+    }
+    
+    func updateDrawerInfo() {
+        if let player = pickedPlayer {
+            playerDrawerView.imageView.image = #imageLiteral(resourceName: "pasha")
+            playerDrawerView.nameLabel.text = player.name
+            let team = currentMatch?.team(for: player)
+            let color = team == .counterTerrorists ? UIColor.counterBlue : UIColor.terroristRed
+            playerDrawerView.nameLabel.textColor = color
+            playerDrawerView.imageView.layer.borderColor = color.cgColor
+            let health = player.state.health
+            let newHealthFrame = CGRect(x: playerDrawerView.currentHealth.frame.origin.x, y: playerDrawerView.currentHealth.frame.origin.y, width: (playerDrawerView.healthBar.frame.width-2) * (CGFloat(health) / 100), height: playerDrawerView.healthBar.frame.height-2)
+            playerDrawerView.currentHealth.frame = newHealthFrame
+            
+            let armor = player.state.armor
+            let newArmorFrame = CGRect(x: playerDrawerView.currentArmor.frame.origin.x, y: playerDrawerView.currentArmor.frame.origin.y, width: (playerDrawerView.armorBar.frame.width-2) * (CGFloat(armor) / 100), height: playerDrawerView.armorBar.frame.height-2)
+            playerDrawerView.currentArmor.frame = newArmorFrame
+            playerDrawerView.collectionView.reloadData()
+        }
+    }
+    
+    func showDrawer(_ show: Bool) {
+        if show {
+            if !drawerPresented {
+                let moveUp = CGAffineTransform(translationX: 0, y: -96)
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.playerDrawerView.transform = moveUp
+                }, completion: { _ in
+                    self.drawerPresented = true
+                })
+            }
+        } else {
+            let moveDown = CGAffineTransform(translationX: 0, y: 96)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.playerDrawerView.transform = moveDown
+            }, completion: { _ in
+                self.drawerPresented = false
+            })
+        }
+    }
+    
+}
+
+extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return pickedPlayer?.weapons.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? WeaponCollectionViewCell, let weapons = pickedPlayer?.weapons else { return UICollectionViewCell() }
+        let weapon = weapons[indexPath.row]
+        cell.setup(weapon: weapon)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return cellSize
     }
     
 }
