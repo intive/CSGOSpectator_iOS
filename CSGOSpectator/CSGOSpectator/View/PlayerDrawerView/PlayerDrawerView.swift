@@ -50,6 +50,9 @@ class PlayerDrawerView: UIView, ReusableViewProtocol {
         mainView.layer.cornerRadius = 6
         mainView.layer.borderWidth = 2
         mainView.layer.borderColor = UIColor.gray.cgColor
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.itemSize = CGSize(width: 28, height: 28)
+        }
     }
 
 }

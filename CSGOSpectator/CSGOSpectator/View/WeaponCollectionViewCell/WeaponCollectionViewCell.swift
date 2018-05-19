@@ -20,5 +20,4 @@ class WeaponCollectionViewCell: UICollectionViewCell {
             imageView.tintColor = .gray
         }
     }
-
 }

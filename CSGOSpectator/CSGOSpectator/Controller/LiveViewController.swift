@@ -60,6 +60,11 @@ class LiveViewController: UIViewController {
             map.currentMatch = curr
             map.players = curr.players
             map.updateDotsPosition()
+            let filtered = curr.players.filter({ $0.steamid == map.pickedPlayerSteamId })
+            if let picked = filtered.first {
+                map.pickedPlayer = picked
+            }
+            map.updateDrawerInfo()
         }
     }
     

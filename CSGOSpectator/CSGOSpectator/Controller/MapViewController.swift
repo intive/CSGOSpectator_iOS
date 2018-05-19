@@ -20,11 +20,12 @@ class MapViewController: UIViewController {
     var currentMatch: Game?
     var players = [Player]()
     var dots = [UIButton]()
-    let dotSize: CGFloat = 10       //Size of the player's dot
+    let dotSize: CGFloat = 14       //Size of the player's dot
     let mapSize: CGFloat = 4450     //Size of the in-game map
     
     var center = CGPoint()
     
+    var pickedPlayerSteamId: String?
     var pickedPlayer: Player?
     var cellSize = CGSize()
     
@@ -107,7 +108,7 @@ extension MapViewController {
         for weapon in player.weapons {
             print(weapon.name.rawValue)
         }
-        pickedPlayer = player
+        pickedPlayerSteamId = player.steamid
         updateDrawerInfo()
         showDrawer(true)
     }
