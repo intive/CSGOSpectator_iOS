@@ -1,0 +1,35 @@
+Feature: CSSPPFIP-29 User Details View Controller
+
+As a user I want to be able to see details of each player in the general results
+
+Scenario background: 
+	Given I have Internet connection
+	And I run the app
+	And the app has connection with the server
+	And I acquired configuration file to send the game state to the server
+
+Scenario: Quitting player's details window
+	When I click on a player's line in the general results table
+	And I swipe down
+	Then I should be back on general results table view with current match result
+
+Scenario: Swtiching between diferrent player's details windows - first line player
+	When I click on the first line in the general results table
+	And I swipe right
+	Then I can see the next player's detail window
+
+Scenario: Swtiching between diferrent player's details windows - last line player
+	When I click on the last line in the general results table
+	And I swipe left
+	Then I can see previous player's details window
+
+Scenario: Swtiching between diferrent player's details windows - rest of the players
+	When I click on a line from second to ninth in the general results table
+	And I swipe left
+	Then I can see previous player's details window
+
+Scenario: Swtiching between diferrent player's details windows - rest of the players
+	When I click on a line from second to ninth in the general results table
+	And I swipe right
+	Then I can see next player's details window
+

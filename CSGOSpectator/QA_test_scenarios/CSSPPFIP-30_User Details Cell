@@ -1,0 +1,32 @@
+Feature: CSSPPFIP-30 User Details Cell
+
+As a user I want to be able to see details of each player in the general results
+
+Scenario background: 
+	Given I have Internet connection
+	And I run the app
+	And the app has connection with the server
+	And I acquired configuration file to send the game state to the server
+
+Scenario: player's details window
+	When I click on a player's line in the general results table
+	Then I am able to see a window with the following player's details in the following order: 
+	
+	|photo or avatar with player's country flag in the upper right corner|
+	|nick|
+	|clan|
+	|real name|
+	|country|
+	|steam profile button|
+
+Scenario: player's details window
+	Given I click on a player's line in the general results table
+	And I put the app in the background
+	When I go back to the app
+	Then I should be able to see the window with details of a player I clicked on in general results
+
+
+
+
+
+
