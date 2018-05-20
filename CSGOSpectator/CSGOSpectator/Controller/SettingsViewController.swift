@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
         textField.tintColor = UIColor.lightGreen
         guard let text = textField.text else { return }
         confirmButton.isEnabled = !text.isEmpty
+        textField.addTarget(self, action: #selector(updateButton(textField:)), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,14 +59,9 @@ extension SettingsViewController: UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        updateButton()
-        return true
-    }
-    
-    func updateButton() {
+    @objc func updateButton(textField: UITextField) {
         guard let text = textField.text else { return }
-        confirmButton.isEnabled = text.contains("@") && text.contains(".")
+        confirmButton.isEnabled = text.isEmail
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
