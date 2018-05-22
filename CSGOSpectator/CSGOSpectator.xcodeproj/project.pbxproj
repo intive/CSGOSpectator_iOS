@@ -28,6 +28,7 @@
 		389EC21020810A8200F17163 /* GrenadeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20F20810A8200F17163 /* GrenadeType.swift */; };
 		389EC21320810D4800F17163 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC21220810D4800F17163 /* Weapon.swift */; };
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
+		38B0A83220B0A6C200B597F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0A83120B0A6C200B597F4 /* String.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
 		38CFFF8520848A0F0030ADBD /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8420848A0F0030ADBD /* sample.json */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
@@ -124,6 +125,7 @@
 		389EC20F20810A8200F17163 /* GrenadeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrenadeType.swift; sourceTree = "<group>"; };
 		389EC21220810D4800F17163 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
+		38B0A83120B0A6C200B597F4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		38CFFF8420848A0F0030ADBD /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +277,7 @@
 			children = (
 				38294233205AC72300295B84 /* Int.swift */,
 				384223F3207281D9007AD141 /* UIColor.swift */,
+				38B0A83120B0A6C200B597F4 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
 				38997AE9205AB5760075B508 /* Game.swift in Sources */,
 				389EC21320810D4800F17163 /* Weapon.swift in Sources */,
+				38B0A83220B0A6C200B597F4 /* String.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
 				3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */,
 			);
