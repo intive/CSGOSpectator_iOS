@@ -28,6 +28,7 @@
 		389AAED720BAC8CC00ADAA5E /* GrenadeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC20F20810A8200F17163 /* GrenadeType.swift */; };
 		389AAED820BAC8CC00ADAA5E /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389EC21220810D4800F17163 /* Weapon.swift */; };
 		389AAEDA20BAC9BB00ADAA5E /* SteamClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AAED920BAC9BB00ADAA5E /* SteamClient.swift */; };
+		389AAEDC20BAE17100ADAA5E /* SteamProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389AAEDB20BAE17100ADAA5E /* SteamProfile.swift */; };
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B0A83220B0A6C200B597F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0A83120B0A6C200B597F4 /* String.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
@@ -124,6 +125,7 @@
 		38997AE8205AB5760075B508 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		38997AED205AB8680075B508 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		389AAED920BAC9BB00ADAA5E /* SteamClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamClient.swift; sourceTree = "<group>"; };
+		389AAEDB20BAE17100ADAA5E /* SteamProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamProfile.swift; sourceTree = "<group>"; };
 		389EC20F20810A8200F17163 /* GrenadeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrenadeType.swift; sourceTree = "<group>"; };
 		389EC21220810D4800F17163 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				38997AE8205AB5760075B508 /* Game.swift */,
 				389EC20F20810A8200F17163 /* GrenadeType.swift */,
 				389EC21220810D4800F17163 /* Weapon.swift */,
+				389AAEDB20BAE17100ADAA5E /* SteamProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				38C1B24B206189D900CE7526 /* Extensions */,
 				38997AEB205AB79E0075B508 /* Controller */,
 				38997AEA205AB7910075B508 /* View */,
+				389AAED920BAC9BB00ADAA5E /* SteamClient.swift */,
 				CEE63CD6204ACE4F004ADBC4 /* AppDelegate.swift */,
 				CEE63CDA204ACE4F004ADBC4 /* Main.storyboard */,
 				CEE63CDD204ACE4F004ADBC4 /* Assets.xcassets */,
@@ -350,7 +354,6 @@
 				38130791206A98DD00BC2BE3 /* model.json */,
 				38CFFF8420848A0F0030ADBD /* sample.json */,
 				CEE63CE2204ACE4F004ADBC4 /* Info.plist */,
-				389AAED920BAC9BB00ADAA5E /* SteamClient.swift */,
 			);
 			path = CSGOSpectator;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				389AAED820BAC8CC00ADAA5E /* Weapon.swift in Sources */,
+				389AAEDC20BAE17100ADAA5E /* SteamProfile.swift in Sources */,
 				389AAED720BAC8CC00ADAA5E /* GrenadeType.swift in Sources */,
 				389AAED520BAC8CC00ADAA5E /* Team.swift in Sources */,
 				389AAED620BAC8CC00ADAA5E /* Game.swift in Sources */,

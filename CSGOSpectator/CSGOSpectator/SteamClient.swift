@@ -26,6 +26,8 @@ class SteamClient {
             switch self {
             case .email:
                 return Paths.base.rawValue + Paths.email.rawValue
+            case .players:
+                return Paths.base.rawValue + Paths.players.rawValue
             default:
                 return Paths.base.rawValue
             }
@@ -34,8 +36,8 @@ class SteamClient {
     
     func requestEmail(address: String, completion: @escaping ((OperationResult) -> Void)) {
         
-        let path = Paths.email.fullPath + address
-        guard let url = URL(string: path) else {
+        let fullPath = Paths.email.fullPath + address
+        guard let url = URL(string: fullPath) else {
             print("Could not create email URL")
             completion(.fail)
             return
@@ -51,6 +53,34 @@ class SteamClient {
                 completion(.success)
         }
         
+    }
+    
+    func requestSteamProfiles(steamIDs: [String], completion: @escaping (([SteamProfile]?, OperationResult) -> Void)) {
+        let fullPath = "\(Paths.players.fullPath)[\(steamIDs.joined(separator: ","))]"
+        guard let url = URL(string: fullPath) else {
+            print("Could not create email URL)")
+            completion(nil, .fail)
+            return
+        }
+        
+        Alamofire.request(url, method: .get)
+            
+            .responseData { response in
+                guard response.result.isSuccess, let data = response.result.value else {
+                    print("Error while getting players\n\(String(describing: response.error?.localizedDescription))")
+                    completion(nil, .fail)
+                    return
+                }
+                do {
+                    let playersArray = try JSONDecoder().decode([String: [SteamProfile]].self, from: data)
+                    completion(playersArray["players"], .success)
+                    return
+                } catch let err {
+                    print("Could not decode players JSON properly\n\(err.localizedDescription)")
+                    completion(nil, .fail)
+                    return
+                }
+            }
     }
     
 }
