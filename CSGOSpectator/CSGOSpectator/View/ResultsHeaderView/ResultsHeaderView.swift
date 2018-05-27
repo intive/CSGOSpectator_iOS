@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CSGOSpectatorKit
 
 protocol ReusableViewProtocol {     //Remember to call super initializer for those methods
     init(frame: CGRect)

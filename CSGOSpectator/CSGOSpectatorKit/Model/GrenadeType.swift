@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GrenadeType: String, Decodable {
+public enum GrenadeType: String, Decodable {
     case flashbang
     case firebomb
     case frag

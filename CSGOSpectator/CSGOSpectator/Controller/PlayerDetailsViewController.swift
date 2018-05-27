@@ -15,6 +15,7 @@
 //
 
 import UIKit
+import CSGOSpectatorKit
 
 protocol PlayerDetailsViewControllerDelegate: class {
     func viewDismissed()

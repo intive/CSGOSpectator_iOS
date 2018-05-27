@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Game: Decodable {
-    let map: String
-    let round: Int
-    let phase: String
-    let phaseEndsIn: Int
-    let teamCT: Team
-    let teamT: Team
+public struct Game: Decodable {
+    public let map: String
+    public let round: Int
+    public let phase: String
+    public let phaseEndsIn: Int
+    public let teamCT: Team
+    public let teamT: Team
     
-    var players: [Player] { return teamCT.players + teamT.players }
+    public var players: [Player] { return teamCT.players + teamT.players }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         map = try values.decode(String.self, forKey: .map)
         round = try values.decode(Int.self, forKey: .round)
@@ -29,7 +29,7 @@ struct Game: Decodable {
         teamT = try values.decode(Team.self, forKey: .teamT)
     }
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case map
         case round
         case phase
@@ -39,7 +39,7 @@ struct Game: Decodable {
         case teamT = "team_t"
     }
     
-    func team(for player: Player) -> TeamName {
+    public func team(for player: Player) -> TeamName {
         return teamT.players.contains(player) ? .terrorists : .counterTerrorists
     }
 }

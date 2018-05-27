@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Team: Decodable {
-    let score: Int
-    let players: [Player]
+public struct Team: Decodable {
+    public let score: Int
+    public let players: [Player]
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Team.CodingKeys.self)
         score = try values.decode(Int.self, forKey: .score)
         players = try values.decode([Player].self, forKey: .players)
     }
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case score
         case players
     }
