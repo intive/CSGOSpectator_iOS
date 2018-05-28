@@ -8,16 +8,16 @@
 
 import Foundation
 
-struct Weapon: Decodable {
-    let name: WeaponName
-    let type: WeaponType?
-    let state: WeaponState
+public struct Weapon: Decodable {
+    public let name: WeaponName
+    public let type: WeaponType?
+    public let state: WeaponState
 }
 
 /* Name, Type, State enums */
 extension Weapon {
     
-    enum WeaponName: String, Decodable {
+    public enum WeaponName: String, Decodable {
         case weapon_c4
         case weapon_flashbang
         case weapon_molotov
@@ -73,7 +73,7 @@ extension Weapon {
         case weapon_m249
     }
     
-    enum WeaponType: String, Decodable {
+    public enum WeaponType: String, Decodable {
         case C4
         case Shotgun
         case SubmachineGun
@@ -85,7 +85,7 @@ extension Weapon {
         case SniperRifle
     }
     
-    enum WeaponState: String, Decodable {
+    public enum WeaponState: String, Decodable {
         case holstered
         case active
     }
@@ -94,7 +94,7 @@ extension Weapon {
 /* Description */
 extension Weapon: CustomStringConvertible {
     
-    var description: String {
+    public var description: String {
         return "Name: \(name)\nType: \(type?.rawValue ?? " - ")\nState: \(state)\n"
     }
     

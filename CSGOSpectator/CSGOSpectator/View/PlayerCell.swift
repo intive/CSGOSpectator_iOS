@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CSGOSpectatorKit
 
 class PlayerCell: UITableViewCell {
     

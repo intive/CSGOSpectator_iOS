@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CSGOSpectatorKit
 
 class SettingsViewController: UIViewController {
     
@@ -39,7 +40,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func confirmPressed() {
-        print("Confirm pressed")
+        
     }
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TeamName: String, Decodable {
+public enum TeamName: String, Decodable {
     case terrorists = "teamT"
     case counterTerrorists = "teamCT"
     
@@ -18,18 +18,18 @@ enum TeamName: String, Decodable {
     }
 }
 
-struct Player: Decodable {
+public struct Player: Decodable {
     
-    let steamid: String
-    let name: String
-    let position: CGPoint
-    let statistics: Statistics
-    let weapons: [Weapon]
-    let state: State
+    public let steamid: String
+    public let name: String
+    public let position: CGPoint
+    public let statistics: Statistics
+    public let weapons: [Weapon]
+    public let state: State
     
     //var isAlive: Bool { return state.health > 0 }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         steamid = try values.decode(String.self, forKey: .steamid)
         name = try values.decode(String.self, forKey: .name)
@@ -45,7 +45,7 @@ struct Player: Decodable {
         state = try values.decode(Player.State.self, forKey: .state)
     }
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case steamid
         case name
         case kills
@@ -61,11 +61,11 @@ struct Player: Decodable {
     }
     
     public struct Statistics: Decodable {
-        let kills: Int
-        let assists: Int
-        let deaths: Int
-        let mvps: Int
-        let score: Int
+        public let kills: Int
+        public let assists: Int
+        public let deaths: Int
+        public let mvps: Int
+        public let score: Int
     }
     
 }
@@ -73,9 +73,9 @@ struct Player: Decodable {
 /* Parameters struct and enum for determining Player's state */
 extension Player {
     
-    struct State: Decodable {
-        let health: Int
-        let armor: Int
+    public struct State: Decodable {
+        public let health: Int
+        public let armor: Int
     }
     
 }
@@ -83,7 +83,7 @@ extension Player {
 /* Equatable protocol */
 extension Player: Equatable {
     
-    static func == (lhs: Player, rhs: Player) -> Bool {
+    public static func == (lhs: Player, rhs: Player) -> Bool {
         return lhs.steamid == rhs.steamid
     }
 }
