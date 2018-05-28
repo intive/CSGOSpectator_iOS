@@ -26,17 +26,6 @@ class LiveViewController: UIViewController {
         super.viewDidLoad()
         guard let jsonData = getJSON(named: "sample") else { return }
         guard let gameStates = gameFromJSON(json: jsonData) else { return }
-//        var gameIndex = 0
-//        let timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { _ in
-//            self.currentMatch = gameStates[gameIndex]
-//            gameIndex += 1
-//            if gameIndex == gameStates.count - 1 {
-//                gameIndex = 0
-//            }
-//            self.updateChildViews()
-//            self.updateResultsView()
-//            self.updateBackground()
-//        })
         currentMatch = gameStates.last
         updateChildViews()
         updateResultsView()
