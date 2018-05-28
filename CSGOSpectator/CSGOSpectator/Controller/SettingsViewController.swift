@@ -40,7 +40,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func confirmPressed() {
-        print("Confirm pressed")
+        
     }
     
 }
