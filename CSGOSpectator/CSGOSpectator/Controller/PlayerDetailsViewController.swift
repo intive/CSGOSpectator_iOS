@@ -44,6 +44,7 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.register(cellNib, forCellWithReuseIdentifier: "cell")
         
         let steamIds = players.map { (player) -> String in
+            print("name: \(player.name) id: \(player.steamid)")
             return player.steamid
         }
         client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
@@ -81,7 +82,15 @@ class PlayerDetailsViewController: UIViewController {
     }
     
     func presentSteamProfile(profile: SteamProfile) {
-        print("Will show steam profile for \(profile.name)")
+        if let url = profile.profileUrl {
+            UIApplication.shared.open(url, options: [:], completionHandler: { (completed) in
+                if !completed {
+                    print("Couldn't open profile's URL")
+                }
+            })
+        } else {
+            print("Invalid profile's URL")
+        }
     }
     
 }
