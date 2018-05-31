@@ -30,9 +30,11 @@ class PlayerDetailsViewController: UIViewController {
     var pickedPlayerIndex = 0
     var initialTouchPoint = CGPoint()
     
-    var cellSize = CGSize()
+    var cellSize: CGSize?
     
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
+    let client = SteamClient()
+    var profiles = [SteamProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,17 +42,38 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.dataSource = self
         let cellNib = UINib(nibName: "PlayerDetailsCollectionViewCell", bundle: nil)
         collectionView.register(cellNib, forCellWithReuseIdentifier: "cell")
+        
+        let steamIds = players.map { (player) -> String in
+            return player.steamid
+        }
+        client.requestSteamProfiles(steamIDs: steamIds) { (profiles, result) in
+            switch result {
+            case .success:
+                self.profiles = profiles ?? []
+                self.collectionView.reloadData()
+            case .fail:
+                print("Couldn't get Steam profiles")
+            }
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        UIApplication.shared.statusBarStyle = .lightContent
-        let width = collectionView.frame.width
-        cellSize = CGSize(width: width, height: width * 1.1)
-        collectionView.reloadData()
-        guard !players.isEmpty else { return }
-        let path = IndexPath(row: pickedPlayerIndex, section: 0)
-        collectionView.scrollToItem(at: path, at: .left, animated: false)
+        if cellSize == nil {
+            let width = collectionView.frame.width
+            guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+            layout.itemSize = CGSize(width: width, height: width * 1.1)
+            //collectionView.reloadData()
+            guard !players.isEmpty else { return }
+            let path = IndexPath(row: pickedPlayerIndex, section: 0)
+            collectionView.scrollToItem(at: path, at: .left, animated: false)
+        }
     }
     
     func presentSteamProfile(player: Player) {
@@ -74,18 +97,14 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
         let player = players[indexPath.row]
         let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
         cell.setup(player: player, team: team)
+        if !profiles.isEmpty {
+            let profile = profiles[indexPath.row]
+            cell.countryLabel.text = profile.name
+        }
         cell.buttonCallback = { [weak self] in
             self?.presentSteamProfile(player: player)
         }
         return cell
-    }
-    
-}
-
-extension PlayerDetailsViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize
     }
     
 }
