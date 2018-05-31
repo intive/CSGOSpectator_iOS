@@ -35,6 +35,19 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func setup(with profile: SteamProfile, image: UIImage?, team: TeamName) {
+        nickLabel.text = profile.name
+        countryLabel.text = profile.countryCode ?? "-"
+        nameLabel.text = profile.realName ?? "-"
+        clanLabel.text = "-"
+        avatarImageView.image = image
+        if team == .counterTerrorists {
+            avatarImageView.backgroundColor = UIColor.counterBlue
+        } else {
+            avatarImageView.backgroundColor = UIColor.terroristRed
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         layoutIfNeeded()

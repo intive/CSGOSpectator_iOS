@@ -15,6 +15,7 @@ public struct SteamProfile: Decodable, CustomStringConvertible {
     public let avatarUrl: URL?
     public let profileUrl: URL?
     public let realName: String?
+    public let countryCode: String?
     
     public enum CodingKeys: String, CodingKey {
         case id = "steamid"
@@ -22,6 +23,7 @@ public struct SteamProfile: Decodable, CustomStringConvertible {
         case avatarUrl = "avatarfull"
         case profileUrl = "profileurl"
         case realName = "realname"
+        case countryCode = "loccountrycode"
     }
     
     public var description: String {
