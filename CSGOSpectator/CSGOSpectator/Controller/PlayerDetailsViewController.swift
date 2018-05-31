@@ -44,7 +44,6 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.register(cellNib, forCellWithReuseIdentifier: "cell")
         
         let steamIds = players.map { (player) -> String in
-            print("name: \(player.name) id: \(player.steamid)")
             return player.steamid
         }
         client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
@@ -76,8 +75,8 @@ class PlayerDetailsViewController: UIViewController {
         if cellSize == nil {
             let width = collectionView.frame.width
             guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-            layout.itemSize = CGSize(width: width, height: width * 1.1)
-            //collectionView.reloadData()
+            cellSize = CGSize(width: width, height: width * 1.1)
+            layout.itemSize = cellSize!
         }
     }
     

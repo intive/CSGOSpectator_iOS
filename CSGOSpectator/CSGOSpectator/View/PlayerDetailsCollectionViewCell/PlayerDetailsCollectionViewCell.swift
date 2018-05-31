@@ -23,18 +23,6 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     
     var buttonCallback: (() -> Void)?
     
-    func setup(player: Player, team: TeamName) {
-        clanLabel.text = "Empty"
-        nickLabel.text = "Empty"
-        countryLabel.text = "Empty"
-        nameLabel.text = player.name
-        if team == .counterTerrorists {
-            borderColor = UIColor.counterBlue.cgColor
-        } else {
-            borderColor = UIColor.terroristRed.cgColor
-        }
-    }
-    
     func setup(with profile: SteamProfile, image: UIImage?, team: TeamName) {
         nickLabel.text = profile.name
         countryLabel.text = profile.countryCode ?? "-"
