@@ -28,7 +28,7 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
         countryLabel.text = profile.countryCode?.flagEmoji ?? "-"
         nameLabel.text = profile.realName ?? "-"
         clanLabel.text = "-"
-        avatarImageView.image = image
+        avatarImageView.image = image ?? #imageLiteral(resourceName: "blank_profile")
         if team == .counterTerrorists {
             avatarImageView.backgroundColor = UIColor.counterBlue
         } else {

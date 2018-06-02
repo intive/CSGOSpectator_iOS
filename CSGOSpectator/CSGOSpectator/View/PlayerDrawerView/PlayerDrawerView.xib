@@ -32,7 +32,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UIa-aW-OEy">
                     <rect key="frame" x="12" y="4" width="331" height="88"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-OD-t2n">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Uab-OD-t2n">
                             <rect key="frame" x="8" y="8" width="72" height="72"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Uab-OD-t2n" secondAttribute="height" multiplier="1:1" id="9HT-9p-ita"/>
@@ -136,6 +136,7 @@
         </view>
     </objects>
     <resources>
+        <image name="blank_profile" width="50" height="50"/>
         <image name="close_button" width="512" height="512"/>
     </resources>
 </document>
