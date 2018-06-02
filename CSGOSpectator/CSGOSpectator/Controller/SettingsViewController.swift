@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var underscoreView: UIView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self

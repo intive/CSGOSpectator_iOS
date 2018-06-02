@@ -15,8 +15,11 @@ class StatsViewController: UIViewController {
         
     var currentMatch: Game?
     var parentLiveViewController: LiveViewController?
+    weak var detailsViewController: PlayerDetailsViewController?
     
     var players = [Player]()
+    var profiles = [String: SteamProfile]()
+    var pictures = [String: UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +60,15 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
             self.parentLiveViewController?.blurBackground.alpha = 1.0
         })
         guard let playerDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "details") as? PlayerDetailsViewController else { return }
+        detailsViewController = playerDetailsViewController
         playerDetailsViewController.dismissDelegate = self
         playerDetailsViewController.players = players
         playerDetailsViewController.currentMatch = currentMatch
         playerDetailsViewController.modalTransitionStyle = .coverVertical
         playerDetailsViewController.modalPresentationStyle = .overFullScreen
         playerDetailsViewController.pickedPlayerIndex = indexPath.row
+        playerDetailsViewController.profiles = self.profiles
+        playerDetailsViewController.pictures = self.pictures
         present(playerDetailsViewController, animated: true, completion: nil)
     }
     

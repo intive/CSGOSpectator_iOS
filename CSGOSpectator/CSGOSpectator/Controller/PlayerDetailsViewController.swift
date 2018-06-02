@@ -35,6 +35,7 @@ class PlayerDetailsViewController: UIViewController {
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
     let client = SteamClient()
     var profiles = [String: SteamProfile]()
+    var pictures = [String: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,27 +43,6 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.dataSource = self
         let cellNib = UINib(nibName: "PlayerDetailsCollectionViewCell", bundle: nil)
         collectionView.register(cellNib, forCellWithReuseIdentifier: "cell")
-        
-        let steamIds = players.map { (player) -> String in
-            return player.steamid
-        }
-        client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
-            switch result {
-            case .success:
-                if let profs = received {
-                    for profile in profs {
-                        self.profiles.updateValue(profile, forKey: profile.id)
-                    }
-                    self.collectionView.reloadData()
-                    guard !self.players.isEmpty else { return }
-                    let path = IndexPath(row: self.pickedPlayerIndex, section: 0)
-                    self.collectionView.scrollToItem(at: path, at: .left, animated: false)
-                }
-            case .fail:
-                print("Couldn't get Steam profiles")
-            }
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +57,9 @@ class PlayerDetailsViewController: UIViewController {
             guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
             cellSize = CGSize(width: width, height: width * 1.1)
             layout.itemSize = cellSize!
+            guard !self.players.isEmpty else { return }
+            let path = IndexPath(row: self.pickedPlayerIndex, section: 0)
+            self.collectionView.scrollToItem(at: path, at: .left, animated: false)
         }
     }
     
@@ -110,7 +93,8 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
             let player = players[indexPath.row]
             guard let profile = profiles[player.steamid] else { return cell }
             let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
-            cell.setup(with: profile, image: nil, team: team)
+            let avatar = pictures[player.steamid]
+            cell.setup(with: profile, image: avatar, team: team)
             cell.buttonCallback = { [weak self] in
                 self?.presentSteamProfile(profile: profile)
             }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import CSGOSpectatorKit
 
 class SteamClient {
@@ -81,6 +82,17 @@ class SteamClient {
                     return
                 }
             }
+    }
+    
+    func requestSteamImage(for url: URL, completion: @escaping ((UIImage?, OperationResult) -> Void)) {
+        Alamofire.request(url).responseImage { (response) in
+            if let image = response.result.value {
+                completion(image, .success)
+            } else {
+                print("Couldn't get image for url: \(url)\nerror: \(response.result.error?.localizedDescription ?? "nil")")
+                completion(nil, .fail)
+            }
+        }
     }
     
 }
