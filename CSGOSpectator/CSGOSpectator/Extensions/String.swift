@@ -16,4 +16,8 @@ extension String {
         guard matches.count == 1 else { return false }
         return matches[0].url?.scheme == "mailto"
     }
+    
+    var flagEmoji: String? {
+        return String(String.UnicodeScalarView(self.uppercased().unicodeScalars.flatMap { UnicodeScalar(127397 + $0.value) }))
+    }
 }

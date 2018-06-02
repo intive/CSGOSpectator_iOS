@@ -25,7 +25,7 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     
     func setup(with profile: SteamProfile, image: UIImage?, team: TeamName) {
         nickLabel.text = profile.name
-        countryLabel.text = profile.countryCode ?? "-"
+        countryLabel.text = profile.countryCode?.flagEmoji ?? "-"
         nameLabel.text = profile.realName ?? "-"
         clanLabel.text = "-"
         avatarImageView.image = image
