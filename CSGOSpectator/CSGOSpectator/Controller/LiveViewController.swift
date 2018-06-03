@@ -38,11 +38,11 @@ class LiveViewController: UIViewController {
             self.updateChildViews()
             self.updateResultsView()
             self.updateBackground()
-            self.getSteamProfiles()
             if gameIndex == gameStates.count - 1 {
                 gameIndex = 0
             } else { gameIndex += 1 }
         }
+        self.getSteamProfiles()
         blurBackground.alpha = 0
     }
 
@@ -93,17 +93,23 @@ class LiveViewController: UIViewController {
     }
     
     func getSteamProfiles() {
-        client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
-            switch result {
-            case .success:
-                if let profs = received {
-                    for profile in profs {
-                        self.profiles.updateValue(profile, forKey: profile.id)
+        if steamIds.isEmpty {
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+                self.getSteamProfiles()
+            })
+        } else {
+            client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
+                switch result {
+                case .success:
+                    if let profs = received {
+                        for profile in profs {
+                            self.profiles.updateValue(profile, forKey: profile.id)
+                        }
+                        self.getSteamImages()
                     }
-                    self.getSteamImages()
+                case .fail:
+                    print("Couldn't get Steam profiles")
                 }
-            case .fail:
-                print("Couldn't get Steam profiles")
             }
         }
     }
