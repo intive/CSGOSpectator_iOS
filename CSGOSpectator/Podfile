@@ -4,6 +4,7 @@ platform :ios, '10.0'
 def spectatorKit_pods
     pod 'Alamofire', '~> 4.7'
     pod 'AlamofireImage'
+    pod 'Starscream'
 end
 
 # Pods used by CSGOSpectator

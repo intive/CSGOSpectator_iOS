@@ -8,10 +8,17 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 import CSGOSpectatorKit
+import Starscream
+
+protocol SteamClientDelegate: class {
+    func didReceiveGameData(_ game: Game)
+}
 
 class SteamClient {
+    
+    let socket: WebSocket
+    weak var delegate: SteamClientDelegate?
     
     enum OperationResult {
         case success
@@ -33,6 +40,13 @@ class SteamClient {
                 return Paths.base.rawValue
             }
         }
+    }
+    
+    init(steamId: String) {
+        let url = URL(string: "ws://csgospectator.herokuapp.com/api/games/live/\(steamId)")
+        socket = WebSocket(url: url!)
+        socket.delegate = self
+        socket.connect()
     }
     
     func requestEmail(address: String, completion: @escaping ((OperationResult) -> Void)) {
@@ -81,17 +95,40 @@ class SteamClient {
                     completion(nil, .fail)
                     return
                 }
-            }
+        }
     }
     
-    func requestSteamImage(for url: URL, completion: @escaping ((UIImage?, OperationResult) -> Void)) {
-        Alamofire.request(url).responseImage { (response) in
-            if let image = response.result.value {
-                completion(image, .success)
-            } else {
-                print("Couldn't get image for url: \(url)\nerror: \(response.result.error?.localizedDescription ?? "nil")")
-                completion(nil, .fail)
-            }
+}
+
+extension SteamClient: WebSocketDelegate {
+    
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("WebSocket connected")
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("WebSocket disconnected")
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        print("WebSocket received message: \(text)")
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
+        print("Websocket received data")
+        if let game = decodeData(data) {
+            delegate?.didReceiveGameData(game)
+        }
+    }
+    
+    private func decodeData(_ data: Data) -> Game? {
+        do {
+            let game = try JSONDecoder().decode(Game.self, from: data)
+            return game
+        } catch let err {
+            print("Could not decode Game from Data in SteamClient")
+            print(err.localizedDescription)
+            return nil
         }
     }
     
