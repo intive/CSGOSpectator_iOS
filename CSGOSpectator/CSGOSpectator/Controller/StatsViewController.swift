@@ -19,7 +19,6 @@ class StatsViewController: UIViewController {
     
     var players = [Player]()
     var profiles = [String: SteamProfile]()
-    var pictures = [String: UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +67,6 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
         playerDetailsViewController.modalPresentationStyle = .overFullScreen
         playerDetailsViewController.pickedPlayerIndex = indexPath.row
         playerDetailsViewController.profiles = self.profiles
-        playerDetailsViewController.pictures = self.pictures
         present(playerDetailsViewController, animated: true, completion: nil)
     }
     

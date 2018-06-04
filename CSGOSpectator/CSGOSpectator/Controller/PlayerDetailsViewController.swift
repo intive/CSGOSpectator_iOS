@@ -35,7 +35,6 @@ class PlayerDetailsViewController: UIViewController {
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
     let client = SteamClient()
     var profiles = [String: SteamProfile]()
-    var pictures = [String: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,8 +92,7 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
             let player = players[indexPath.row]
             guard let profile = profiles[player.steamid] else { return cell }
             let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
-            let avatar = pictures[player.steamid]
-            cell.setup(with: profile, image: avatar, team: team)
+            cell.setup(with: profile, team: team)
             cell.buttonCallback = { [weak self] in
                 self?.presentSteamProfile(profile: profile)
             }

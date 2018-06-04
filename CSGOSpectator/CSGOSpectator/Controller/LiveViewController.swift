@@ -26,7 +26,6 @@ class LiveViewController: UIViewController {
     let client = SteamClient()
     var players = [Player]()
     var profiles = [String: SteamProfile]()
-    var pictures = [String: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +73,6 @@ class LiveViewController: UIViewController {
             stats.parentLiveViewController = self
             stats.currentMatch = curr
             stats.players = self.players
-            stats.pictures = self.pictures
             stats.profiles = self.profiles
             stats.detailsViewController?.collectionView.reloadData()
             stats.tableView.reloadData()
@@ -82,7 +80,7 @@ class LiveViewController: UIViewController {
             guard let map = page.pages[1] as? MapViewController else { return }
             map.currentMatch = curr
             map.players = curr.players
-            map.pictures = self.pictures
+            map.profiles = self.profiles
             map.updateDotsPosition()
             let filtered = curr.players.filter({ $0.steamid == map.pickedPlayerSteamId })
             if let picked = filtered.first {
@@ -105,27 +103,10 @@ class LiveViewController: UIViewController {
                         for profile in profs {
                             self.profiles.updateValue(profile, forKey: profile.id)
                         }
-                        self.getSteamImages()
                     }
                 case .fail:
                     print("Couldn't get Steam profiles")
                 }
-            }
-        }
-    }
-    
-    func getSteamImages() {
-        for steamId in steamIds {
-            if let url = profiles[steamId]?.avatarUrl {
-                client.requestSteamImage(for: url, completion: { (image, result) in
-                    switch result {
-                    case .success:
-                        self.pictures.updateValue(image!, forKey: steamId)
-                        self.updateChildViews()
-                    case .fail:
-                        print("Fail image")
-                    }
-                })
             }
         }
     }

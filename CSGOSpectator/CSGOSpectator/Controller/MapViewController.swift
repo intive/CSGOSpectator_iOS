@@ -31,7 +31,7 @@ class MapViewController: UIViewController {
     
     let cellIdentifier = "cell"
     
-    var pictures = [String: UIImage]()
+    var profiles = [String: SteamProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,8 +131,8 @@ extension MapViewController {
             playerDrawerView.currentArmor.frame = newArmorFrame
             playerDrawerView.collectionView.reloadData()
             
-            if let avatar = pictures[player.steamid] {
-                playerDrawerView.imageView.image = avatar
+            if let avatarUrl = profiles[player.steamid]?.avatarUrl {
+                playerDrawerView.imageView.af_setImage(withURL: avatarUrl)
             } else {
                 playerDrawerView.imageView.image = #imageLiteral(resourceName: "blank_profile")
             }

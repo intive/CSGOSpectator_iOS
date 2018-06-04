@@ -23,12 +23,16 @@ class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     
     var buttonCallback: (() -> Void)?
     
-    func setup(with profile: SteamProfile, image: UIImage?, team: TeamName) {
+    func setup(with profile: SteamProfile, team: TeamName) {
         nickLabel.text = profile.name
         countryLabel.text = profile.countryCode?.flagEmoji ?? "-"
         nameLabel.text = profile.realName ?? "-"
         clanLabel.text = "-"
-        avatarImageView.image = image ?? #imageLiteral(resourceName: "blank_profile")
+        if let avatarUrl = profile.avatarUrl {
+            avatarImageView.af_setImage(withURL: avatarUrl)
+        } else {
+            avatarImageView.image = #imageLiteral(resourceName: "blank_profile")
+        }
         if team == .counterTerrorists {
             avatarImageView.backgroundColor = UIColor.counterBlue
         } else {
