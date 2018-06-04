@@ -1,2 +1,0 @@
-cd /Users/magdalenajedraszak/Desktop/Git/CSSpectator_iOS/CSGOSpectator
-xcodebuild -workspace CSGOSpectator.xcworkspace -scheme CSGOSpectator -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=11.3' -only-testing:CSGOSpectatorTests -only-testing:CSGOSpectatorUITests test | xcpretty
