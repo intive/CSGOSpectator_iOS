@@ -1,14 +1,14 @@
 //
-//  CSGOSpectatorUITests.swift
+//  SwitchingBetweenPlayerDrawerView.swift
 //  CSGOSpectatorUITests
 //
-//  Created by Mateusz Fidos on 03.03.2018.
+//  Created by Magdalena Jędraszak on 04.06.2018.
 //  Copyright © 2018 intive. All rights reserved.
 //
 
 import XCTest
 
-class CSGOSpectatorUITests: XCTestCase {
+class SwitchingBetweenPlayerDrawerView: XCTestCase {
         
     override func setUp() {
         super.setUp()
