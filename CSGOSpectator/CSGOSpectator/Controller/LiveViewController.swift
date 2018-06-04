@@ -22,14 +22,26 @@ class LiveViewController: UIViewController {
     var gameStates = [Game]()
     var gameIndex = 0
     
+    var steamIds = [String]()
+    let client = SteamClient()
+    var players = [Player]()
+    var profiles = [String: SteamProfile]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let jsonData = getJSON(named: "sample") else { return }
         guard let gameStates = gameFromJSON(json: jsonData) else { return }
-        currentMatch = gameStates.last
-        updateChildViews()
-        updateResultsView()
-        updateBackground()
+        var gameIndex = 0
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { (_) in
+            self.currentMatch = gameStates[gameIndex]
+            self.updateChildViews()
+            self.updateResultsView()
+            self.updateBackground()
+            if gameIndex == gameStates.count - 1 {
+                gameIndex = 0
+            } else { gameIndex += 1 }
+        }
+        self.getSteamProfiles()
         blurBackground.alpha = 0
     }
 
@@ -45,26 +57,57 @@ class LiveViewController: UIViewController {
         }
     }
     
-    @objc func updateChildViews() {
+    func updateChildViews() {
+        
         if let curr = currentMatch {
+            
+            players = curr.players.sorted(by: { $0.statistics.score > $1.statistics.score })
+            steamIds = players.map { (player) -> String in
+                return player.steamid
+            }
+            
             guard let page = pageController else { return }
             page.currentMatch = curr
             
             guard let stats = page.pages[0] as? StatsViewController else { return }
             stats.parentLiveViewController = self
             stats.currentMatch = curr
-            stats.players = curr.players.sorted(by: { $0.statistics.score > $1.statistics.score })
+            stats.players = self.players
+            stats.profiles = self.profiles
+            stats.detailsViewController?.collectionView.reloadData()
             stats.tableView.reloadData()
             
             guard let map = page.pages[1] as? MapViewController else { return }
             map.currentMatch = curr
             map.players = curr.players
+            map.profiles = self.profiles
             map.updateDotsPosition()
             let filtered = curr.players.filter({ $0.steamid == map.pickedPlayerSteamId })
             if let picked = filtered.first {
                 map.pickedPlayer = picked
             }
             map.updateDrawerInfo()
+        }
+    }
+    
+    func getSteamProfiles() {
+        if steamIds.isEmpty {
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
+                self.getSteamProfiles()
+            })
+        } else {
+            client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
+                switch result {
+                case .success:
+                    if let profs = received {
+                        for profile in profs {
+                            self.profiles.updateValue(profile, forKey: profile.id)
+                        }
+                    }
+                case .fail:
+                    print("Couldn't get Steam profiles")
+                }
+            }
         }
     }
     

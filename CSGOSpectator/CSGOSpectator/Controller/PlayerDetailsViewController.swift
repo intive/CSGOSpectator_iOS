@@ -30,9 +30,11 @@ class PlayerDetailsViewController: UIViewController {
     var pickedPlayerIndex = 0
     var initialTouchPoint = CGPoint()
     
-    var cellSize = CGSize()
+    var cellSize: CGSize?
     
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
+    let client = SteamClient()
+    var profiles = [String: SteamProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,19 +44,34 @@ class PlayerDetailsViewController: UIViewController {
         collectionView.register(cellNib, forCellWithReuseIdentifier: "cell")
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-        let width = collectionView.frame.width
-        cellSize = CGSize(width: width, height: width * 1.1)
-        collectionView.reloadData()
-        guard !players.isEmpty else { return }
-        let path = IndexPath(row: pickedPlayerIndex, section: 0)
-        collectionView.scrollToItem(at: path, at: .left, animated: false)
     }
     
-    func presentSteamProfile(player: Player) {
-        print("Will show steam profile for \(player.name)")
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if cellSize == nil {
+            let width = collectionView.frame.width
+            guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+            cellSize = CGSize(width: width, height: width * 1.1)
+            layout.itemSize = cellSize!
+            guard !self.players.isEmpty else { return }
+            let path = IndexPath(row: self.pickedPlayerIndex, section: 0)
+            self.collectionView.scrollToItem(at: path, at: .left, animated: false)
+        }
+    }
+    
+    func presentSteamProfile(profile: SteamProfile) {
+        if let url = profile.profileUrl {
+            UIApplication.shared.open(url, options: [:], completionHandler: { (completed) in
+                if !completed {
+                    print("Couldn't open profile's URL")
+                }
+            })
+        } else {
+            print("Invalid profile's URL")
+        }
     }
     
 }
@@ -71,21 +88,16 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? PlayerDetailsCollectionViewCell else { return UICollectionViewCell() }
-        let player = players[indexPath.row]
-        let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
-        cell.setup(player: player, team: team)
-        cell.buttonCallback = { [weak self] in
-            self?.presentSteamProfile(player: player)
+        if !profiles.isEmpty {
+            let player = players[indexPath.row]
+            guard let profile = profiles[player.steamid] else { return cell }
+            let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
+            cell.setup(with: profile, team: team)
+            cell.buttonCallback = { [weak self] in
+                self?.presentSteamProfile(profile: profile)
+            }
         }
         return cell
-    }
-    
-}
-
-extension PlayerDetailsViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return cellSize
     }
     
 }

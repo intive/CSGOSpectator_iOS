@@ -31,6 +31,8 @@ class MapViewController: UIViewController {
     
     let cellIdentifier = "cell"
     
+    var profiles = [String: SteamProfile]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
@@ -115,7 +117,6 @@ extension MapViewController {
     
     func updateDrawerInfo() {
         if let player = pickedPlayer {
-            playerDrawerView.imageView.image = #imageLiteral(resourceName: "pasha")
             playerDrawerView.nameLabel.text = player.name
             let team = currentMatch?.team(for: player)
             let color = team == .counterTerrorists ? UIColor.counterBlue : UIColor.terroristRed
@@ -129,6 +130,12 @@ extension MapViewController {
             let newArmorFrame = CGRect(x: playerDrawerView.currentArmor.frame.origin.x, y: playerDrawerView.currentArmor.frame.origin.y, width: (playerDrawerView.armorBar.frame.width-2) * (CGFloat(armor) / 100), height: playerDrawerView.armorBar.frame.height-2)
             playerDrawerView.currentArmor.frame = newArmorFrame
             playerDrawerView.collectionView.reloadData()
+            
+            if let avatarUrl = profiles[player.steamid]?.avatarUrl {
+                playerDrawerView.imageView.af_setImage(withURL: avatarUrl)
+            } else {
+                playerDrawerView.imageView.image = #imageLiteral(resourceName: "blank_profile")
+            }
         }
     }
     
