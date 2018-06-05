@@ -45,6 +45,7 @@ class SteamClient {
     init(steamId: String) {
         let url = URL(string: "ws://csgospectator.herokuapp.com/api/games/live/\(steamId)")
         socket = WebSocket(url: url!)
+        socket.callbackQueue = .global(qos: .background)
         socket.delegate = self
         socket.connect()
     }
@@ -117,7 +118,9 @@ extension SteamClient: WebSocketDelegate {
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("Websocket received data")
         if let game = decodeData(data) {
-            delegate?.didReceiveGameData(game)
+            DispatchQueue.main.async {
+                self.delegate?.didReceiveGameData(game)
+            }
         }
     }
     
@@ -125,9 +128,8 @@ extension SteamClient: WebSocketDelegate {
         do {
             let game = try JSONDecoder().decode(Game.self, from: data)
             return game
-        } catch let err {
-            print("Could not decode Game from Data in SteamClient")
-            print(err.localizedDescription)
+        } catch {
+            print(error)
             return nil
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CSGOSpectatorKit
+import AlamofireImage
 
 class MapViewController: UIViewController {
     
@@ -99,7 +100,9 @@ extension MapViewController {
     func updateDotsPosition() {
         guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
-            dot.center = locationForPlayer(players[index])
+            UIView.animate(withDuration: 0.1) {
+                dot.center = self.locationForPlayer(self.players[index])
+            }
         }
     }
     

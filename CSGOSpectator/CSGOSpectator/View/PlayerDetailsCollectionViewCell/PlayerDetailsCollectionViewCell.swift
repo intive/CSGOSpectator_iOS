@@ -8,6 +8,7 @@
 
 import UIKit
 import CSGOSpectatorKit
+import AlamofireImage
 
 class PlayerDetailsCollectionViewCell: UICollectionViewCell {
     
