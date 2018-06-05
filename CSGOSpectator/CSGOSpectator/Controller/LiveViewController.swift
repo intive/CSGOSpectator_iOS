@@ -23,25 +23,13 @@ class LiveViewController: UIViewController {
     var gameIndex = 0
     
     var steamIds = [String]()
-    let client = SteamClient()
+    let client = SteamClient(steamId: "76561198070124545")
     var players = [Player]()
     var profiles = [String: SteamProfile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let jsonData = getJSON(named: "sample") else { return }
-        guard let gameStates = gameFromJSON(json: jsonData) else { return }
-        var gameIndex = 0
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { (_) in
-            self.currentMatch = gameStates[gameIndex]
-            self.updateChildViews()
-            self.updateResultsView()
-            self.updateBackground()
-            if gameIndex == gameStates.count - 1 {
-                gameIndex = 0
-            } else { gameIndex += 1 }
-        }
-        self.getSteamProfiles()
+        client.delegate = self
         blurBackground.alpha = 0
     }
 
@@ -123,31 +111,13 @@ class LiveViewController: UIViewController {
 
 }
 
-/* JSON handling */
-extension LiveViewController {
+extension LiveViewController: SteamClientDelegate {
     
-    func getJSON(named: String) -> Data? {
-        if let path = Bundle.main.path(forResource: named, ofType: "json") {
-            let url = URL(fileURLWithPath: path)
-            do {
-                let data = try Data(contentsOf: url, options: .mappedIfSafe)
-                return data
-            } catch let err {
-                print("Couldn't open json file named '\(named)'\n\(err.localizedDescription)")
-                return nil
-            }
-        } else {
-            print("Couldn't open json file named '\(named)'")
-            return nil
-        }
-    }
-    func gameFromJSON(json: Data) -> [Game]? {
-        do {
-            let game = try JSONDecoder().decode([Game].self, from: json)
-            return game
-        } catch let err {
-            print(err.localizedDescription)
-            return nil
-        }
+    func didReceiveGameData(_ game: Game) {
+        currentMatch = game
+        self.updateChildViews()
+        self.updateResultsView()
+        self.updateBackground()
+        self.getSteamProfiles()
     }
 }

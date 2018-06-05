@@ -33,7 +33,6 @@ class PlayerDetailsViewController: UIViewController {
     var cellSize: CGSize?
     
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
-    let client = SteamClient()
     var profiles = [String: SteamProfile]()
     
     override func viewDidLoad() {

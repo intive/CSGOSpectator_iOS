@@ -768,11 +768,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectatorKitTests/Pods-CSGOSpectatorKitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -788,11 +790,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -920,9 +924,6 @@
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
 				387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */,
 				387D86FB2091D96D000E0736 /* PlayerDetailsViewController.swift in Sources */,
-				38997AE5205AB54C0075B508 /* Player.swift in Sources */,
-				38997AE9205AB5760075B508 /* Game.swift in Sources */,
-				389EC21320810D4800F17163 /* Weapon.swift in Sources */,
 				38B0A83220B0A6C200B597F4 /* String.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
 				3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */,

@@ -76,8 +76,8 @@ extension Weapon {
     public enum WeaponType: String, Decodable {
         case C4
         case Shotgun
-        case SubmachineGun
-        case MachineGun
+        case SubmachineGun = "Submachine Gun"
+        case MachineGun = "Machine Gun"
         case Pistol
         case Knife
         case Rifle
