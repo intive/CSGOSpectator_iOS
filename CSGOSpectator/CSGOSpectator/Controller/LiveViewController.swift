@@ -32,6 +32,11 @@ class LiveViewController: UIViewController {
         client.delegate = self
         blurBackground.alpha = 0
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
 
     func updateResultsView() {
         headerView.updateWithGameData(currentMatch)

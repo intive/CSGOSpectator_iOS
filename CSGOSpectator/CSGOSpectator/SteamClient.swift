@@ -17,7 +17,7 @@ protocol SteamClientDelegate: class {
 
 class SteamClient {
     
-    let socket: WebSocket
+    let socket: WebSocket?
     weak var delegate: SteamClientDelegate?
     
     enum OperationResult {
@@ -42,12 +42,16 @@ class SteamClient {
         }
     }
     
+    init() {
+        socket = nil
+    }
+    
     init(steamId: String) {
         let url = URL(string: "ws://csgospectator.herokuapp.com/api/games/live/\(steamId)")
         socket = WebSocket(url: url!)
-        socket.callbackQueue = .global(qos: .background)
-        socket.delegate = self
-        socket.connect()
+        socket!.callbackQueue = .global(qos: .background)
+        socket!.delegate = self
+        socket!.connect()
     }
     
     func requestEmail(address: String, completion: @escaping ((OperationResult) -> Void)) {
