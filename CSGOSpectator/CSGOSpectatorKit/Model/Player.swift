@@ -35,12 +35,14 @@ public struct Player: Decodable {
         steamid = try values.decode(String.self, forKey: .steamid)
         name = try values.decode(String.self, forKey: .name)
         statistics = try values.decode(Player.Statistics.self, forKey: .statistics)
-        let position = try values.decode(String.self, forKey: .position).components(separatedBy: ", ").compactMap { Double($0) }
-        self.position = CGPoint(x: position[0], y: position[1])
+        position = CGPoint()
+        forward = CGVector()
+//        let position = try values.decode(String.self, forKey: .position).components(separatedBy: ", ").compactMap { Double($0) }
+//        self.position = CGPoint(x: position[0], y: position[1])
         weapons = try values.decode([Weapon].self, forKey: .weapons)
         state = try values.decode(Player.State.self, forKey: .state)
-        let forward = try values.decode(String.self, forKey: .forward).components(separatedBy: ", ").compactMap { Double($0) }
-        self.forward = CGVector(dx: forward[0], dy: forward[1])
+//        let forward = try values.decode(String.self, forKey: .forward).components(separatedBy: ", ").compactMap { Double($0) }
+//        self.forward = CGVector(dx: forward[0], dy: forward[1])
     }
     
     public enum CodingKeys: String, CodingKey {

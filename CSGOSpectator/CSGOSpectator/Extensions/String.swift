@@ -18,6 +18,7 @@ extension String {
     }
     
     var flagEmoji: String? {
-        return String(String.UnicodeScalarView(self.uppercased().unicodeScalars.compactMap { UnicodeScalar(127397 + $0.value) }))
+        return nil
+        //return String(String.UnicodeScalarView(self.uppercased().unicodeScalars.compactMap { UnicodeScalar(127397 + $0.value) }))
     }
 }
