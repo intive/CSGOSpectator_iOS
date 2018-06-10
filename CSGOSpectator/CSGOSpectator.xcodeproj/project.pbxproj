@@ -36,6 +36,8 @@
 		38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A5CEC22068377500442BBD /* FadedTableView.swift */; };
 		38B0A83220B0A6C200B597F4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0A83120B0A6C200B597F4 /* String.swift */; };
 		38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */; };
+		38CC63AF20CD173D00AEB0A6 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC63AD20CD173D00AEB0A6 /* HistoryTableViewCell.swift */; };
+		38CC63B020CD173D00AEB0A6 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38CC63AE20CD173D00AEB0A6 /* HistoryTableViewCell.xib */; };
 		38CFFF8520848A0F0030ADBD /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = 38CFFF8420848A0F0030ADBD /* sample.json */; };
 		38D08A0C20552540009A98B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D08A0D20552540009A98B4 /* Alamofire.framework */; };
 		3F8F479A206C3D2200467587 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F4799206C3D2200467587 /* SettingsViewController.swift */; };
@@ -139,6 +141,8 @@
 		38A5CEC22068377500442BBD /* FadedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadedTableView.swift; sourceTree = "<group>"; };
 		38B0A83120B0A6C200B597F4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		38B1C4ED205BEC890061EDC9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		38CC63AD20CD173D00AEB0A6 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = HistoryTableViewCell/HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		38CC63AE20CD173D00AEB0A6 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HistoryTableViewCell.xib; path = HistoryTableViewCell/HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		38CFFF8420848A0F0030ADBD /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		38D08A0D20552540009A98B4 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8F4799206C3D2200467587 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				38997AED205AB8680075B508 /* PlayerCell.swift */,
 				38294237205AD82100295B84 /* DetailScoreView.swift */,
 				38A5CEC22068377500442BBD /* FadedTableView.swift */,
+				38CC63AD20CD173D00AEB0A6 /* HistoryTableViewCell.swift */,
+				38CC63AE20CD173D00AEB0A6 /* HistoryTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 			files = (
 				38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */,
 				38130792206A98DD00BC2BE3 /* model.json in Resources */,
+				38CC63B020CD173D00AEB0A6 /* HistoryTableViewCell.xib in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				3813323C20B02CC0008450F6 /* WeaponCollectionViewCell.xib in Resources */,
 				3839872D20AB2C9A0055AEC0 /* PlayerDrawerView.xib in Resources */,
@@ -923,6 +930,7 @@
 				387883AC20679DE300DBB83C /* PageViewController.swift in Sources */,
 				38294230205AC2EA00295B84 /* ResultsHeaderView.swift in Sources */,
 				387883AE2067A1A200DBB83C /* StatsViewController.swift in Sources */,
+				38CC63AF20CD173D00AEB0A6 /* HistoryTableViewCell.swift in Sources */,
 				387D86FB2091D96D000E0736 /* PlayerDetailsViewController.swift in Sources */,
 				38B0A83220B0A6C200B597F4 /* String.swift in Sources */,
 				CEE63CD7204ACE4F004ADBC4 /* AppDelegate.swift in Sources */,
