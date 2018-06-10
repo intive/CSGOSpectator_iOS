@@ -25,15 +25,26 @@ class PlayerDetailsViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var currentMatch: Game?
-    var players = [Player]()
+    var gameState: Game!
+    var players = [Player]() {
+        didSet {
+            guard collectionView != nil else { return }
+            if oldValue != players {
+                collectionView.reloadData()
+            }
+        }
+    }
     var pickedPlayerIndex = 0
     var initialTouchPoint = CGPoint()
     
     var cellSize: CGSize?
     
     weak var dismissDelegate: PlayerDetailsViewControllerDelegate?
-    var profiles = [String: SteamProfile]()
+    var profiles = [String: SteamProfile]() {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +101,7 @@ extension PlayerDetailsViewController: UICollectionViewDelegate, UICollectionVie
         if !profiles.isEmpty {
             let player = players[indexPath.row]
             guard let profile = profiles[player.steamid] else { return cell }
-            let team = currentMatch?.team(for: player) ?? TeamName.counterTerrorists
+            let team = gameState.team(for: player)
             cell.setup(with: profile, team: team)
             cell.buttonCallback = { [weak self] in
                 self?.presentSteamProfile(profile: profile)

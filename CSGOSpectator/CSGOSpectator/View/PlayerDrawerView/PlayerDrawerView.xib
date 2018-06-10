@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,12 +13,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerDrawerView" customModule="CSGOSpectator" customModuleProvider="target">
             <connections>
-                <outlet property="armorBar" destination="SlH-vJ-Z2v" id="Wug-48-5H5"/>
+                <outlet property="armorBar" destination="SlH-vJ-Z2v" id="XVD-TM-JgY"/>
                 <outlet property="collectionView" destination="mpV-TS-bdA" id="P2s-pU-Ima"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="hui-PE-P1R"/>
-                <outlet property="currentArmor" destination="eTN-mB-AuZ" id="5tU-KH-gbl"/>
-                <outlet property="currentHealth" destination="vG1-kf-AFx" id="kzG-Z9-yju"/>
-                <outlet property="healthBar" destination="SMp-09-5vq" id="BcW-P8-ZsL"/>
+                <outlet property="currentArmorViewWidthConstaint" destination="IvJ-nP-Cmi" id="h81-Ux-UJ9"/>
+                <outlet property="currentHealthViewWidthConstaint" destination="m9P-c2-rVA" id="nDk-fp-ASi"/>
+                <outlet property="healthBar" destination="SMp-09-5vq" id="16Q-LG-gHk"/>
                 <outlet property="imageView" destination="Uab-OD-t2n" id="tf6-0j-ReS"/>
                 <outlet property="mainView" destination="UIa-aW-OEy" id="SKg-af-1QK"/>
                 <outlet property="nameLabel" destination="kRO-48-7eY" id="vXQ-2B-cI8"/>
@@ -61,7 +61,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="28" id="U4A-Oa-bhw"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dq9-ce-CsA">
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Dq9-ce-CsA">
                                 <size key="itemSize" width="50" height="50"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -71,9 +71,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMp-09-5vq">
                             <rect key="frame" x="88" y="63" width="201" height="6"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG1-kf-AFx">
-                                    <rect key="frame" x="8" y="1" width="158" height="4"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG1-kf-AFx">
+                                    <rect key="frame" x="1" y="1" width="0.0" height="4"/>
                                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="158" id="m9P-c2-rVA"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.58488657990000004" green="0.042582564859999998" blue="0.022428821660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,9 +90,12 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SlH-vJ-Z2v">
                             <rect key="frame" x="88" y="73" width="201" height="6"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTN-mB-AuZ">
-                                    <rect key="frame" x="4" y="1" width="175" height="4"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eTN-mB-AuZ">
+                                    <rect key="frame" x="1" y="1" width="0.0" height="4"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="175" id="IvJ-nP-Cmi"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

@@ -10,48 +10,72 @@ import UIKit
 import CSGOSpectatorKit
 import AlamofireImage
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var playersView: UIView!
     @IBOutlet weak var playerDrawerView: PlayerDrawerView!
     
-    var drawerPresented = false
+    private var drawerPresented = false
     
-    var currentMatch: Game?
-    var players = [Player]()
-    var dots = [PlayerDotView]()
-    let dotSize: CGFloat = 16       //Size of the player's dot
-    let mapSize: CGFloat = 4450     //Size of the in-game map
+    var gameState: Game! {
+        didSet {
+            guard playersView != nil else { return }
+            players = gameState.players
+        }
+    }
+    private var players = [Player]() {
+        didSet {
+            if oldValue != players {
+                addPlayerDots()
+            }
+            updatePlayerDots()
+            if drawerPresented {
+                updateDrawerInfo()
+            }
+        }
+    }
+    private var pickedPlayer: Player? {
+        didSet {
+            showDrawer(pickedPlayer != nil)
+            if drawerPresented {
+                updateDrawerInfo()
+            }
+        }
+    }
+
+    private var dots = [PlayerDotView]()
+    private let dotSize: CGFloat = 16       //Size of the player's dot
+    private let mapSize: CGFloat = 4450     //Size of the in-game map
     
-    var center = CGPoint()
+    private var center = CGPoint()
     
-    var pickedPlayerSteamId: String?
-    var pickedPlayer: Player?
-    var cellSize = CGSize()
+    private var cellSize = CGSize(width: 20, height: 20)
+
+    private let cellIdentifier = "cell"
     
-    let cellIdentifier = "cell"
-    
-    var profiles = [String: SteamProfile]()
+    var profiles = [String: SteamProfile]() {
+        didSet {
+            if drawerPresented {
+                updateDrawerInfo()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
-        addPlayerDots()
         playerDrawerView.collectionView.delegate = self
         playerDrawerView.collectionView.dataSource = self
         let nib = UINib(nibName: "WeaponCollectionViewCell", bundle: nil)
         playerDrawerView.collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
-        playerDrawerView.closeCallback = {
-            self.showDrawer(false)
-        }
+        playerDrawerView.closeCallback = { [weak self] in self?.pickedPlayer = nil }
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setCenter()
-        updateDotsPosition()
-        cellSize = CGSize(width: 28, height: 28)
+        updatePlayerDots()
     }
     
 }
@@ -59,23 +83,21 @@ class MapViewController: UIViewController {
 /* Drawing players on map */
 extension MapViewController {
     
-    func setCenter() {
+    private func setCenter() {
         let x = playersView.frame.width * 0.5333
         let y = playersView.frame.height * 0.688
         center = CGPoint(x: x, y: y)
     }
     
-    func addPlayerDots() {
+    private func addPlayerDots() {
+        dots.forEach { $0.removeFromSuperview() }
+        dots.removeAll()
         for player in players {
-            if currentMatch?.team(for: player) == .terrorists {
-                addPlayerDot(color: .terroristRed) { [weak self] in self?.showDetails(of: player) }
-            } else {
-                addPlayerDot(color: .counterBlue) { [weak self] in self?.showDetails(of: player) }
-            }
+            addPlayerDot(color: gameState.team(for: player) == .terrorists ? .terroristRed : .counterBlue) { [weak self] in self?.pickedPlayer = player }
         }
     }
     
-    func addPlayerDot(color: UIColor, action: @escaping () -> Void) {
+    private func addPlayerDot(color: UIColor, action: @escaping () -> Void) {
         let frame = CGRect(x: 0, y: 0, width: dotSize, height: dotSize)
         let playerDot = PlayerDotView(frame: frame)
         playerDot.clipsToBounds = true
@@ -85,66 +107,33 @@ extension MapViewController {
         playersView.addSubview(playerDot)
     }
     
-    func locationForPlayer(_ player: Player) -> CGPoint {
+    private func translate(position: CGPoint) -> CGPoint {
         let ratio = mapSize / mapImageView.bounds.height
-        var position = CGPoint(x: player.position.x / ratio, y: -player.position.y / ratio)
-        position.x += center.x
-        position.y += center.y
-        return position
+        return CGPoint(x: position.x / ratio + center.x,
+                       y: -position.y / ratio + center.y)
     }
     
-    func rotatePlayerDot(_ dot: PlayerDotView) {
-        guard let index = dots.index(of: dot) else { return }
-        if players.isEmpty { return }
-        dot.transform = CGAffineTransform(rotationAngle: players[index].rotation)
-    }
-    
-    func updateDotsPosition() {
+    private func updatePlayerDots() {
         guard !dots.isEmpty else { return }
-        for (index, dot) in dots.enumerated() {
-            let player = players[index]
-            UIView.animate(withDuration: 1) {
+        for (index, player) in players.enumerated() {
+            let dot = dots[index]
+            UIView.animate(withDuration: 0.1) {
+                dot.layer.borderWidth = self.pickedPlayer == player ? 2 : 0
                 dot.isHidden = !player.isAlive
-                dot.center = self.locationForPlayer(player)
-                self.rotatePlayerDot(dot)
+                dot.center = self.translate(position: player.position)
+                dot.transform = CGAffineTransform(rotationAngle: player.rotation)
             }
         }
     }
-    
-    func showDetails(of player: Player) {
-        for weapon in player.weapons {
-            print(weapon.name.rawValue)
-        }
-        pickedPlayerSteamId = player.steamid
-        updateDrawerInfo()
-        showDrawer(true)
+
+    private func updateDrawerInfo() {
+        guard let player = pickedPlayer else { return }
+        let team = gameState.team(for: player)
+        let avatarUrl = profiles[player.steamid]?.avatarUrl
+        playerDrawerView.configure(player: player, team: team, avatarUrl: avatarUrl)
     }
     
-    func updateDrawerInfo() {
-        if let player = pickedPlayer {
-            playerDrawerView.nameLabel.text = player.name
-            let team = currentMatch?.team(for: player)
-            let color = team == .counterTerrorists ? UIColor.counterBlue : UIColor.terroristRed
-            playerDrawerView.nameLabel.textColor = color
-            playerDrawerView.imageView.layer.borderColor = color.cgColor
-            let health = player.state.health
-            let newHealthFrame = CGRect(x: playerDrawerView.currentHealth.frame.origin.x, y: playerDrawerView.currentHealth.frame.origin.y, width: (playerDrawerView.healthBar.frame.width-2) * (CGFloat(health) / 100), height: playerDrawerView.healthBar.frame.height-2)
-            playerDrawerView.currentHealth.frame = newHealthFrame
-            
-            let armor = player.state.armor
-            let newArmorFrame = CGRect(x: playerDrawerView.currentArmor.frame.origin.x, y: playerDrawerView.currentArmor.frame.origin.y, width: (playerDrawerView.armorBar.frame.width-2) * (CGFloat(armor) / 100), height: playerDrawerView.armorBar.frame.height-2)
-            playerDrawerView.currentArmor.frame = newArmorFrame
-            playerDrawerView.collectionView.reloadData()
-            
-            if let avatarUrl = profiles[player.steamid]?.avatarUrl {
-                playerDrawerView.imageView.af_setImage(withURL: avatarUrl)
-            } else {
-                playerDrawerView.imageView.image = #imageLiteral(resourceName: "blank_profile")
-            }
-        }
-    }
-    
-    func showDrawer(_ show: Bool) {
+    private func showDrawer(_ show: Bool) {
         if show {
             if !drawerPresented {
                 let moveUp = CGAffineTransform(translationX: 0, y: -96)
@@ -152,6 +141,7 @@ extension MapViewController {
                     self.playerDrawerView.transform = moveUp
                 }, completion: { _ in
                     self.drawerPresented = true
+                    self.updateDrawerInfo()
                 })
             }
         } else {
@@ -186,5 +176,5 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return cellSize
     }
-    
+
 }

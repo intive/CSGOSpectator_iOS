@@ -10,8 +10,15 @@ import UIKit
 import CSGOSpectatorKit
 
 class PageViewController: UIPageViewController {
-    
-    var currentMatch: Game?
+
+    var statsViewController: StatsViewController? {
+        return pages[0] as? StatsViewController
+    }
+
+    var mapViewController: MapViewController? {
+        return pages[1] as? MapViewController
+    }
+
     lazy var pages = {
         return [getViewController(withIdentifier: "statsViewController"), getViewController(withIdentifier: "mapViewController")]
     }()
@@ -48,13 +55,5 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
         guard pages.count > nextIndex else { return nil }
         return pages[nextIndex]
     }
-    
-//    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-//        return pages.count
-//    }
-//    
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
-    
+
 }

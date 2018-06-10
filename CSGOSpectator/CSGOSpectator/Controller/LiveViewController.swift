@@ -17,20 +17,17 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var blurBackground: UIVisualEffectView!
     
     var pageController: PageViewController?
-    var currentMatch: Game?
-    
-    var gameStates = [Game]()
-    var gameIndex = 0
-    
-    var steamIds = [String]()
-    let client = SteamClient(steamId: "76561198070124545")
-    var players = [Player]()
-    var profiles = [String: SteamProfile]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        client.delegate = self
-        blurBackground.alpha = 0
+
+    var gameState: Game! {
+        didSet {
+            if oldValue?.map != gameState.map {
+                backgroundImageView.image = UIImage(named: gameState.map) ?? #imageLiteral(resourceName: "de_dust2")
+            }
+            headerView.updateWithGameData(gameState)
+            players = gameState.players
+            pageController?.mapViewController?.gameState = gameState
+            pageController?.statsViewController?.gameState = gameState
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,68 +35,39 @@ class LiveViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
 
-    func updateResultsView() {
-        headerView.updateWithGameData(currentMatch)
+    var client: SteamClient?
+    var players = [Player]() {
+        didSet {
+            guard oldValue != players else { return }
+            getSteamProfiles(for: players.map({ $0.steamid }))
+        }
     }
-    
-    func updateBackground() {
-        if let match = currentMatch {
-            backgroundImageView.image = UIImage(named: match.map)
-        } else {
-            backgroundImageView.image = nil
+    var profiles = [String: SteamProfile]() {
+        didSet {
+            pageController?.mapViewController?.profiles = profiles
+            pageController?.statsViewController?.profiles = profiles
         }
     }
     
-    func updateChildViews() {
-        
-        if let curr = currentMatch {
-            
-            players = curr.players.sorted(by: { $0.statistics.score > $1.statistics.score })
-            steamIds = players.map { (player) -> String in
-                return player.steamid
-            }
-            
-            guard let page = pageController else { return }
-            page.currentMatch = curr
-            
-            guard let stats = page.pages[0] as? StatsViewController else { return }
-            stats.parentLiveViewController = self
-            stats.currentMatch = curr
-            stats.players = self.players
-            stats.profiles = self.profiles
-            stats.detailsViewController?.collectionView.reloadData()
-            stats.tableView.reloadData()
-            
-            guard let map = page.pages[1] as? MapViewController else { return }
-            map.currentMatch = curr
-            map.players = curr.players
-            map.profiles = self.profiles
-            map.updateDotsPosition()
-            let filtered = curr.players.filter({ $0.steamid == map.pickedPlayerSteamId })
-            if let picked = filtered.first {
-                map.pickedPlayer = picked
-            }
-            map.updateDrawerInfo()
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        blurBackground.alpha = 0
+        pageController?.statsViewController?.parentLiveViewController = self
+        client = SteamClient(steamId: "76561198013533038")
+        client?.delegate = self
     }
     
-    func getSteamProfiles() {
-        if steamIds.isEmpty {
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { (_) in
-                self.getSteamProfiles()
-            })
-        } else {
-            client.requestSteamProfiles(steamIDs: steamIds) { (received, result) in
-                switch result {
-                case .success:
-                    if let profs = received {
-                        for profile in profs {
-                            self.profiles.updateValue(profile, forKey: profile.id)
-                        }
-                    }
-                case .fail:
-                    print("Couldn't get Steam profiles")
+    func getSteamProfiles(for ids: [String]) {
+        client?.requestSteamProfiles(steamIDs: ids) { [weak self] (profiles, result) in
+            switch result {
+            case .success:
+                if let profiles = profiles {
+                    var dict = [String: SteamProfile]()
+                    profiles.forEach { dict[$0.id] = $0 }
+                    self?.profiles = dict
                 }
+            case .fail:
+                print("Couldn't get Steam profiles")
             }
         }
     }
@@ -119,10 +87,7 @@ class LiveViewController: UIViewController {
 extension LiveViewController: SteamClientDelegate {
     
     func didReceiveGameData(_ game: Game) {
-        currentMatch = game
-        self.updateChildViews()
-        self.updateResultsView()
-        self.updateBackground()
-        self.getSteamProfiles()
+        gameState = game
     }
+
 }

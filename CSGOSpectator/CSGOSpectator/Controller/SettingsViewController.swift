@@ -38,14 +38,24 @@ class SettingsViewController: UIViewController {
     
     @IBAction func confirmPressed() {
         guard let text = textField.text else { return }
+        confirmButton.isEnabled = false
         client.requestEmail(address: text) { [weak self] (result) in
             switch result {
             case .success:
-                self?.textField.text?.removeAll()
+                let alert = UIAlertController(title: "Success", message: "Email has been sent successfully", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    self?.textField.text = nil
+                    self?.confirmButton.isEnabled = false
+                }
+                alert.addAction(okAction)
+                self?.present(alert, animated: true)
             case .fail:
-                let alert = UIAlertController(title: "Error", message: "There was an error", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-                self?.present(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: "Error", message: "Try again", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                    self?.confirmButton.isEnabled = true
+                }
+                alert.addAction(okAction)
+                self?.present(alert, animated: true)
             }
         }
     }

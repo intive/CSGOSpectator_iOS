@@ -9,16 +9,31 @@
 import UIKit
 import CSGOSpectatorKit
 
-class StatsViewController: UIViewController {
+final class StatsViewController: UIViewController {
     
     @IBOutlet weak var tableView: FadedTableView!
-        
-    var currentMatch: Game?
-    var parentLiveViewController: LiveViewController?
+
+    weak var parentLiveViewController: LiveViewController?
     weak var detailsViewController: PlayerDetailsViewController?
-    
-    var players = [Player]()
-    var profiles = [String: SteamProfile]()
+
+    var gameState: Game! {
+        didSet {
+            players = gameState.players.sorted(by: { $0.statistics.score > $1.statistics.score })
+            detailsViewController?.gameState = gameState
+        }
+    }
+    private var players = [Player]() {
+        didSet {
+            if oldValue != players {
+                tableView.reloadData()
+            }
+        }
+    }
+    var profiles = [String: SteamProfile]() {
+        didSet {
+            detailsViewController?.profiles = profiles
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +55,14 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let match = currentMatch else { return 0 }
-        return match.players.count
+        return players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerCell else { return UITableViewCell() }
-        if let curr = currentMatch {
+        if let gameState = gameState {
             let player = players[indexPath.row]
-            cell.setup(player: player, team: curr.team(for: player))
+            cell.setup(player: player, team: gameState.team(for: player))
         }
         return cell
     }
@@ -61,12 +75,12 @@ extension StatsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let playerDetailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "details") as? PlayerDetailsViewController else { return }
         detailsViewController = playerDetailsViewController
         playerDetailsViewController.dismissDelegate = self
+        playerDetailsViewController.gameState = gameState
         playerDetailsViewController.players = players
-        playerDetailsViewController.currentMatch = currentMatch
+        playerDetailsViewController.profiles = profiles
         playerDetailsViewController.modalTransitionStyle = .coverVertical
         playerDetailsViewController.modalPresentationStyle = .overFullScreen
         playerDetailsViewController.pickedPlayerIndex = indexPath.row
-        playerDetailsViewController.profiles = self.profiles
         present(playerDetailsViewController, animated: true, completion: nil)
     }
     

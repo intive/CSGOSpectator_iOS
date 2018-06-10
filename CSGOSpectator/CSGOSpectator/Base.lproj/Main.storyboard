@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fuF-KY-u4C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fuF-KY-u4C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +22,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U35-iX-WYV" userLabel="BackgroundView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kw5-L9-vRa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="de_dust2" translatesAutoresizingMaskIntoConstraints="NO" id="kw5-L9-vRa">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qze-Cx-zT4">
@@ -100,7 +100,7 @@
             </objects>
             <point key="canvasLocation" x="180" y="356.67166416791605"/>
         </scene>
-        <!--Settings-->
+        <!--Configuration-->
         <scene sceneID="Zlj-Uu-FZJ">
             <objects>
                 <viewController id="SNi-DP-dtG" customClass="SettingsViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dh9-Ie-vR1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="26c-kK-2tD"/>
+                    <tabBarItem key="tabBarItem" title="Configuration" id="26c-kK-2tD" userLabel="Configuration"/>
                     <connections>
                         <outlet property="confirmButton" destination="ZeT-QZ-RUc" id="5jO-0e-Wrc"/>
                         <outlet property="emailLabel" destination="0Ya-Zx-GxM" id="rfr-eo-AeV"/>
@@ -590,8 +590,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Phj-e1-YaP"/>
-                        <segue destination="SNi-DP-dtG" kind="relationship" relationship="viewControllers" id="IvJ-Nk-DvR"/>
                         <segue destination="fo3-8Q-AiQ" kind="relationship" relationship="viewControllers" id="mbh-LN-ida"/>
+                        <segue destination="SNi-DP-dtG" kind="relationship" relationship="viewControllers" id="IvJ-Nk-DvR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-08-vvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -762,7 +762,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-Ff-kRN">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ecl-Ff-kRN">
                                 <rect key="frame" x="0.0" y="98" width="375" height="461"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="i4N-nY-I2E">
@@ -818,6 +818,7 @@
     </scenes>
     <resources>
         <image name="close_button" width="512" height="512"/>
+        <image name="de_dust2" width="832" height="1068"/>
         <image name="placeholder_map" width="800" height="800"/>
     </resources>
 </document>
