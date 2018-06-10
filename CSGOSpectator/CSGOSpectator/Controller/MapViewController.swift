@@ -20,8 +20,8 @@ class MapViewController: UIViewController {
     
     var currentMatch: Game?
     var players = [Player]()
-    var dots = [UIButton]()
-    let dotSize: CGFloat = 14       //Size of the player's dot
+    var dots = [PlayerDotView]()
+    let dotSize: CGFloat = 16       //Size of the player's dot
     let mapSize: CGFloat = 4450     //Size of the in-game map
     
     var center = CGPoint()
@@ -37,7 +37,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
-        print("Center: \(center)")
         addPlayerDots()
         playerDrawerView.collectionView.delegate = self
         playerDrawerView.collectionView.dataSource = self
@@ -67,24 +66,21 @@ extension MapViewController {
     }
     
     func addPlayerDots() {
-        for i in 0 ..< players.count {
-            if currentMatch?.team(for: players[i]) == .terrorists {
-                addPlayerDot(tag: i, color: UIColor.terroristRed)
+        for player in players {
+            if currentMatch?.team(for: player) == .terrorists {
+                addPlayerDot(color: .terroristRed) { [weak self] in self?.showDetails(of: player) }
             } else {
-                addPlayerDot(tag: i, color: UIColor.counterBlue)
+                addPlayerDot(color: .counterBlue) { [weak self] in self?.showDetails(of: player) }
             }
         }
     }
     
-    func addPlayerDot(tag: Int, color: UIColor?) {
+    func addPlayerDot(color: UIColor, action: @escaping () -> Void) {
         let frame = CGRect(x: 0, y: 0, width: dotSize, height: dotSize)
-        let playerDot = UIButton(type: .system)
-        playerDot.frame = frame
-        playerDot.layer.cornerRadius = frame.width / 2
-        playerDot.backgroundColor = color
+        let playerDot = PlayerDotView(frame: frame)
         playerDot.clipsToBounds = true
-        playerDot.tag = tag
-        playerDot.addTarget(self, action: #selector(playerPressed(_:)), for: .touchUpInside)
+        playerDot.button.tintColor = color
+        playerDot.action = action
         dots.append(playerDot)
         playersView.addSubview(playerDot)
     }
@@ -97,19 +93,25 @@ extension MapViewController {
         return position
     }
     
+    func rotatePlayerDot(_ dot: PlayerDotView) {
+        guard let index = dots.index(of: dot) else { return }
+        if players.isEmpty { return }
+        dot.transform = CGAffineTransform(rotationAngle: players[index].rotation)
+    }
+    
     func updateDotsPosition() {
         guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
-            UIView.animate(withDuration: 0.1) {
-                dot.center = self.locationForPlayer(self.players[index])
+            let player = players[index]
+            UIView.animate(withDuration: 1) {
+                dot.isHidden = !player.isAlive
+                dot.center = self.locationForPlayer(player)
+                self.rotatePlayerDot(dot)
             }
         }
     }
     
-    @objc func playerPressed(_ sender: UIButton) {
-        guard let index = dots.index(of: sender) else { return }
-        print("You pressed on \(players[index].name)")
-        let player = players[index]
+    func showDetails(of player: Player) {
         for weapon in player.weapons {
             print(weapon.name.rawValue)
         }

@@ -109,14 +109,13 @@ extension SteamClient: WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("WebSocket disconnected")
+        socket.connect()
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        print("WebSocket received message: \(text)")
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        print("Websocket received data")
         if let game = decodeData(data) {
             DispatchQueue.main.async {
                 self.delegate?.didReceiveGameData(game)

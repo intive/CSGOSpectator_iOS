@@ -18,6 +18,8 @@
 		38294238205AD82100295B84 /* DetailScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38294237205AD82100295B84 /* DetailScoreView.swift */; };
 		383378B920A73DDF009BE1D5 /* PlayerDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383378B820A73DDF009BE1D5 /* PlayerDrawerView.swift */; };
 		3839872D20AB2C9A0055AEC0 /* PlayerDrawerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3839872C20AB2C9A0055AEC0 /* PlayerDrawerView.xib */; };
+		383DA129209C8F5D009ECBD7 /* PlayerDotView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383DA127209C8F5D009ECBD7 /* PlayerDotView.xib */; };
+		383DA12A209C8F5D009ECBD7 /* PlayerDotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383DA128209C8F5D009ECBD7 /* PlayerDotView.swift */; };
 		384223F4207281D9007AD141 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384223F3207281D9007AD141 /* UIColor.swift */; };
 		387883AA20679AC300DBB83C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883A920679AC300DBB83C /* MapViewController.swift */; };
 		387883AC20679DE300DBB83C /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387883AB20679DE300DBB83C /* PageViewController.swift */; };
@@ -54,6 +56,7 @@
 		CEE63D1B204AD2F1004ADBC4 /* CSGOSpectatorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE63D0B204AD2F1004ADBC4 /* CSGOSpectatorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE63D1E204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; };
 		CEE63D1F204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E77C51A520CD02C500D90889 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77C51A420CD02C500D90889 /* Player.swift */; };
 		FF94AE27C2EE79A8A6471D31 /* Pods_CSGOSpectatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +124,8 @@
 		38294237205AD82100295B84 /* DetailScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScoreView.swift; sourceTree = "<group>"; };
 		383378B820A73DDF009BE1D5 /* PlayerDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDrawerView.swift; sourceTree = "<group>"; };
 		3839872C20AB2C9A0055AEC0 /* PlayerDrawerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerDrawerView.xib; sourceTree = "<group>"; };
+		383DA127209C8F5D009ECBD7 /* PlayerDotView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerDotView.xib; sourceTree = "<group>"; };
+		383DA128209C8F5D009ECBD7 /* PlayerDotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDotView.swift; sourceTree = "<group>"; };
 		384223F3207281D9007AD141 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		387883A920679AC300DBB83C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		387883AB20679DE300DBB83C /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +178,7 @@
 		CEE63D1A204AD2F1004ADBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A8BA80F12EAA7788A62BD1 /* Pods-CSGOSpectatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E241CB7DA4C19E985B16BF21 /* Pods-CSGOSpectatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E77C51A420CD02C500D90889 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F16736938998EDDA7391ADDF /* Pods-CSGOSpectator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C9289B123620B51961248F /* Pods-CSGOSpectator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectator.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -255,6 +261,15 @@
 			path = WeaponCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		383DA126209C8F50009ECBD7 /* PlayerDotView */ = {
+			isa = PBXGroup;
+			children = (
+				383DA128209C8F5D009ECBD7 /* PlayerDotView.swift */,
+				383DA127209C8F5D009ECBD7 /* PlayerDotView.xib */,
+			);
+			path = PlayerDotView;
+			sourceTree = "<group>";
+		};
 		38997AE3205AB52B0075B508 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				3813321420B01C1B008450F6 /* PlayerDrawerView */,
+				383DA126209C8F50009ECBD7 /* PlayerDotView */,
 				38997AF1205ABC2B0075B508 /* ResultsHeaderView */,
 				38C618B52092523E00103CF1 /* PlayerDetailsCollectionViewCell */,
 				3813323D20B032D5008450F6 /* WeaponCollectionViewCell */,
@@ -311,6 +327,7 @@
 				38294233205AC72300295B84 /* Int.swift */,
 				384223F3207281D9007AD141 /* UIColor.swift */,
 				38B0A83120B0A6C200B597F4 /* String.swift */,
+				E77C51A420CD02C500D90889 /* Player.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -607,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38B1C4EE205BEC890061EDC9 /* .swiftlint.yml in Resources */,
+				383DA129209C8F5D009ECBD7 /* PlayerDotView.xib in Resources */,
 				38130792206A98DD00BC2BE3 /* model.json in Resources */,
 				CEE63CE1204ACE4F004ADBC4 /* LaunchScreen.storyboard in Resources */,
 				3813323C20B02CC0008450F6 /* WeaponCollectionViewCell.xib in Resources */,
@@ -911,7 +929,9 @@
 			files = (
 				38294238205AD82100295B84 /* DetailScoreView.swift in Sources */,
 				3F8F479C206C3D3200467587 /* HistoryViewController.swift in Sources */,
+				383DA12A209C8F5D009ECBD7 /* PlayerDotView.swift in Sources */,
 				38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */,
+				E77C51A520CD02C500D90889 /* Player.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				384223F4207281D9007AD141 /* UIColor.swift in Sources */,
 				389AAEDA20BAC9BB00ADAA5E /* SteamClient.swift in Sources */,
@@ -1133,7 +1153,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5346R7RC8E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1153,7 +1173,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5346R7RC8E;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CSGOSpectator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
