@@ -56,6 +56,7 @@
 		CEE63D1B204AD2F1004ADBC4 /* CSGOSpectatorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE63D0B204AD2F1004ADBC4 /* CSGOSpectatorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEE63D1E204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; };
 		CEE63D1F204AD2F1004ADBC4 /* CSGOSpectatorKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEE63D09204AD2F1004ADBC4 /* CSGOSpectatorKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E77C51A520CD02C500D90889 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77C51A420CD02C500D90889 /* Player.swift */; };
 		FF94AE27C2EE79A8A6471D31 /* Pods_CSGOSpectatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E449C1A93E7553E65C5862 /* Pods_CSGOSpectatorUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		CEE63D1A204AD2F1004ADBC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A8BA80F12EAA7788A62BD1 /* Pods-CSGOSpectatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E241CB7DA4C19E985B16BF21 /* Pods-CSGOSpectatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectatorUITests/Pods-CSGOSpectatorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E77C51A420CD02C500D90889 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F16736938998EDDA7391ADDF /* Pods-CSGOSpectator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator.debug.xcconfig"; sourceTree = "<group>"; };
 		F8C9289B123620B51961248F /* Pods-CSGOSpectator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CSGOSpectator.release.xcconfig"; path = "Pods/Target Support Files/Pods-CSGOSpectator/Pods-CSGOSpectator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +327,7 @@
 				38294233205AC72300295B84 /* Int.swift */,
 				384223F3207281D9007AD141 /* UIColor.swift */,
 				38B0A83120B0A6C200B597F4 /* String.swift */,
+				E77C51A420CD02C500D90889 /* Player.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				3F8F479C206C3D3200467587 /* HistoryViewController.swift in Sources */,
 				383DA12A209C8F5D009ECBD7 /* PlayerDotView.swift in Sources */,
 				38A5CEC32068377500442BBD /* FadedTableView.swift in Sources */,
+				E77C51A520CD02C500D90889 /* Player.swift in Sources */,
 				38997AEF205AB8680075B508 /* PlayerCell.swift in Sources */,
 				384223F4207281D9007AD141 /* UIColor.swift in Sources */,
 				389AAEDA20BAC9BB00ADAA5E /* SteamClient.swift in Sources */,

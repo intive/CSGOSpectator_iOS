@@ -12,7 +12,9 @@ class PlayerDotView: UIView, ReusableViewProtocol {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var button: UIButton!
-    
+
+    var action: (() -> Void)?
+
     private func commonInit() {
         Bundle.main.loadNibNamed("PlayerDotView", owner: self, options: nil)
         addSubview(contentView)
@@ -28,6 +30,10 @@ class PlayerDotView: UIView, ReusableViewProtocol {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+
+    @IBAction func buttonTapped() {
+        action?()
     }
 
 }

@@ -23,7 +23,7 @@ public struct Player: Decodable {
     public let steamid: String
     public let name: String
     public let position: CGPoint
-    public let rotation: CGFloat
+    public let forward: CGVector
     public let statistics: Statistics
     public let weapons: [Weapon]
     public let state: State
@@ -35,18 +35,12 @@ public struct Player: Decodable {
         steamid = try values.decode(String.self, forKey: .steamid)
         name = try values.decode(String.self, forKey: .name)
         statistics = try values.decode(Player.Statistics.self, forKey: .statistics)
-        let pos = try values.decode(String.self, forKey: .position)
-        let xyz = pos.components(separatedBy: ", ")
-        if let xy = [Double(xyz[0]), Double(xyz[1])] as? [Double] {
-            position = CGPoint(x: xy[0], y: xy[1])
-        } else {
-            position = CGPoint(x: 0, y: 0)
-        }
+        let position = try values.decode(String.self, forKey: .position).components(separatedBy: ", ").compactMap { Double($0) }
+        self.position = CGPoint(x: position[0], y: position[1])
         weapons = try values.decode([Weapon].self, forKey: .weapons)
         state = try values.decode(Player.State.self, forKey: .state)
-        let rot = try values.decode(String.self, forKey: .forward)
-        let angleX = Float(rot.components(separatedBy: ", ").first ?? "0") ?? 0.0
-        rotation = CGFloat(angleX)
+        let forward = try values.decode(String.self, forKey: .forward).components(separatedBy: ", ").compactMap { Double($0) }
+        self.forward = CGVector(dx: forward[0], dy: forward[1])
     }
     
     public enum CodingKeys: String, CodingKey {

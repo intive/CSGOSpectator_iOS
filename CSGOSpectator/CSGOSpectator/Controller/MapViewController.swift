@@ -37,7 +37,6 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapImageView.image = #imageLiteral(resourceName: "de_dust2_map")
-        print("Center: \(center)")
         addPlayerDots()
         playerDrawerView.collectionView.delegate = self
         playerDrawerView.collectionView.dataSource = self
@@ -67,22 +66,21 @@ extension MapViewController {
     }
     
     func addPlayerDots() {
-        for (index, player) in players.enumerated() {
+        for player in players {
             if currentMatch?.team(for: player) == .terrorists {
-                addPlayerDot(tag: index, color: UIColor.terroristRed)
+                addPlayerDot(color: .terroristRed) { [weak self] in self?.showDetails(of: player) }
             } else {
-                addPlayerDot(tag: index, color: UIColor.counterBlue)
+                addPlayerDot(color: .counterBlue) { [weak self] in self?.showDetails(of: player) }
             }
         }
     }
     
-    func addPlayerDot(tag: Int, color: UIColor?) {
+    func addPlayerDot(color: UIColor, action: @escaping () -> Void) {
         let frame = CGRect(x: 0, y: 0, width: dotSize, height: dotSize)
         let playerDot = PlayerDotView(frame: frame)
         playerDot.clipsToBounds = true
         playerDot.button.tintColor = color
-        playerDot.button.tag = tag
-        playerDot.button.addTarget(self, action: #selector(playerPressed(_:)), for: .touchUpInside)
+        playerDot.action = action
         dots.append(playerDot)
         playersView.addSubview(playerDot)
     }
@@ -98,25 +96,22 @@ extension MapViewController {
     func rotatePlayerDot(_ dot: PlayerDotView) {
         guard let index = dots.index(of: dot) else { return }
         if players.isEmpty { return }
-        var playerRotation = players[index].rotation
-        if currentMatch?.team(for: players[index]) == .counterTerrorists { playerRotation *= -1 }
-        dot.transform = CGAffineTransform(rotationAngle: playerRotation)
+        dot.transform = CGAffineTransform(rotationAngle: players[index].rotation)
     }
     
     func updateDotsPosition() {
         guard !dots.isEmpty else { return }
         for (index, dot) in dots.enumerated() {
-            UIView.animate(withDuration: 0.1) {
-                dot.center = self.locationForPlayer(self.players[index])
+            let player = players[index]
+            UIView.animate(withDuration: 1) {
+                dot.isHidden = !player.isAlive
+                dot.center = self.locationForPlayer(player)
                 self.rotatePlayerDot(dot)
             }
         }
     }
     
-    @objc func playerPressed(_ sender: UIButton) {
-        guard let index = dots.index(of: sender) else { return }
-        print("You pressed on \(players[index].name)")
-        let player = players[index]
+    func showDetails(of player: Player) {
         for weapon in player.weapons {
             print(weapon.name.rawValue)
         }
