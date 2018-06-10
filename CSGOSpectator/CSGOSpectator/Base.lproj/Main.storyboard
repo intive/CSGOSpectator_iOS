@@ -558,21 +558,24 @@
             </objects>
             <point key="canvasLocation" x="1592.8" y="882.90854572713647"/>
         </scene>
-        <!--HistoryViewController-->
-        <scene sceneID="lso-GM-5qa">
+        <!--History-->
+        <scene sceneID="nSF-cm-pO2">
             <objects>
-                <viewController title="HistoryViewController" id="hf8-Pv-hJx" customClass="HistoryViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ihJ-xD-76A">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="fo3-8Q-AiQ" customClass="HistoryViewController" customModule="CSGOSpectator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ez4-1x-k4n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="jTR-iq-q3h"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="History" id="DWl-kM-o4T"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6YJ-4o-bnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fo3-8Q-AiQ" id="myJ-VC-oqP"/>
+                            <outlet property="delegate" destination="fo3-8Q-AiQ" id="HAo-VW-BI9"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="History" id="3xN-bg-hjF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSW-gc-joe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="-379"/>
+            <point key="canvasLocation" x="-663" y="-378"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2KR-oq-C7s">
@@ -588,7 +591,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Phj-e1-YaP"/>
                         <segue destination="SNi-DP-dtG" kind="relationship" relationship="viewControllers" id="IvJ-Nk-DvR"/>
-                        <segue destination="hf8-Pv-hJx" kind="relationship" relationship="viewControllers" id="ybm-xE-dnW"/>
+                        <segue destination="fo3-8Q-AiQ" kind="relationship" relationship="viewControllers" id="mbh-LN-ida"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHf-08-vvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
