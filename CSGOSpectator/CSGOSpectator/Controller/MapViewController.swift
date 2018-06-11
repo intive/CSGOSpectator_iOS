@@ -28,6 +28,9 @@ final class MapViewController: UIViewController {
         didSet {
             if oldValue != players {
                 addPlayerDots()
+                if players.count < oldValue.count {
+                    pickedPlayerIndex = nil
+                }
             }
             updatePlayerDots()
             if drawerPresented {
@@ -35,9 +38,9 @@ final class MapViewController: UIViewController {
             }
         }
     }
-    private var pickedPlayer: Player? {
+    private var pickedPlayerIndex: Int? {
         didSet {
-            showDrawer(pickedPlayer != nil)
+            showDrawer(pickedPlayerIndex != nil)
             if drawerPresented {
                 updateDrawerInfo()
             }
@@ -69,7 +72,7 @@ final class MapViewController: UIViewController {
         playerDrawerView.collectionView.dataSource = self
         let nib = UINib(nibName: "WeaponCollectionViewCell", bundle: nil)
         playerDrawerView.collectionView.register(nib, forCellWithReuseIdentifier: cellIdentifier)
-        playerDrawerView.closeCallback = { [weak self] in self?.pickedPlayer = nil }
+        playerDrawerView.closeCallback = { [weak self] in self?.pickedPlayerIndex = nil }
     }
     
     override func viewDidLayoutSubviews() {
@@ -92,8 +95,8 @@ extension MapViewController {
     private func addPlayerDots() {
         dots.forEach { $0.removeFromSuperview() }
         dots.removeAll()
-        for player in players {
-            addPlayerDot(color: gameState.team(for: player) == .terrorists ? .terroristRed : .counterBlue) { [weak self] in self?.pickedPlayer = player }
+        for (index, player) in players.enumerated() {
+            addPlayerDot(color: gameState.team(for: player) == .terrorists ? .terroristRed : .counterBlue) { [weak self] in self?.pickedPlayerIndex = index }
         }
     }
     
@@ -118,7 +121,7 @@ extension MapViewController {
         for (index, player) in players.enumerated() {
             let dot = dots[index]
             UIView.animate(withDuration: 0.1) {
-                dot.layer.borderWidth = self.pickedPlayer == player ? 2 : 0
+                dot.layer.borderWidth = self.pickedPlayerIndex == index ? 2 : 0
                 dot.isHidden = !player.isAlive
                 dot.center = self.translate(position: player.position)
                 dot.transform = CGAffineTransform(rotationAngle: player.rotation)
@@ -127,7 +130,8 @@ extension MapViewController {
     }
 
     private func updateDrawerInfo() {
-        guard let player = pickedPlayer else { return }
+        guard let index = pickedPlayerIndex else { return }
+        let player = players[index]
         let team = gameState.team(for: player)
         let avatarUrl = profiles[player.steamid]?.avatarUrl
         playerDrawerView.configure(player: player, team: team, avatarUrl: avatarUrl)
@@ -163,12 +167,13 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pickedPlayer?.weapons.count ?? 0
+        return pickedPlayerIndex.map { players[$0].weapons.count } ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? WeaponCollectionViewCell, let weapons = pickedPlayer?.weapons else { return UICollectionViewCell() }
-        let weapon = weapons[indexPath.row]
+        guard   let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? WeaponCollectionViewCell,
+                let index = pickedPlayerIndex else { return UICollectionViewCell() }
+        let weapon = players[index].weapons[indexPath.row]
         cell.setup(weapon: weapon)
         return cell
     }
