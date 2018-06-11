@@ -14,7 +14,7 @@ class WeaponCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func setup(weapon: Weapon) {
-        imageView.image = UIImage(named: weapon.name.rawValue) ?? nil
+        imageView.image = UIImage(named: weapon.name.rawValue)
         if weapon.state == .active {
             imageView.tintColor = .white
         } else {
