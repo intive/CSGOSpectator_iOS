@@ -14,7 +14,7 @@ protocol ReusableViewProtocol {     //Remember to call super initializer for tho
     init?(coder aDecoder: NSCoder)
 }
 
-class ResultsHeaderView: UIView, ReusableViewProtocol {
+final class ResultsHeaderView: UIView, ReusableViewProtocol {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var roundLabel: UILabel!
@@ -38,16 +38,11 @@ class ResultsHeaderView: UIView, ReusableViewProtocol {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-    func updateWithGameData(_ match: Game?) {
-        if let match = match {
-            roundLabel.text = "Round \(match.round)"
-            scoreLabel.text = "\(match.teamCT.score) - \(match.teamT.score)"
-            remainingTimeLabel.text = String(format: "%02i:%02i", arguments: [match.phaseEndsIn.secondsToMinutesSeconds().minutes, match.phaseEndsIn.secondsToMinutesSeconds().seconds])
-        } else {
-            roundLabel.text = ""
-            scoreLabel.text = "Couldn't load now playing game"
-            remainingTimeLabel.text = ""
-        }
+    func updateWithGameData(_ gameState: Game) {
+        roundLabel.text = "Round \(gameState.round)"
+        scoreLabel.text = "\(gameState.teamCT.score) - \(gameState.teamT.score)"
+        let counter = gameState.phaseEndsIn.secondsToMinutesSeconds()
+        remainingTimeLabel.text = String(format: "%02d:%02d", counter.minutes, counter.seconds)
     }
 
 }

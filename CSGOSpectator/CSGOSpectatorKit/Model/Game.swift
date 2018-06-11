@@ -23,8 +23,8 @@ public struct Game: Decodable {
         map = try values.decode(String.self, forKey: .map)
         round = try values.decode(Int.self, forKey: .round)
         phase = try values.decode(String.self, forKey: .phase)
-        let phaseEnds = try values.decode(String.self, forKey: .phaseEndsIn).prefix(1)
-        phaseEndsIn = Int(phaseEnds) ?? 0
+        let counter = try values.decode(String.self, forKey: .phaseEndsIn)
+        phaseEndsIn = Float(counter).map { Int($0) } ?? 0
         teamCT = try values.decode(Team.self, forKey: .teamCT)
         teamT = try values.decode(Team.self, forKey: .teamT)
     }

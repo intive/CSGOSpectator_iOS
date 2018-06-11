@@ -19,24 +19,23 @@ class HistoryViewController: UITableViewController {
         let date: String
     }
     
-    var games: [HistoryGame]!
+    let games = [
+        HistoryGame(map: "de_dust2", time: "24:52", ct_Score: 4, t_Score: 16, date: "08/06/2018"),
+        HistoryGame(map: "de_inferno", time: "54:12", ct_Score: 16, t_Score: 13, date: "02/06/2018"),
+        HistoryGame(map: "de_dust2", time: "32:58", ct_Score: 6, t_Score: 16, date: "28/05/2018"),
+        HistoryGame(map: "de_mirage", time: "45:45", ct_Score: 2, t_Score: 16, date: "26/05/2018"),
+        HistoryGame(map: "de_train", time: "63:23", ct_Score: 16, t_Score: 14, date: "22/05/2018"),
+        HistoryGame(map: "de_inferno", time: "42:55", ct_Score: 13, t_Score: 16, date: "22/05/2018"),
+        HistoryGame(map: "de_mirage", time: "56:23", ct_Score: 5, t_Score: 16, date: "20/05/2018"),
+        HistoryGame(map: "de_train", time: "27:42", ct_Score: 16, t_Score: 2, date: "19/05/2018"),
+        HistoryGame(map: "de_dust2", time: "62:54", ct_Score: 16, t_Score: 12, date: "18/05/2018")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "HistoryTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "cell")
         tableView.contentInset = UIEdgeInsets(top: 32, left: 0, bottom: 59, right: 0)
-        games = [
-            HistoryGame(map: "de_dust2", time: "24:52", ct_Score: 4, t_Score: 16, date: "08/06/2018"),
-            HistoryGame(map: "de_inferno", time: "54:12", ct_Score: 16, t_Score: 13, date: "02/06/2018"),
-            HistoryGame(map: "de_dust2", time: "32:58", ct_Score: 6, t_Score: 16, date: "28/05/2018"),
-            HistoryGame(map: "de_mirage", time: "45:45", ct_Score: 2, t_Score: 16, date: "26/05/2018"),
-            HistoryGame(map: "de_train", time: "63:23", ct_Score: 16, t_Score: 14, date: "22/05/2018"),
-            HistoryGame(map: "de_inferno", time: "42:55", ct_Score: 13, t_Score: 16, date: "22/05/2018"),
-            HistoryGame(map: "de_mirage", time: "56:23", ct_Score: 5, t_Score: 16, date: "20/05/2018"),
-            HistoryGame(map: "de_train", time: "27:42", ct_Score: 16, t_Score: 2, date: "19/05/2018"),
-            HistoryGame(map: "de_dust2", time: "62:54", ct_Score: 16, t_Score: 12, date: "18/05/2018")
-        ]
     }
     
     override func viewWillAppear(_ animated: Bool) {
